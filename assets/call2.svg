@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62">
+  <g id="Group_19527" data-name="Group 19527" transform="translate(-156 -261)">
+    <circle id="Ellipse_3431" data-name="Ellipse 3431" cx="31" cy="31" r="31" transform="translate(156 261)" fill="#ff9a03"/>
+    <path id="Icon_ionic-md-call" data-name="Icon ionic-md-call" d="M30,23.25a17.605,17.605,0,0,1-5.325-.825,1.4,1.4,0,0,0-1.5.375l-3.3,3.3a22.557,22.557,0,0,1-9.9-9.9l3.3-3.3a1.563,1.563,0,0,0,.375-1.5,16.313,16.313,0,0,1-.9-5.4,1.5,1.5,0,0,0-1.5-1.5H6A1.5,1.5,0,0,0,4.5,6,25.479,25.479,0,0,0,30,31.5,1.5,1.5,0,0,0,31.5,30V24.75A1.5,1.5,0,0,0,30,23.25Z" transform="translate(168.7 274)" fill="#fff"/>
+  </g>
+</svg>

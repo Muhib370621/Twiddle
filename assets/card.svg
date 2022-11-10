@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="327" height="200" viewBox="0 0 327 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.047" x2="0" y2="0.873" gradientUnits="objectBoundingBox">
+      <stop offset="0.134" stop-color="#4a5055"/>
+      <stop offset="1" stop-color="#111318"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <path id="Rectangle_Copy_2" data-name="Rectangle Copy 2" d="M305.541,0A21.233,21.233,0,0,1,327,21V179a21.233,21.233,0,0,1-21.459,21H21.459A21.233,21.233,0,0,1,0,179V21A21.233,21.233,0,0,1,21.459,0Z" transform="translate(25 144)" fill="url(#linear-gradient)"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-3" x1="1.027" y1="0.295" x2="0.234" y2="0.948" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#eee"/>
+      <stop offset="1" stop-color="#d8d8d8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_19499" data-name="Group 19499" transform="translate(2926 -5028)">
+    <g id="Group_19255" data-name="Group 19255" transform="translate(-2951 4884)">
+      <path id="Rectangle_Copy_2-2" data-name="Rectangle Copy 2" d="M305.541,0A21.233,21.233,0,0,1,327,21V179a21.233,21.233,0,0,1-21.459,21H21.459A21.233,21.233,0,0,1,0,179V21A21.233,21.233,0,0,1,21.459,0Z" transform="translate(25 144)" fill="url(#linear-gradient)"/>
+      <g id="Mask_Group_250" data-name="Mask Group 250" clip-path="url(#clip-path)">
+        <path id="Path_2_Copy_6" data-name="Path 2 Copy 6" d="M119.218-214.453Q192.866-268.265,337-258.5V0H0Q45.57-160.641,119.218-214.453Z" transform="translate(345 84) rotate(180)" opacity="0.7" fill="url(#linear-gradient-3)" style="mix-blend-mode: soft-light;isolation: isolate"/>
+        <path id="Path_2_Copy_8" data-name="Path 2 Copy 8" d="M118.887-176.2q73.443-44.214,217.177-36.191V0H0Q45.444-131.989,118.887-176.2Z" transform="translate(263.562 47.155) rotate(159.81)" opacity="0.6" fill="url(#linear-gradient-3)" style="mix-blend-mode: soft-light;isolation: isolate"/>
+      </g>
+    </g>
+    <text id="Ghc_50_532.00" data-name="Ghc 50,532.00" transform="matrix(1, 0, 0, 1, -2896, 5193.583)" fill="#fff" font-size="18" font-family="Poppins-Light, Poppins" font-weight="300" letter-spacing="0.012em"><tspan x="0" y="0">Ghc 50,532.00</tspan></text>
+    <text id="Twiddle_Balance" data-name="Twiddle Balance" transform="matrix(1, 0, 0, 1, -2896, 5168.583)" fill="#fff" font-size="12" font-family="Poppins-Light, Poppins" font-weight="300" letter-spacing="0.012em"><tspan x="0" y="0">Twiddle Balance</tspan></text>
+    <g id="Group_19256" data-name="Group 19256" transform="translate(-2859 4539)">
+      <text id="_" data-name="••••" transform="matrix(1, 0, 0, 1, 156, 540)" fill="#fff" font-size="20" font-family="Poppins-Regular, Poppins" letter-spacing="0.012em"><tspan x="0" y="0">••••</tspan></text>
+      <text id="_2296" data-name="2296" transform="matrix(1, 0, 0, 1, 195, 538)" fill="#fff" font-size="14" font-family="Poppins-Medium, Poppins" font-weight="500" letter-spacing="0.012em"><tspan x="0" y="0">2296</tspan></text>
+    </g>
+    <text id="_04_26" data-name="04/26" transform="matrix(1, 0, 0, 1, -2629, 5191)" fill="#fff" font-size="14" font-family="Poppins-Medium, Poppins" font-weight="500" letter-spacing="0.012em"><tspan x="-42" y="0">04/26</tspan></text>
+    <g id="mastercard_logo" data-name="mastercard logo" transform="translate(-2896 5059)">
+      <path id="Path_71" data-name="Path 71" d="M1.1.5V0H.964L.812.346.661,0H.529V.5H.622V.124L.764.453h.1L1,.124V.5H1.1ZM.262.5V.086H.43V0H0V.086H.168V.5H.261Z" transform="translate(40.563 20.551)" fill="#f79410"/>
+      <path id="Path_72" data-name="Path 72" d="M11.374,20.441H0V0H11.374Z" transform="translate(15.346 2.779)" fill="#ff5f00"/>
+      <path id="Path_73" data-name="Path 73" d="M16.067,13A12.978,12.978,0,0,1,21.031,2.78a13,13,0,1,0,0,20.441A12.978,12.978,0,0,1,16.067,13" transform="translate(0 0)" fill="#eb001b"/>
+      <path id="Path_74" data-name="Path 74" d="M21.033,13A13,13,0,0,1,0,23.22,12.976,12.976,0,0,0,4.966,13,12.976,12.976,0,0,0,0,2.78,13,13,0,0,1,21.033,13" transform="translate(21.032 0)" fill="#f79e1b"/>
+    </g>
+  </g>
+</svg>

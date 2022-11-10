@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="178" viewBox="0 0 120 178">
+  <g id="Group_19530" data-name="Group 19530" transform="translate(-127.5 -338)">
+    <g id="Group_1" data-name="Group 1" transform="translate(-212.929 166)">
+      <path id="Path_1" data-name="Path 1" d="M423.523,216.656a28.379,28.379,0,1,0-46.485,0c-37.914,14-45.247,53.1-27.222,77.6A48.154,48.154,0,0,0,361.789,305.7c7.795,5.238,20.312,2.964,19.689-10.072v-6.784c0-6.444-2.835-8.871-7.123-8.871h-.871c-2.963,0-4.348-4.1-2.125-6.286l23.216-19.773c3.473-3.415,8.065-3.52,11.645,0l23.216,19.773c2.224,2.188.838,6.286-2.125,6.286h-.87c-4.289,0-7.123,2.426-7.123,8.871,0,11.448-.056,6.555.189,8.683,1.481,12.851,13.874,11.71,19.671,8.173a42.73,42.73,0,0,0,11.975-11.448c18.023-24.5,10.284-63.6-27.63-77.6" transform="translate(0 0)" fill="#fff"/>
+      <path id="Rectangle_1" data-name="Rectangle 1" d="M3.3,0h7.659a3.3,3.3,0,0,1,3.3,3.3v7.658a3.3,3.3,0,0,1-3.3,3.3H3.3a3.3,3.3,0,0,1-3.3-3.3V3.3A3.3,3.3,0,0,1,3.3,0Z" transform="translate(393.303 285.278)" fill="#fff"/>
+    </g>
+    <text id="Twiddle" transform="translate(187.5 510)" fill="#fff" font-size="26" font-family="FredokaOne-Regular, Fredoka One"><tspan x="-48" y="0">Twiddle</tspan></text>
+  </g>
+</svg>

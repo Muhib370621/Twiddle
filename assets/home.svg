@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22.532" height="21.498" viewBox="0 0 22.532 21.498">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Shape" d="M10.129,21.5H2.172V11.266H0L11.266,0,22.532,11.266H20.361V21.5H12.4V14.676H10.13V21.5ZM7.856,12.4h6.821v6.821h3.41v-9.2L11.266,3.207,4.445,10.028v9.2H7.856V12.4Z" transform="translate(0.103 0.102)" fill="#0336ff"/>
+    </clipPath>
+  </defs>
+  <g id="Icon_Home" data-name="Icon/Home" transform="translate(-0.103 -0.102)">
+    <path id="Shape-2" data-name="Shape" d="M10.129,21.5H2.172V11.266H0L11.266,0,22.532,11.266H20.361V21.5H12.4V14.676H10.13V21.5ZM7.856,12.4h6.821v6.821h3.41v-9.2L11.266,3.207,4.445,10.028v9.2H7.856V12.4Z" transform="translate(0.103 0.102)" fill="#0336ff"/>
+    <path id="Shape-3" data-name="Shape" d="M10.129,21.5H2.172V11.266H0L11.266,0,22.532,11.266H20.361V21.5H12.4V14.676H10.13V21.5ZM7.856,12.4h6.821v6.821h3.41v-9.2L11.266,3.207,4.445,10.028v9.2H7.856V12.4Z" transform="translate(0.103 0.102)" fill="#0336ff"/>
+  </g>
+</svg>
