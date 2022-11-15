@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
+import 'OnboardingScreen.dart';
 
-import 'firstOnboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   Future _moveToOnboard() async {
     await Future.delayed(const Duration(seconds: 4),(){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const OnBoardingPage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  OnboardingPage()));
     });
   }
 

@@ -38,7 +38,6 @@ dependencies:
   flutter_svg: ^1.1.6
   get: ^4.6.5
   google_fonts: ^3.0.1
-  flutter_screenutil: ^5.6.0
 
 
 dev_dependencies:
@@ -69,6 +68,10 @@ flutter:
   assets:
     - assets/
     - assets/images/onboarding/icons/
+    - assets/images/onboarding/images/
+    - assets/images/welcome/icons/
+    - assets/images/welcome/images/
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -81,6 +84,18 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: PoppinsSemiBold
+      fonts:
+        - asset: fonts/Poppins-SemiBold.ttf
+
+    - family: PoppinsMedium
+      fonts:
+        - asset: fonts/Poppins-Medium.ttf
+
+    - family: PoppinsBold
+      fonts:
+        - asset: fonts/Poppins-Bold.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
