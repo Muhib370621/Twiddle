@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
+import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
 import 'package:twiddle_refactored/src/presentation/components/Welcome/panelButtons.dart';
 
-import '../../../core/utils/app_colors.dart';
+
 
 class WelcomeTemplate extends StatelessWidget {
-  Widget? child;
+  Widget child;
+  num paneltopMargin;
+  bool backbuttonVisibility;
 
-  WelcomeTemplate({Key? key, this.child}) : super(key: key);
+  WelcomeTemplate({Key? key, required this.child, required this.paneltopMargin,required this.backbuttonVisibility})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,36 +21,53 @@ class WelcomeTemplate extends StatelessWidget {
       children: [
         Positioned(
             top: 0,
-            child: SizedBox(
-              width: Get.width,
-              height: Get.height * 0.66,
-              child: Image.asset(AppAssets.welPanelBg, fit: BoxFit.cover),
-            )),
-        Positioned.fill(
-          top: Get.height * 0.40,
-          child: Container(
-            height: Get.height * 0.6,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(25),
-                topRight: Radius.circular(25),
+            child: Stack(children: [
+              SizedBox(
+                width: Get.width,
+                height: Get.height * 0.66,
+                child: Image.asset(AppAssets.welPanelBg, fit: BoxFit.fill),
               ),
-            ),
-            child: Column(
-              children: [
-                SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 25.w),
-                    child: child,
+              Visibility(
+                visible: backbuttonVisibility,
+                child: GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Container(
+                    height: 5.h,
+                    width: 10.w,
+                    margin: EdgeInsets.only(left: 5.w, top: 5.h),
+                    decoration: const BoxDecoration(
+                      color: AppColors.mainBg,
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    ),
+                    child: Icon(Icons.arrow_back_ios_new),
                   ),
                 ),
-                PanelButtons(buttonText: 'Sign In',),
-                SizedBox(height: 2.h,),
-                PanelButtons(buttonText: 'Create an Account',),
-              ],
+              )
+            ])),
+        Positioned.fill(
+          top: Get.height * paneltopMargin,
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Container(
+              height: Get.height * 0.6,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(25),
+                  topRight: Radius.circular(25),
+                ),
+              ),
+              child: Column(
+                children: [
+                  child,
+                ],
+              ),
             ),
           ),
         ),

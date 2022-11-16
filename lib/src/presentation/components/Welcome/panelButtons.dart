@@ -4,18 +4,27 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../core/utils/app_colors.dart';
 
 class PanelButtons extends StatelessWidget {
-  String buttonText;
-   PanelButtons({Key? key,required this.buttonText}) : super(key: key);
+  Object buttonText;
+  Color? buttonColor;
+  void Function()? onTap;
+  Color? textColor;
+  Color borderColor;
+
+  PanelButtons({Key? key,required this.buttonText, required this.buttonColor, required this.textColor, required this.onTap, required this.borderColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 5.h,
-      width: 80.w,
-      decoration: const BoxDecoration(
-        color: AppColors.mainColor,
-        borderRadius: BorderRadius.all(Radius.circular(22)),),
-      child: Center(child: Text(buttonText, style: TextStyle(color: AppColors.mainBg,fontSize: 16.sp),)),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 5.h,
+        width: 80.w,
+        decoration:  BoxDecoration(
+          color: buttonColor,
+          border: Border.all(color: borderColor,width: 0.5.w),
+          borderRadius: BorderRadius.all(Radius.circular(22)),),
+        child: Center(child: Text(buttonText.toString(), style: TextStyle(color: textColor,fontSize: 16.sp),)),
+      ),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
+import 'package:twiddle_refactored/src/presentation/screens/Login/AccountSelection.dart';
 import 'package:twiddle_refactored/src/presentation/screens/welcome/welcomeScreen.dart';
 
 import '../../../controller/onBoardingController.dart';
@@ -100,10 +101,11 @@ class OnboardBody extends StatelessWidget {
                       onTap: (){
                         if(onboardController.selectedIndex.value <= 1){
                           onboardController.pageController.value.nextPage(
-                              duration: const Duration(milliseconds: 300), curve: Curves.ease);
+                              duration: const Duration(milliseconds: 500), curve: Curves.ease);
                         }
-                        //   else
-                        //     Get.off(()=>Authentication());
+                          else {
+                          Get.to(()=>Welcome());
+                        }
                       },
                       child: Container(
                         height: 10.h, width: 15.w,

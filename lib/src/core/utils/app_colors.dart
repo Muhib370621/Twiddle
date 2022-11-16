@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class AppColors {
 //~~~~~~~~~~~~~~~~~~~~~~~~~Base Colors~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   static const Color mainColor =  Color(0xFF0336FF);
@@ -8,5 +10,8 @@ class AppColors {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   static const Color welcomeTwiddle = Color.fromRGBO(46, 48, 52, 1);
   // static const Color signInButton = Color.fromRGBO(3, 54, 255, 1);
+  static const Color kLightGrey = Color.fromRGBO(112, 112, 112, 1);
+  static const Color kWhite = Color.fromRGBO(255, 255, 255, 1);
+  static const Color kLightBlue = Color.fromRGBO(20, 146, 230, 1);
 
 }
