@@ -4,7 +4,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../core/utils/app_colors.dart';
 
 class PanelButtons extends StatelessWidget {
-  Object buttonText;
+  String buttonText;
   Color? buttonColor;
   void Function()? onTap;
   Color? textColor;

@@ -6,12 +6,15 @@ import 'package:twiddle_refactored/src/presentation/components/Welcome/panelButt
 import 'package:twiddle_refactored/src/presentation/screens/Login/RealEstateLogin.dart';
 import '../../../controller/loginController.dart';
 import '../../../controller/onBoardingController.dart';
+import '../../../controller/signUpController.dart';
 import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../components/Welcome/welcomeTemplate.dart';
 import '../../components/login/radioButton.dart';
+import '../SignUp/SignUpScreen.dart';
 
 class AccountSelection extends StatelessWidget {
+  final SignUpController signUpController = Get.put(SignUpController());
   final LoginController loginController = Get.put(LoginController());
 
   AccountSelection({Key? key}) : super(key: key);
@@ -56,24 +59,28 @@ class AccountSelection extends StatelessWidget {
                 ),
                 SizedBox(height: 6.h),
                 PanelButtons(
-                    buttonText: "Continue",
-                    buttonColor: AppColors.mainColor,
-                    textColor: AppColors.mainBg,
-                    onTap: () {
-                      loginController.radioValue.value == "Real Estate"
-                          ? Get.to(() => RealEstateLogin())
-                          : Get.bottomSheet(Container(
-                              height: 10.h,
-                              color: AppColors.mainBg,
-                              child: const Center(
-                                  child: Text(
-                                "Please select 'Real Estate' Type",
-                                style: TextStyle(fontSize: 22),
-                              )),
-                            ));
+                  buttonText: "Continue",
+                  buttonColor: AppColors.mainColor,
+                  textColor: AppColors.mainBg,
+                  onTap: () {
+                    loginController.radioValue.value == "Real Estate"
+                        ? signUpController.isSignUp.value == true
+                            ? Get.to(() => SignUpScreen())
+                            : Get.to(() => RealEstateLogin())
+                        : Get.bottomSheet(Container(
+                            height: 10.h,
+                            color: AppColors.mainBg,
+                            child: const Center(
+                                child: Text(
+                              "Please select 'Real Estate' Type",
+                              style: TextStyle(fontSize: 22),
+                            )),
+                          ));
 
-                      print(loginController.radioValue.value);
-                    }, borderColor: AppColors.mainColor,)
+                    print(loginController.radioValue.value);
+                  },
+                  borderColor: AppColors.mainColor,
+                )
               ],
             ),
           ],

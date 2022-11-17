@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:twiddle_refactored/src/controller/signUpController.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
 
@@ -11,7 +12,8 @@ import '../Login/AccountSelection.dart';
 
 
 class Welcome extends StatelessWidget {
-  const Welcome({Key? key}) : super(key: key);
+  final SignUpController signUpController = Get.put(SignUpController());
+  Welcome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,7 @@ class Welcome extends StatelessWidget {
               buttonColor: AppColors.mainColor,
               textColor: AppColors.kWhite,
               onTap: () {
+                signUpController.isSignUp.value=false;
                 Get.to(() => AccountSelection());
               }, borderColor: AppColors.mainColor,
             ),
@@ -46,7 +49,10 @@ class Welcome extends StatelessWidget {
                 borderColor: AppColors.mainColor,
                 buttonColor: AppColors.kWhite,
                 textColor: AppColors.mainColor,
-                onTap: () {}),
+                onTap: () {
+                  signUpController.isSignUp.value=true;
+                  Get.to(() => AccountSelection());
+                }),
           ],
         ),
       ),

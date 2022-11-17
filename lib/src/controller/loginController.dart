@@ -8,6 +8,7 @@ import 'package:twiddle_refactored/src/presentation/screens/welcome/welcomeScree
 
 import '../core/error/prompts.dart';
 import '../model/LoginModel.dart';
+import '../presentation/components/RealEstateDashboard/BottomNavigationBar.dart';
 import '../services/authenticationServices.dart';
 
 class LoginController extends GetxController {
@@ -24,6 +25,15 @@ class LoginController extends GetxController {
     // TODO: implement onInit
     super.onInit();
   }
+  @override
+  void onClose() {
+    emailController.value.clear();
+    passwordController.value.clear();
+    // TODO: implement onInit
+    super.onClose();
+  }
+
+
 
   Future<LoginModel?> login() async {
     try {
@@ -55,8 +65,8 @@ class LoginController extends GetxController {
             pass: passwordController.value.text);
         isLoading.value = false;
         if (result.token != " ") {
-          await Get.bottomSheet(Container(height: 10.h,color: AppColors.mainBg,child: Center(child: Text("Sucessfully Logged In !!", style: TextStyle(fontSize: 18.sp),)),));
-          await Get.to(() => Welcome());
+          // await Get.bottomSheet(Container(height: 10.h,color: AppColors.mainBg,child: Center(child: Text("Sucessfully Logged In !!", style: TextStyle(fontSize: 18.sp),)),));
+          await Get.to(() => BottomNav());
 
         } else {
           isLoading.value = false;

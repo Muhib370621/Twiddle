@@ -22,6 +22,21 @@ class AppAssets {
   static const String welPanelIcon = "${welcomeIcons}panelIcon.svg";
   static const String welPanelBg = "${welcomeImages}panelBG.png";
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~Real Estate dashboard Urls~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  static const String REdashboardImages = "${baseUrlImages}RealEstateDashboard/images/";
+  static const String REdashboardIcons = "${baseUrlImages}RealEstateDashboard/icons/";
+
+  static const String bottomHome = "${REdashboardIcons}bottomHome.svg";
+  static const String bottomProfile = "${REdashboardIcons}bottomUser.svg";
+  static const String bottomSP = "${REdashboardIcons}bottomSearchSP.svg";
+  static const String bottomPay = "${REdashboardIcons}bottomCard.svg";
+  static const String filterIcon = "${REdashboardIcons}filterIcon.svg";
+  static const String cardBG = "${REdashboardImages}cardBG.png";
+  static const String saveIcon = "${REdashboardIcons}saveIcon.svg";
+
+
+
 
 
 

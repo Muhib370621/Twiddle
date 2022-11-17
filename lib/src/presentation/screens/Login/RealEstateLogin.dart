@@ -17,7 +17,8 @@ class RealEstateLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() => WelcomeTemplate(
+        body: Obx(
+      () => WelcomeTemplate(
         paneltopMargin: 0.35,
         backbuttonVisibility: true,
         child: Padding(
@@ -49,7 +50,8 @@ class RealEstateLogin extends StatelessWidget {
               InputTextField(
                 hintText: "example@gmail.com",
                 prefixVisibility: false,
-                fieldController: loginController.emailController.value, obscurance: false,
+                fieldController: loginController.emailController.value,
+                obscurance: false,
               ),
               SizedBox(height: 2.h),
               Text(
@@ -63,7 +65,8 @@ class RealEstateLogin extends StatelessWidget {
               InputTextField(
                 hintText: "Enter Password",
                 prefixVisibility: true,
-                fieldController: loginController.passwordController.value, obscurance: loginController.eyeTap.value,
+                fieldController: loginController.passwordController.value,
+                obscurance: loginController.eyeTap.value,
               ),
               SizedBox(height: 2.h),
               Align(
@@ -72,8 +75,8 @@ class RealEstateLogin extends StatelessWidget {
                   padding: EdgeInsets.only(right: 7.w),
                   child: Text(
                     "Forgot password?",
-                    style: TextStyle(
-                        fontSize: 15.sp, color: AppColors.kLightBlue),
+                    style:
+                        TextStyle(fontSize: 15.sp, color: AppColors.kLightBlue),
                   ),
                 ),
               ),
@@ -82,16 +85,22 @@ class RealEstateLogin extends StatelessWidget {
                 child: Column(
                   children: [
                     PanelButtons(
-                      buttonText: loginController.isLoading.value==true?
-                        "Please wait.....":"Login",
+                      buttonText: loginController.isLoading.value == true
+                          ? "Please wait....."
+                          : "Login",
                       buttonColor: AppColors.mainColor,
                       textColor: AppColors.mainBg,
-                      onTap: () {loginController.isLoading.value == true
-                          ? null
-                          :
-                          print("---------------------");
-                          print(loginController.passwordController.value.text);
-                      loginController.login();},
+                      onTap: () {
+                        loginController.isLoading.value == true
+                            ? null
+                            :
+                        FocusScope.of(context).unfocus();
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        loginController.login();
+                        loginController.passwordController.value.clear();
+                        loginController.emailController.value.clear();
+                        loginController.eyeTap.value=true;
+                      },
                       borderColor: AppColors.mainColor,
                     ),
                     SizedBox(height: 1.h),
@@ -131,8 +140,8 @@ class RealEstateLogin extends StatelessWidget {
             ],
           ),
         ),
-      ),)
-    );
+      ),
+    ));
     ;
   }
 }

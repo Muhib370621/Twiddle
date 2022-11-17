@@ -40,6 +40,7 @@ dependencies:
   google_fonts: ^3.0.1
   http: ^0.13.5
   get_storage: ^2.0.3
+  font_awesome_flutter: ^10.2.1
 
 
 
@@ -74,6 +75,8 @@ flutter:
     - assets/images/onboarding/images/
     - assets/images/welcome/icons/
     - assets/images/welcome/images/
+    - assets/images/RealEstateDashboard/icons/
+    - assets/images/RealEstateDashboard/images/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

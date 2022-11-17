@@ -5,10 +5,12 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../controller/loginController.dart';
+import '../../../controller/signUpController.dart';
 import '../../../core/utils/app_colors.dart';
 
 class InputTextField extends StatelessWidget {
   final LoginController loginController = Get.put(LoginController());
+  final SignUpController signUpController = Get.put(SignUpController());
   String? hintText;
   bool prefixVisibility;
   TextEditingController? fieldController;
@@ -45,6 +47,10 @@ class InputTextField extends StatelessWidget {
                     onTap: () {
                       loginController.eyeTap.value =
                           !loginController.eyeTap.value;
+                      signUpController.eyeTap.value =
+                      !signUpController.eyeTap.value;
+                      signUpController.confirmEyeTap.value =
+                      !signUpController.confirmEyeTap.value;
                     },
                     child: loginController.eyeTap.value == true
                         ? Icon(Icons.visibility_off,color: AppColors.kLightGrey,)

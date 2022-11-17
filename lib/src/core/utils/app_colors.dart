@@ -14,4 +14,11 @@ class AppColors {
   static const Color kWhite = Color.fromRGBO(255, 255, 255, 1);
   static const Color kLightBlue = Color.fromRGBO(20, 146, 230, 1);
 
+  static const Color transparent = Colors.transparent;
+  static const Color kSilver =Color(0XFF9C9C9C);
+  static const Color kOrange = Color.fromRGBO(255, 154, 3, 1);
+  static const Color lightGrey = Color.fromRGBO(233, 233, 236, 1);
+
+
+
 }

@@ -53,7 +53,7 @@ class WelcomeTemplate extends StatelessWidget {
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Container(
-              height: Get.height * 0.6,
+              height: Get.height * 1.1,
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: Colors.white,
