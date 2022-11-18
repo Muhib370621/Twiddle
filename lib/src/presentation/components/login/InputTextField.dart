@@ -12,13 +12,19 @@ class InputTextField extends StatelessWidget {
   final LoginController loginController = Get.put(LoginController());
   final SignUpController signUpController = Get.put(SignUpController());
   String? hintText;
+  bool tapValue;
   bool prefixVisibility;
   TextEditingController? fieldController;
   bool obscurance;
 
-  InputTextField(
-      {Key? key, required this.hintText, required this.prefixVisibility, required this.fieldController, required this.obscurance})
-      : super(key: key);
+  InputTextField({
+    Key? key,
+    required this.hintText,
+    required this.prefixVisibility,
+    required this.fieldController,
+    required this.obscurance,
+    required this.tapValue,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +46,7 @@ class InputTextField extends StatelessWidget {
           decoration: InputDecoration(
               border: InputBorder.none,
               hintText: hintText,
-              contentPadding: EdgeInsets.only(left:4.w,top: 1.5.h),
+              contentPadding: EdgeInsets.only(left: 4.w, top: 1.5.h),
               suffixIcon: Visibility(
                 visible: prefixVisibility,
                 child: GestureDetector(
@@ -48,13 +54,19 @@ class InputTextField extends StatelessWidget {
                       loginController.eyeTap.value =
                           !loginController.eyeTap.value;
                       signUpController.eyeTap.value =
-                      !signUpController.eyeTap.value;
+                          !signUpController.eyeTap.value;
                       signUpController.confirmEyeTap.value =
-                      !signUpController.confirmEyeTap.value;
+                          !signUpController.confirmEyeTap.value;
                     },
                     child: loginController.eyeTap.value == true
-                        ? Icon(Icons.visibility_off,color: AppColors.kLightGrey,)
-                        : Icon(Icons.visibility,color: AppColors.kLightGrey,)),
+                        ? Icon(
+                            Icons.visibility_off,
+                            color: AppColors.kLightGrey,
+                          )
+                        : Icon(
+                            Icons.visibility,
+                            color: AppColors.kLightGrey,
+                          )),
               )),
         ),
       ),

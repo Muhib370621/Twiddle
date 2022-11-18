@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:twiddle_refactored/src/controller/Real%20State%20Controllers/mainScreenController.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 
 import '../../../core/utils/app_colors.dart';
@@ -14,7 +16,10 @@ import '../../components/RealEstateDashboard/salesProperty.dart';
 import '../../components/RealEstateDashboard/shortStayProperty.dart';
 
 class REHome extends StatelessWidget {
-  const REHome({Key? key}) : super(key: key);
+  final MainScreenController mainScreenController =
+  Get.put(MainScreenController());
+
+  REHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -152,8 +157,9 @@ class REHome extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 2.h,),
-              const Expanded(
-                  child: TabBarView(
+               Expanded(
+                  child:
+                  TabBarView(
                 children: [
                   RentProperty(),
                   SalesProperty(),

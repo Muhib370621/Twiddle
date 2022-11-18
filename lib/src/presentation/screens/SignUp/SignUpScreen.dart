@@ -81,7 +81,7 @@ class SignUpScreen extends StatelessWidget {
                 hintText: "Margaret",
                 prefixVisibility: false,
                 fieldController: signUpController.firstNameController.value,
-                obscurance: false,
+                obscurance: false, tapValue: false,
               ),
               SizedBox(height: 2.h),
               Text(
@@ -96,7 +96,7 @@ class SignUpScreen extends StatelessWidget {
                 hintText: "Novakowska",
                 prefixVisibility: false,
                 fieldController: signUpController.lastNameController.value,
-                obscurance: false,
+                obscurance: false, tapValue: false,
               ),
               SizedBox(height: 2.h),
               Text(
@@ -111,7 +111,7 @@ class SignUpScreen extends StatelessWidget {
                 hintText: "3118382790",
                 prefixVisibility: false,
                 fieldController: signUpController.phoneNOController.value,
-                obscurance: false,
+                obscurance: false, tapValue: false,
               ),
               SizedBox(height: 2.h),
               Text(
@@ -126,7 +126,7 @@ class SignUpScreen extends StatelessWidget {
                 hintText: "example@gmail.com",
                 prefixVisibility: false,
                 fieldController: signUpController.emailController.value,
-                obscurance: false,
+                obscurance: false, tapValue: false,
               ),
               SizedBox(height: 2.h),
               Text(
@@ -141,7 +141,7 @@ class SignUpScreen extends StatelessWidget {
                 hintText: "Enter password",
                 prefixVisibility: true,
                 fieldController: signUpController.passwordController.value,
-                obscurance: signUpController.eyeTap.value,
+                obscurance: signUpController.eyeTap.value, tapValue: signUpController.eyeTap.value,
               ),
               SizedBox(height: 2.h),
               Text(
@@ -157,6 +157,7 @@ class SignUpScreen extends StatelessWidget {
                 prefixVisibility: true,
                 fieldController: signUpController.confirmPasswordController.value,
                 obscurance: signUpController.confirmEyeTap.value,
+                tapValue: signUpController.confirmEyeTap.value,
               ),
               SizedBox(height: 3.h),
               Center(

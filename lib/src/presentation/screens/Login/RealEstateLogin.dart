@@ -51,7 +51,7 @@ class RealEstateLogin extends StatelessWidget {
                 hintText: "example@gmail.com",
                 prefixVisibility: false,
                 fieldController: loginController.emailController.value,
-                obscurance: false,
+                obscurance: false, tapValue: false,
               ),
               SizedBox(height: 2.h),
               Text(
@@ -66,7 +66,7 @@ class RealEstateLogin extends StatelessWidget {
                 hintText: "Enter Password",
                 prefixVisibility: true,
                 fieldController: loginController.passwordController.value,
-                obscurance: loginController.eyeTap.value,
+                obscurance: loginController.eyeTap.value, tapValue: loginController.eyeTap.value,
               ),
               SizedBox(height: 2.h),
               Align(
