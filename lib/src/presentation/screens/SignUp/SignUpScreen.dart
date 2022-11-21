@@ -174,7 +174,7 @@ class SignUpScreen extends StatelessWidget {
                             ? null
                             : FocusScope.of(context).unfocus();
                         FocusScope.of(context).requestFocus(FocusNode());
-                        // signUpController.login();
+                        signUpController.SignUp();
                         signUpController.passwordController.value.clear();
                         signUpController.emailController.value.clear();
                         signUpController.eyeTap.value = true;

@@ -80,6 +80,7 @@ flutter:
     - assets/images/welcome/images/
     - assets/images/RealEstateDashboard/icons/
     - assets/images/RealEstateDashboard/images/
+    - assets/images/RealEstateDashboard/icons/drawer/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

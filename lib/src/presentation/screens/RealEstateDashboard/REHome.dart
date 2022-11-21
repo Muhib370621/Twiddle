@@ -7,6 +7,7 @@ import 'package:twiddle_refactored/src/controller/Real%20State%20Controllers/mai
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 
 import '../../../core/utils/app_colors.dart';
+import '../../components/RealEstateDashboard/drawer.dart';
 import '../../components/RealEstateDashboard/myContainer.dart';
 import '../../components/RealEstateDashboard/myDivider.dart';
 import '../../components/RealEstateDashboard/myTextField.dart';
@@ -28,6 +29,8 @@ class REHome extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        drawer: MyDrawer(),
+
         appBar: AppBar(
           automaticallyImplyLeading: false,
           elevation: 0,
@@ -92,7 +95,7 @@ class REHome extends StatelessWidget {
           ),
         ),
         key: homeKey,
-        drawer: AppBar(),
+        // drawer: AppBar(),
         // MyDrawer(),
         body: Container(
           decoration: const BoxDecoration(

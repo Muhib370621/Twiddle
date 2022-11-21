@@ -27,7 +27,7 @@ class RentProperty extends StatelessWidget {
             itemBuilder: (context, index) {
               return Obx(() => GestureDetector(
                 onTap: () {
-                  print( mainScreenController.propertList.value?[index].user?.email);
+                  print( mainScreenController.propertList.value.user?.email);
                 },
                 child: Column(
                   children: [

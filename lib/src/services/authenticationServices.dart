@@ -6,6 +6,7 @@ import 'endpoints.dart';
 import 'local storage/local storage.dart';
 
 class AuthenticationServices{
+
   Future<LoginModel> login({
     required String email,
     required String pass,
@@ -49,6 +50,53 @@ class AuthenticationServices{
     if (kDebugMode) {
       print("ACCESS TOKEN ON LOGIN: $accessToken");
     }
+
+    if (response.statusCode == 200) {
+      return loginModelFromJson(response.body);
+    } else if (response.statusCode == 401) {
+      throw Exception('Not Authorized');
+    } else if (response.statusCode == 500) {
+      throw Exception('Server Not Responding');
+    } else {
+      throw Exception('Something Went Wrong');
+    }
+  }
+
+
+  Future<LoginModel> signUp({
+    required String firstName,
+    required String lastName,
+    required String phoneNo,
+    required String email,
+    required String pass,
+    required String confirmPass,
+  }) async {
+    /// Url
+    String url = UrlSchemes.baseUrlDev + UrlSchemes.userSignUp;
+
+    /// Headers
+    // var headers = AuthHeaders.getOnlyContentTypeHeaders();
+
+    /// Request
+    var response = await http.post(
+        Uri.parse(url),
+        body:
+        {
+          'type': 'Real Estate',
+          'firstname' : firstName,
+          'lastname' : lastName,
+          'phone': phoneNo,
+          'email': email,
+          'password': pass
+        }
+    );
+
+    if (kDebugMode) {
+      print("Called API: $url");
+      print("Status Code: ${response.statusCode}");
+      print("Response Body: ${response.body}");
+    }
+
 
     if (response.statusCode == 200) {
       return loginModelFromJson(response.body);
