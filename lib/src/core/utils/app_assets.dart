@@ -26,7 +26,7 @@ class AppAssets {
 
   static const String REdashboardImages = "${baseUrlImages}RealEstateDashboard/images/";
   static const String REdashboardIcons = "${baseUrlImages}RealEstateDashboard/icons/";
-  static const String REdashboardDrawerIcons = "${baseUrlImages}RealEstateDashboard/icons/drawer";
+  static const String REdashboardDrawerIcons = "${baseUrlImages}RealEstateDashboard/icons/drawer/";
 
 
   static const String bottomHome = "${REdashboardIcons}bottomHome.svg";
@@ -41,8 +41,11 @@ class AppAssets {
   static const String drawer_notification = "${REdashboardDrawerIcons}notification.svg";
   static const String drawer_recent = "${REdashboardDrawerIcons}recent.svg";
   static const String drawer_favourites = "${REdashboardDrawerIcons}favourites.svg";
-  // static const String drawer_notification = "${REdashboardDrawerIcons}notification.svg";
-  // static const String drawer_notification = "${REdashboardDrawerIcons}notification.svg";
+  static const String drawer_installment = "${REdashboardDrawerIcons}install.svg";
+  static const String drawer_help = "${REdashboardDrawerIcons}help.svg";
+  static const String drawer_faq = "${REdashboardDrawerIcons}faq.svg";
+  static const String drawer_setting = "${REdashboardDrawerIcons}setting.svg";
+
 
 
 
