@@ -36,15 +36,25 @@ class AppAssets {
   static const String filterIcon = "${REdashboardIcons}filterIcon.svg";
   static const String cardBG = "${REdashboardImages}cardBG.png";
   static const String saveIcon = "${REdashboardIcons}saveIcon.svg";
+  static const String greenCheckIcon = "${REdashboardIcons}greenCheck.svg";
+  static const String chatIcon = "${REdashboardIcons}chatIcon.svg";
+  static const String walletIcon = "${REdashboardIcons}walletIcon.svg";
+  static const String tenantIcon = "${REdashboardIcons}tenantIcon.svg";
+  static const String profileAvatar = "${REdashboardImages}profileAvatar.png";
 
-  static const String drawer_home = "${REdashboardDrawerIcons}homeDra.svg";
-  static const String drawer_notification = "${REdashboardDrawerIcons}notification.svg";
-  static const String drawer_recent = "${REdashboardDrawerIcons}recent.svg";
-  static const String drawer_favourites = "${REdashboardDrawerIcons}favourites.svg";
-  static const String drawer_installment = "${REdashboardDrawerIcons}install.svg";
-  static const String drawer_help = "${REdashboardDrawerIcons}help.svg";
-  static const String drawer_faq = "${REdashboardDrawerIcons}faq.svg";
-  static const String drawer_setting = "${REdashboardDrawerIcons}setting.svg";
+  static const String drawerHome = "${REdashboardDrawerIcons}homeDra.svg";
+  static const String drawerNotification = "${REdashboardDrawerIcons}notification.svg";
+  static const String drawerRecent = "${REdashboardDrawerIcons}recent.svg";
+  static const String drawerFavourites = "${REdashboardDrawerIcons}favourites.svg";
+  static const String drawerInstallment = "${REdashboardDrawerIcons}install.svg";
+  static const String drawerHelp = "${REdashboardDrawerIcons}help.svg";
+  static const String drawerFaq = "${REdashboardDrawerIcons}faq.svg";
+  static const String drawerSetting = "${REdashboardDrawerIcons}setting.svg";
+  static const String drawerAbout = "${REdashboardDrawerIcons}about.svg";
+  static const String drawerLogout = "${REdashboardDrawerIcons}logout.svg";
+  static const String drawerInvest = "${REdashboardDrawerIcons}invest.svg";
+
+
 
 
 

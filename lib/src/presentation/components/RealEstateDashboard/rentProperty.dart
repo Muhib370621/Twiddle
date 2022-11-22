@@ -21,6 +21,7 @@ class RentProperty extends StatelessWidget {
           padding: EdgeInsets.only(left: 7.w, right: 6.w),
           child:
           ListView.builder(
+            shrinkWrap: true,
             physics: const BouncingScrollPhysics(),
             padding: EdgeInsets.only(bottom: 2.h),
             itemCount: 5,

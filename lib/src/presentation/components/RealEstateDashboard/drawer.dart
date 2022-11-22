@@ -5,6 +5,10 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
 import 'package:twiddle_refactored/src/presentation/components/RealEstateDashboard/BottomNavigationBar.dart';
+import 'package:twiddle_refactored/src/presentation/screens/welcome/welcomeScreen.dart';
+
+import '../../../core/constant/dialogBox.dart';
+import '../../../services/local storage/local storage.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -16,7 +20,7 @@ class MyDrawer extends StatelessWidget {
     return Drawer(
       child: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 10,right: 8,top: 8,bottom: 8),
+          padding: const EdgeInsets.only(left: 22, right: 8, top: 8, bottom: 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -45,21 +49,29 @@ class MyDrawer extends StatelessWidget {
                   width: Get.width * 0.52,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.mainColor.withOpacity(0.3),
+                        spreadRadius: 2,
+                        blurRadius: 4,
+                        offset: const Offset(2, 3), // changes position of shadow
+                      ),
+                    ],
                     border:
-                        Border.all(color: Colors.blue.withOpacity(1), width: 4),
+                        Border.all(color: Colors.blue.withOpacity(1), width: 2),
                     color: AppColors.mainColor,
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset('assets/drawer/invest.svg'),
+                      SvgPicture.asset(AppAssets.drawerInvest),
                       const SizedBox(width: 10),
-                      const Text(
+                       Text(
                         'Invest Now',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
+                          color: AppColors.kWhite,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -78,107 +90,122 @@ class MyDrawer extends StatelessWidget {
                     // }
                     Get.to(() => BottomNav());
                   },
-                  child: drawerItem("Home", AppAssets.drawer_home)),
-              SizedBox(height: 15),
-              Container(width: Get.width * 0.5, height: 1, color: Colors.black26),
-              SizedBox(height: 15),
+                  child: drawerItem("Home", AppAssets.drawerHome)),
+              const SizedBox(height: 15),
+              Container(
+                  width: Get.width * 0.5, height: 1, color: Colors.black26),
+              const SizedBox(height: 15),
               InkWell(
                 onTap: () {
                   // Get.to(()=>Notifications());
                 },
                 child:
-                    drawerItem("Notifications", AppAssets.drawer_notification),
+                    drawerItem("Notifications", AppAssets.drawerNotification),
               ),
-              SizedBox(height: 15),
-              Container(width: Get.width * 0.5, height: 1, color: Colors.black26),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
+              Container(
+                  width: Get.width * 0.5, height: 1, color: Colors.black26),
+              const SizedBox(height: 15),
               InkWell(
                 onTap: () {
                   // Get.to(()=>RecentlyViewed());
                 },
                 child: drawerItem(
                   "Recently Viewed",
-                  AppAssets.drawer_recent,
+                  AppAssets.drawerRecent,
                 ),
               ),
-              SizedBox(height: 15),
-              Container(width: Get.width * 0.5, height: 1, color: Colors.black26),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
+              Container(
+                  width: Get.width * 0.5, height: 1, color: Colors.black26),
+              const SizedBox(height: 15),
               InkWell(
                 onTap: () {
                   // Get.to(()=>Favourites());
                 },
-                child: drawerItem("My Favorites", AppAssets.drawer_favourites),
+                child: drawerItem("My Favorites", AppAssets.drawerFavourites),
               ),
-              SizedBox(height: 15),
-              Container(width: Get.width * 0.5, height: 1, color: Colors.black26),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
+              Container(
+                  width: Get.width * 0.5, height: 1, color: Colors.black26),
+              const SizedBox(height: 15),
               InkWell(
                 onTap: () {
                   // Get.to(()=>RenterInstall());
                 },
                 child: drawerItem(
-                    "Instalment Dashboard", AppAssets.drawer_installment),
+                    "Instalment Dashboard", AppAssets.drawerInstallment),
               ),
-              SizedBox(height: 15),
-              Container(width: Get.width * 0.5, height: 1, color: Colors.black26),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
+              Container(
+                  width: Get.width * 0.5, height: 1, color: Colors.black26),
+              const SizedBox(height: 15),
               InkWell(
                 onTap: () {
                   // Get.to(()=>HelpDesk());
                 },
-                child: drawerItem("Help",AppAssets.drawer_help),
+                child: drawerItem("Help", AppAssets.drawerHelp),
               ),
-              SizedBox(height: 15),
-              Container(width: Get.width * 0.5, height: 1, color: Colors.black26),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
+              Container(
+                  width: Get.width * 0.5, height: 1, color: Colors.black26),
+              const SizedBox(height: 15),
               InkWell(
                 onTap: () {
                   // Get.to(()=>FaqScreen());
                 },
-                child: drawerItem("FAQs", AppAssets.drawer_faq),
+                child: drawerItem("FAQs", AppAssets.drawerFaq),
               ),
-              SizedBox(height: 15),
-              Container(width: Get.width * 0.5, height: 1, color: Colors.black26),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
+              Container(
+                  width: Get.width * 0.5, height: 1, color: Colors.black26),
+              const SizedBox(height: 15),
               InkWell(
                 onTap: () {
                   // Get.to(()=>TwiddleInv());
                 },
-                child: drawerItem("About Twiddle INV", "assets/drawer/about.svg"),
+                child: drawerItem("About Twiddle INV", AppAssets.drawerAbout),
               ),
-              SizedBox(height: 15),
-              Container(width: Get.width * 0.5, height: 1, color: Colors.black26),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
+              Container(
+                  width: Get.width * 0.5, height: 1, color: Colors.black26),
+              const SizedBox(height: 15),
               InkWell(
                 onTap: () {
                   // Get.to(()=>MySetting());
                 },
-                child: drawerItem("Settings", AppAssets.drawer_setting),
+                child: drawerItem("Settings", AppAssets.drawerSetting),
               ),
-              SizedBox(height: 15),
-              Container(width: Get.width * 0.5, height: 1, color: Colors.black26),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
+              Container(
+                  width: Get.width * 0.5, height: 1, color: Colors.black26),
+              const SizedBox(height: 15),
               InkWell(
                   child: drawerItem(
                     "Log Out",
-                    "assets/drawer/logout.svg",
+                    AppAssets.drawerLogout,
                   ),
-                  onTap: () {}
-                  //     dialogBox(
-                  //   context,
-                  //   "Confirm Log Out?",
-                  //   "Cancel",
-                  //   "Yes",
-                  //   SvgPicture.asset('assets/check.svg'),
-                  //       () {
-                  //     // getDateTime();
-                  //     // setStatus('last seen at ${time}');
-                  //     // loginController.logout();
-                  //   },
-                  // ),
+                  onTap: () {
+                        dialogBox(
+                      context,
+                      "Confirm Log Out?",
+                      "Cancel",
+                      "Yes",
+                      SvgPicture.asset(AppAssets.greenCheckIcon),
+                          () {
+                            /// Save Login Token
+                            LocalStorage.writeString(
+                              key: LocalStorageKeys.accessToken,
+                              value: " ",
+                            );
+                            Get.to(()=> Welcome());
+                      },
+                    );
+
+                  }
+
                   ),
-              SizedBox(height: 20)
+              const SizedBox(height: 20)
             ],
           ),
         ),
@@ -187,7 +214,7 @@ class MyDrawer extends StatelessWidget {
   }
 
   Widget drawerItem(String text, String image) {
-    final textColor = Color(0xFF2E3034);
+    const textColor = Color(0xFF2E3034);
     return Row(
       children: [
         SvgPicture.asset(image),
@@ -196,7 +223,7 @@ class MyDrawer extends StatelessWidget {
         ),
         Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
             color: textColor,
           ),
         ),

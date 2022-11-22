@@ -29,7 +29,7 @@ class REHome extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        drawer: MyDrawer(),
+        drawer: const MyDrawer(),
 
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -75,11 +75,11 @@ class REHome extends StatelessWidget {
                     // Get.to(()=> FilterScreen());
                   },
                   child: MyContainer(
-                    height: 38.h,
+                    height: 35.h,
                     width: 35.w,
                     radius: 50.sp,
-                    horizontalPadding: 0.5,
-                    verticalPadding: 0.5,
+                    horizontalPadding: 0.7,
+                    verticalPadding: 0.7,
                     color: AppColors.mainColor,
                     child: SvgPicture.asset(
                       AppAssets.filterIcon,
