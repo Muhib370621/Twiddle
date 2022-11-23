@@ -37,10 +37,16 @@ class AppAssets {
   static const String cardBG = "${REdashboardImages}cardBG.png";
   static const String saveIcon = "${REdashboardIcons}saveIcon.svg";
   static const String greenCheckIcon = "${REdashboardIcons}greenCheck.svg";
+  static const String orangeCheckIcon = "${REdashboardIcons}orangeCheck.svg";
   static const String chatIcon = "${REdashboardIcons}chatIcon.svg";
   static const String walletIcon = "${REdashboardIcons}walletIcon.svg";
   static const String tenantIcon = "${REdashboardIcons}tenantIcon.svg";
+  static const String verifiedIcon = "${REdashboardIcons}verifiedIcon.svg";
+  static const String locationIcon = "${REdashboardIcons}locationIcon.svg";
   static const String profileAvatar = "${REdashboardImages}profileAvatar.png";
+  static const String spGirlAvatar = "${REdashboardImages}spGirlAvatar.png";
+  static const String walletInvest = "${REdashboardIcons}walletInvest.svg";
+  static const String walletRent = "${REdashboardIcons}walletRent.svg";
 
   static const String drawerHome = "${REdashboardDrawerIcons}homeDra.svg";
   static const String drawerNotification = "${REdashboardDrawerIcons}notification.svg";

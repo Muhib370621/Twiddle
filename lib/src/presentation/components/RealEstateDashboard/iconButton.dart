@@ -40,7 +40,7 @@ class Iconbutton extends StatelessWidget {
       this.icon,
       this.radius = 10,
       this.iconSize = 15,
-      this.width = double.infinity})
+      this.width = 50})
       : super(key: key);
 
   @override
@@ -48,9 +48,9 @@ class Iconbutton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: Get.height / (812 / height).h,
-        width: Get.width / (375 / width).w,
-        padding: EdgeInsets.symmetric(horizontal: padding.w),
+        height: 5.h,
+        width:55.w,
+        // padding: EdgeInsets.symmetric(horizontal: padding.w),
         decoration: BoxDecoration(
             color: buttonColor,
             borderRadius: BorderRadius.circular(radius),
@@ -68,8 +68,8 @@ class Iconbutton extends StatelessWidget {
               MyIcon == null
                   ? Container()
                   : SizedBox(
-                      height: Get.height / (812 / myIconsSize),
-                      width: Get.width / (375 / myIconsSize),
+                      height: 5.h,
+                      width: 5.w,
                       child: MyIcon,
                     ),
               icon == null

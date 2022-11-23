@@ -19,7 +19,8 @@ class AppColors {
   static const Color kOrange = Color.fromRGBO(255, 154, 3, 1);
   static const Color kGreenAccent = Color(0xff01E08F);
   static const Color lightGrey = Color.fromRGBO(233, 233, 236, 1);
-
+  static const Color kLightOrange = Color.fromRGBO(246, 157, 25, 1);
+  static const Color redText =  Color(0xffFF4D4D);
 
 
 }

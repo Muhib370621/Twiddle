@@ -5,17 +5,20 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
 import 'package:twiddle_refactored/src/presentation/screens/RealEstateDashboard/REWallet.dart';
+import '../../../controller/Real State Controllers/mainScreenController.dart';
 import '../../../controller/bottomNavigationBarController.dart';
 import '../../screens/RealEstateDashboard/REHome.dart';
 import '../../screens/RealEstateDashboard/REMainDashboard.dart';
 import '../../screens/RealEstateDashboard/SearchSP.dart';
 
 class BottomNav extends StatelessWidget {
+  final MainScreenController mainScreenController =
+  Get.put(MainScreenController());
   final List screens = [
     REHome(),
     const REMainDashboard(),
-    const SearchSP(),
-    const REWallet()
+     SearchSP(),
+     REWallet()
   ];
 
   Widget currentScreen = REHome();
@@ -83,7 +86,7 @@ class BottomNav extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                        currentScreen = const SearchSP();
+                        currentScreen =  SearchSP();
                         bottomNavBarController.currentTab.value = 2;
                       },
                       child: SvgPicture.asset(AppAssets.bottomSP,
@@ -95,7 +98,7 @@ class BottomNav extends StatelessWidget {
                     ),
                     InkWell(
                       onTap: () {
-                      currentScreen = const REWallet();
+                      currentScreen =  REWallet();
                         bottomNavBarController.currentTab.value = 3;
                       },
                       child: SvgPicture.asset(AppAssets.bottomPay,

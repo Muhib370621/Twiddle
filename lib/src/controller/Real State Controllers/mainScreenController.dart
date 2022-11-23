@@ -21,7 +21,7 @@ class MainScreenController extends GetxController{
   Future<List<PropertyModel>> getProperties() async {
     // try {
     isLoading.value = true;
-    await Future.delayed(const Duration(seconds: 2), () {});
+    // await Future.delayed(const Duration(seconds: 2), () {});
     var result = await RentServices().getPropertyList();
     if (kDebugMode) {
       print("Result: $result");

@@ -28,7 +28,8 @@ class RentProperty extends StatelessWidget {
             itemBuilder: (context, index) {
               return Obx(() => GestureDetector(
                 onTap: () {
-                  print( mainScreenController.propertList.value.user?.email);
+                  mainScreenController.getProperties();
+                  print(mainScreenController.propertList.value..user?.id?[index]);
                 },
                 child: Column(
                   children: [
@@ -86,7 +87,6 @@ class RentProperty extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-
                                 Text(
                                   "${mainScreenController.propertList.value
                                       .specification
