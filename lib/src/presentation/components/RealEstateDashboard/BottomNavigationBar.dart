@@ -8,7 +8,7 @@ import 'package:twiddle_refactored/src/presentation/screens/RealEstateDashboard/
 import '../../../controller/Real State Controllers/mainScreenController.dart';
 import '../../../controller/bottomNavigationBarController.dart';
 import '../../screens/RealEstateDashboard/REHome.dart';
-import '../../screens/RealEstateDashboard/REMainDashboard.dart';
+import '../../screens/RealEstateDashboard/MainDashboard/REMainDashboard.dart';
 import '../../screens/RealEstateDashboard/SearchSP.dart';
 
 class BottomNav extends StatelessWidget {

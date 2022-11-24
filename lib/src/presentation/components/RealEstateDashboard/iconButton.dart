@@ -7,7 +7,7 @@ class Iconbutton extends StatelessWidget {
   GestureTapCallback? onTap;
   Widget? MyIcon;
   double height;
-  double width;
+  double? width;
   String text;
   Color color;
   Color iconColor;
@@ -40,7 +40,7 @@ class Iconbutton extends StatelessWidget {
       this.icon,
       this.radius = 10,
       this.iconSize = 15,
-      this.width = 50})
+      this.width})
       : super(key: key);
 
   @override
@@ -49,7 +49,7 @@ class Iconbutton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 5.h,
-        width:55.w,
+        width: width,
         // padding: EdgeInsets.symmetric(horizontal: padding.w),
         decoration: BoxDecoration(
             color: buttonColor,

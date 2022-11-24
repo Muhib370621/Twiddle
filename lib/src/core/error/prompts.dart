@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Prompts{
+
   static Future<void> showDialog({
     required Function() onTap,
     required Function() onCancel,

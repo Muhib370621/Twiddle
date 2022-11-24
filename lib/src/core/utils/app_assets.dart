@@ -59,6 +59,7 @@ class AppAssets {
   static const String drawerAbout = "${REdashboardDrawerIcons}about.svg";
   static const String drawerLogout = "${REdashboardDrawerIcons}logout.svg";
   static const String drawerInvest = "${REdashboardDrawerIcons}invest.svg";
+  static const String noData = "${REdashboardDrawerIcons}noData.svg";
 
 
 

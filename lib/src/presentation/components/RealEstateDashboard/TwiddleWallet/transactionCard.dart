@@ -7,18 +7,18 @@ class TransactionCard extends StatelessWidget {
   String? type;
   String? date;
   double? amount;
-
   TransactionCard({Key? key, this.type, this.date, this.amount}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MyContainer(
-      // horizontalPadding: 10,
+      horizontalPadding: 8,
       color: AppColors.kWhite,
       radius: 15,
-      // verticalPadding: 15,
+      verticalPadding: 2,
       shadowColor: AppColors.mainColor.withOpacity(0.1),
-      verticalMargin: 5,
+      verticalMargin: 1,
+      horizontalMargin: 3,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -34,7 +34,7 @@ class TransactionCard extends StatelessWidget {
                   ),
                   Text(
                     date!,
-                    style: const TextStyle(color: AppColors.kWhite),
+                    style: const TextStyle(color: AppColors.kLightGrey),
                   )
                 ],
               ),

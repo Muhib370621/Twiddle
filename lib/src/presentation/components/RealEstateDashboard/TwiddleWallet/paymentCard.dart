@@ -14,17 +14,18 @@ class PaymentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyContainer(
-      // horizontalPadding: 10,
+      horizontalPadding: 8,
       color: AppColors.kWhite,
-      // radius: 15,
-      // verticalPadding: 15,
-      // verticalMargin: 5,
+      radius: 15,
+      verticalPadding: 2,
+      verticalMargin: 1,
+      horizontalMargin: 3,
       shadowColor: AppColors.mainColor.withOpacity(0.1),
       child: Row(
         children: [
           SvgPicture.asset(AppAssets.bottomPay),
           SizedBox(
-            width: 1.w,
+            width: 3.w,
           ),
           Expanded(
             child: Column(
@@ -51,8 +52,8 @@ class PaymentCard extends StatelessWidget {
                         IconText(
                           icon: Icons.wallet,
                           text: 'Upcoming',
-                          color: AppColors.kWhite,
-                          iconColor: AppColors.kWhite,
+                          color: AppColors.kLightGrey,
+                          iconColor: AppColors.kLightGrey,
                         ),
                         SizedBox(
                           width: 2.w,
@@ -60,8 +61,8 @@ class PaymentCard extends StatelessWidget {
                         IconText(
                           icon: Icons.check_circle,
                           text: 'Property Rent ',
-                          color: AppColors.kWhite,
-                          iconColor: AppColors.kWhite,
+                          color: AppColors.kLightGrey,
+                          iconColor: AppColors.kLightGrey,
                         ),
                       ],
                     ),

@@ -6,5 +6,7 @@ class UrlSchemes{
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~Real Estate Get Urls~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-static String getProperties = "/property/filter/type?search=rent";
+static String getRentProperties = "/property/filter/type?search=rent";
+static String getSalesProperties = "/property/filter/type?search=sale";
+static String getShortStayProperties = "/property/filter/type?search=Short Stay";
 }

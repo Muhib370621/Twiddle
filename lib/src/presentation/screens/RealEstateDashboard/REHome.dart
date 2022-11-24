@@ -121,7 +121,7 @@ class REHome extends StatelessWidget {
                     ),
                     labelColor: AppColors.kWhite,
                     unselectedLabelColor: AppColors.welcomeTwiddle,
-                    tabs:  [
+                    tabs:  const [
                       Tab(text: 'Rent',),
                       // Container(color:AppColors.kWhite,width: 0.01.w,),
                       Tab(text: 'Sales'),
@@ -150,7 +150,7 @@ class REHome extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Divider(),
+                      const Divider(),
                       PropertiesDropdown(
                         horizontalPadding: 10,
                         height: 40,
@@ -177,49 +177,4 @@ class REHome extends StatelessWidget {
   }
 }
 
-// class Appbar extends StatelessWidget {
-//   VoidCallback? onDrawerTap;
-//   Appbar({Key? key, this.onDrawerTap}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     final search = TextEditingController();
-//     return MyContainer(
-//       color: transparent,
-//       verticalPadding: 10.h,
-//       child: Row(
-//         children: [
-//
-//           GestureDetector(
-//             onTap: onDrawerTap,
-//             child: MyContainer(
-//               height: 40, width: 40, radius: 40,
-//               horizontalPadding: 5, verticalPadding: 5,
-//               shadowColor: shadowcolor, color: white,
-//               child: Icon(FontAwesomeIcons.barsStaggered),
-//             ),
-//           ),
-//
-//           Width(size: 10),
-//           Expanded(
-//             child: MyTextField(
-//               color: lightButton, radius: 40,
-//               controller: search, height: 50,
-//               icon: Icon(Icons.search),
-//             ),
-//           ),
-//
-//           Width(size: 10),
-//
-//           MyContainer(
-//             height: 40, width: 40, radius: 40,
-//             horizontalPadding: 8, verticalPadding: 8,
-//             color: maincolor,
-//             child: SvgPicture.asset('assets/home/filter.svg', color: white),
-//           ),
-//
-//         ],
-//       ),
-//     );
-//   }
-// }
+

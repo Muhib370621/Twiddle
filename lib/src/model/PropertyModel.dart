@@ -4,12 +4,28 @@
 
 import 'dart:convert';
 
-List<PropertyModel> propertyModelFromJson(String str) => List<PropertyModel>.from(json.decode(str).map((x) => PropertyModel.fromJson(x)));
+PropertyModel propertyModelFromJson(String str) => PropertyModel.fromJson(json.decode(str));
 
-String propertyModelToJson(List<PropertyModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String propertyModelToJson(PropertyModel data) => json.encode(data.toJson());
 
 class PropertyModel {
   PropertyModel({
+    this.data,
+  });
+
+  List<Datum>? data;
+
+  factory PropertyModel.fromJson(Map<String, dynamic> json) => PropertyModel(
+    data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+  };
+}
+
+class Datum {
+  Datum({
     this.specification,
     this.id,
     this.user,
@@ -45,7 +61,7 @@ class PropertyModel {
   String? video;
   int? v;
 
-  factory PropertyModel.fromJson(Map<String, dynamic> json) => PropertyModel(
+  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
     specification: Specification.fromJson(json["specification"]),
     id: json["_id"],
     user: User.fromJson(json["user"]),
@@ -65,9 +81,9 @@ class PropertyModel {
   );
 
   Map<String, dynamic> toJson() => {
-    "specification": specification!.toJson(),
+    "specification": specification?.toJson(),
     "_id": id,
-    "user": user!.toJson(),
+    "user": user?.toJson(),
     "catagery": catagery,
     "realStateType": realStateType,
     "title": title,

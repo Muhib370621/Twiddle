@@ -10,26 +10,63 @@ class MainScreenController extends GetxController{
   @override
   void onInit() {
     // TODO: implement onInit
-    getProperties();
+    getRentProperties();
+    getSalesProperties();
+    getShortStayProperties();
     super.onInit();
   }
   // Rx<List> newList = <Specification>[].obs;
 
-  var propertList = PropertyModel().obs;
+  var rentPropertyList = PropertyModel().obs;
+  var salesPropertyList = PropertyModel().obs;
+  var shortStayPropertyList = PropertyModel().obs;
   RxBool isLoading = false.obs;
 
-  Future<List<PropertyModel>> getProperties() async {
+  Future<PropertyModel> getRentProperties() async {
     // try {
     isLoading.value = true;
     // await Future.delayed(const Duration(seconds: 2), () {});
-    var result = await RentServices().getPropertyList();
+    var result = await RentServices().getRentPropertyList();
+    isLoading.value = false;
     if (kDebugMode) {
       print("Result: $result");
     }
-    propertList.value = result as PropertyModel;
+    rentPropertyList.value = result;
     // newList;
-    isLoading.value = false;
+
+    // update();
     return result;
   }
+
+  Future<PropertyModel> getSalesProperties() async {
+    // try {
+    isLoading.value = true;
+    // await Future.delayed(const Duration(seconds: 2), () {});
+    var result = await RentServices().getSalesPropertyList();
+    isLoading.value = false;
+    if (kDebugMode) {
+      print("Result: $result");
+    }
+    salesPropertyList.value = result;
+    // newList;
+    // update();
+    return result;
+  }
+
+  Future<PropertyModel> getShortStayProperties() async {
+    // try {
+    isLoading.value = true;
+    // await Future.delayed(const Duration(seconds: 2), () {});
+    var result = await RentServices().getShortStayPropertyList();
+    isLoading.value = false;
+    if (kDebugMode) {
+      print("Result: $result");
+    }
+    salesPropertyList.value = result;
+    // newList;
+    // update();
+    return result;
+  }
+
 }
 

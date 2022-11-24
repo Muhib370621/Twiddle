@@ -6,10 +6,10 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
 
-import '../../components/RealEstateDashboard/dashboardHeader.dart';
-import '../../components/RealEstateDashboard/drawer.dart';
-import '../../components/RealEstateDashboard/myContainer.dart';
-import '../../components/RealEstateDashboard/rentProperty.dart';
+import '../../../components/RealEstateDashboard/dashboardHeader.dart';
+import '../../../components/RealEstateDashboard/drawer.dart';
+import '../../../components/RealEstateDashboard/myContainer.dart';
+import '../../../components/RealEstateDashboard/rentProperty.dart';
 
 
 class REMainDashboard extends StatelessWidget {

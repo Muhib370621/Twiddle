@@ -5,10 +5,14 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
 import 'package:twiddle_refactored/src/presentation/components/RealEstateDashboard/BottomNavigationBar.dart';
+import 'package:twiddle_refactored/src/presentation/screens/drawer/Notification.dart';
 import 'package:twiddle_refactored/src/presentation/screens/welcome/welcomeScreen.dart';
 
 import '../../../core/constant/dialogBox.dart';
 import '../../../services/local storage/local storage.dart';
+import '../../screens/RealEstateDashboard/REHome.dart';
+import '../../screens/drawer/favourites.dart';
+import '../../screens/drawer/recentlyViewed.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -97,7 +101,7 @@ class MyDrawer extends StatelessWidget {
               const SizedBox(height: 15),
               InkWell(
                 onTap: () {
-                  // Get.to(()=>Notifications());
+                  Get.to(()=>DrawerNotifications());
                 },
                 child:
                     drawerItem("Notifications", AppAssets.drawerNotification),
@@ -108,7 +112,7 @@ class MyDrawer extends StatelessWidget {
               const SizedBox(height: 15),
               InkWell(
                 onTap: () {
-                  // Get.to(()=>RecentlyViewed());
+                  Get.to(()=>RecentlyViewed());
                 },
                 child: drawerItem(
                   "Recently Viewed",
@@ -121,7 +125,7 @@ class MyDrawer extends StatelessWidget {
               const SizedBox(height: 15),
               InkWell(
                 onTap: () {
-                  // Get.to(()=>Favourites());
+                  Get.to(()=>Favourites());
                 },
                 child: drawerItem("My Favorites", AppAssets.drawerFavourites),
               ),

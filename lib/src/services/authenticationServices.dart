@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-
 import '../model/LoginModel.dart';
 import 'endpoints.dart';
 import 'local storage/local storage.dart';

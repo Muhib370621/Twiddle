@@ -10,7 +10,7 @@ class MyDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width, height: 1.h,
+      width: width, height: 0.1.h,
       color: color.withOpacity(opacity),
     );
   }
