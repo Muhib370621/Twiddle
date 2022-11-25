@@ -16,10 +16,7 @@ class LocalStorage {
 class LocalStorageKeys {
   // static String fcmToken = 'fcmToken';
   static String accessToken = 'accessToken';
-
-
 }
-
 //
 // class SharedPrefer{
 //   static headertoken(Map header) async{
