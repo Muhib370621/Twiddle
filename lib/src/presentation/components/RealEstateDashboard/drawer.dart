@@ -10,7 +10,6 @@ import 'package:twiddle_refactored/src/presentation/screens/welcome/welcomeScree
 
 import '../../../core/constant/dialogBox.dart';
 import '../../../services/local storage/local storage.dart';
-import '../../screens/RealEstateDashboard/REHome.dart';
 import '../../screens/drawer/favourites.dart';
 import '../../screens/drawer/recentlyViewed.dart';
 

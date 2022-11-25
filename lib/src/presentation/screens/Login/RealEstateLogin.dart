@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/presentation/components/login/InputTextField.dart';
+import 'package:twiddle_refactored/src/presentation/screens/SignUp/SignUpScreen.dart';
+
 import '../../../controller/loginController.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../components/Welcome/panelButtons.dart';
 import '../../components/Welcome/welcomeTemplate.dart';
-import '../../components/login/radioButton.dart';
 
 class RealEstateLogin extends StatelessWidget {
   final LoginController loginController = Get.put(LoginController());
@@ -51,7 +51,10 @@ class RealEstateLogin extends StatelessWidget {
                 hintText: "example@gmail.com",
                 prefixVisibility: false,
                 fieldController: loginController.emailController.value,
-                obscurance: false, tapValue: false,
+                obscurance: false,
+                tapValue: false,
+                onTap: () {},
+                havingFlag: false,
               ),
               SizedBox(height: 2.h),
               Text(
@@ -66,7 +69,13 @@ class RealEstateLogin extends StatelessWidget {
                 hintText: "Enter Password",
                 prefixVisibility: true,
                 fieldController: loginController.passwordController.value,
-                obscurance: loginController.eyeTap.value, tapValue: loginController.eyeTap.value,
+                obscurance: loginController.eyeTap.value,
+                tapValue: loginController.eyeTap.value,
+                onTap: () {
+                  loginController.eyeTap.value = !loginController.eyeTap.value;
+                },
+                IconChange: loginController.eyeTap.value, havingFlag: false
+                ,
               ),
               SizedBox(height: 2.h),
               Align(
@@ -93,13 +102,12 @@ class RealEstateLogin extends StatelessWidget {
                       onTap: () {
                         loginController.isLoading.value == true
                             ? null
-                            :
-                        FocusScope.of(context).unfocus();
+                            : FocusScope.of(context).unfocus();
                         FocusScope.of(context).requestFocus(FocusNode());
                         loginController.login();
                         loginController.passwordController.value.clear();
                         loginController.emailController.value.clear();
-                        loginController.eyeTap.value=true;
+                        loginController.eyeTap.value = true;
                       },
                       borderColor: AppColors.mainColor,
                     ),
@@ -116,7 +124,9 @@ class RealEstateLogin extends StatelessWidget {
                       buttonText: "Create an account",
                       buttonColor: AppColors.kWhite,
                       textColor: AppColors.welcomeTwiddle,
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(() => SignUpScreen());
+                      },
                       borderColor: Colors.black12,
                     ),
                     SizedBox(height: 2.h),
@@ -133,7 +143,7 @@ class RealEstateLogin extends StatelessWidget {
                                     color: AppColors.mainColor,
                                     fontFamily: "PoppinsBold"))
                           ]),
-                    )
+                    ),
                   ],
                 ),
               ),

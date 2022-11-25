@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:twiddle_refactored/src/model/PropertyModel.dart';
 import 'package:twiddle_refactored/src/services/Real%20Estate%20Services/Rent%20Services.dart';
 
-import '../../services/authenticationServices.dart';
-
 class MainScreenController extends GetxController{
 
   @override
@@ -62,7 +60,7 @@ class MainScreenController extends GetxController{
     if (kDebugMode) {
       print("Result: $result");
     }
-    salesPropertyList.value = result;
+    shortStayPropertyList.value = result;
     // newList;
     // update();
     return result;

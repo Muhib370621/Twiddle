@@ -2,9 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
-import 'package:twiddle_refactored/src/presentation/screens/welcome/welcomeScreen.dart';
 
 import '../core/error/prompts.dart';
 import '../model/LoginModel.dart';

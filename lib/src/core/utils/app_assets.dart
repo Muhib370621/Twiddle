@@ -14,6 +14,7 @@ class AppAssets {
   static const String rentBuyIcon = "${onBoardingImages}notify.png";
   static const String securePaymentIcon = "${onBoardingImages}sheild.png";
   static const String investInRealIcon = "${onBoardingImages}rocket.png";
+  static const String ghanianFlag = "${onBoardingIcons}ghanianFlag.png";
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~Welcome Urls~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   static const String welcomeImages = "${baseUrlImages}welcome/images/";
@@ -60,21 +61,5 @@ class AppAssets {
   static const String drawerLogout = "${REdashboardDrawerIcons}logout.svg";
   static const String drawerInvest = "${REdashboardDrawerIcons}invest.svg";
   static const String noData = "${REdashboardDrawerIcons}noData.svg";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

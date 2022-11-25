@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+
 import '../model/LoginModel.dart';
 import 'endpoints.dart';
 import 'local storage/local storage.dart';
@@ -63,6 +66,7 @@ class AuthenticationServices{
 
 
   Future<LoginModel> signUp({
+    // required File? img,
     required String firstName,
     required String lastName,
     required String phoneNo,
@@ -81,6 +85,7 @@ class AuthenticationServices{
         Uri.parse(url),
         body:
         {
+          // 'img': img,
           'type': 'Real Estate',
           'firstname' : firstName,
           'lastname' : lastName,

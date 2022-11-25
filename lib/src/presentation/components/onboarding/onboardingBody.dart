@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
-import 'package:twiddle_refactored/src/presentation/screens/Login/AccountSelection.dart';
 import 'package:twiddle_refactored/src/presentation/screens/welcome/welcomeScreen.dart';
 
 import '../../../controller/onBoardingController.dart';

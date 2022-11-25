@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 
 import '../utils/app_colors.dart';
 

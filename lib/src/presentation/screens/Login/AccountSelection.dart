@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/presentation/components/Welcome/panelButtons.dart';
 import 'package:twiddle_refactored/src/presentation/screens/Login/RealEstateLogin.dart';
+
 import '../../../controller/loginController.dart';
-import '../../../controller/onBoardingController.dart';
 import '../../../controller/signUpController.dart';
-import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../components/Welcome/welcomeTemplate.dart';
 import '../../components/login/radioButton.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../controller/onBoardingController.dart';
 import '../../components/onboarding/onboardingBody.dart';
 

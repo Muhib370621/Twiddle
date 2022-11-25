@@ -16,12 +16,25 @@ import '../../components/RealEstateDashboard/rentProperty.dart';
 import '../../components/RealEstateDashboard/salesProperty.dart';
 import '../../components/RealEstateDashboard/shortStayProperty.dart';
 
-class REHome extends StatelessWidget {
-  final MainScreenController mainScreenController =
-  Get.put(MainScreenController());
+class REHome extends StatefulWidget {
 
   REHome({Key? key}) : super(key: key);
 
+  @override
+  State<REHome> createState() => _REHomeState();
+}
+
+class _REHomeState extends State<REHome> {
+  final MainScreenController mainScreenController =
+  Get.put(MainScreenController());
+
+  @override
+  void initState() {
+    mainScreenController.getRentProperties();
+    mainScreenController.getShortStayProperties();
+    mainScreenController.getSalesProperties();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> homeKey = GlobalKey();

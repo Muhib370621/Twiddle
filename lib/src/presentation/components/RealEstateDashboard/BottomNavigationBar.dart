@@ -5,10 +5,11 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
 import 'package:twiddle_refactored/src/presentation/screens/RealEstateDashboard/REWallet.dart';
+
 import '../../../controller/Real State Controllers/mainScreenController.dart';
 import '../../../controller/bottomNavigationBarController.dart';
-import '../../screens/RealEstateDashboard/REHome.dart';
 import '../../screens/RealEstateDashboard/MainDashboard/REMainDashboard.dart';
+import '../../screens/RealEstateDashboard/REHome.dart';
 import '../../screens/RealEstateDashboard/SearchSP.dart';
 
 class BottomNav extends StatelessWidget {

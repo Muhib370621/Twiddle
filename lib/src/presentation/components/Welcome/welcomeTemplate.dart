@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
-import 'package:twiddle_refactored/src/presentation/components/Welcome/panelButtons.dart';
 
 
 
@@ -11,7 +10,6 @@ class WelcomeTemplate extends StatelessWidget {
   Widget child;
   num paneltopMargin;
   bool backbuttonVisibility;
-
   WelcomeTemplate({Key? key, required this.child, required this.paneltopMargin,required this.backbuttonVisibility})
       : super(key: key);
 
@@ -43,7 +41,7 @@ class WelcomeTemplate extends StatelessWidget {
                         Radius.circular(10),
                       ),
                     ),
-                    child: Icon(Icons.arrow_back_ios_new),
+                    child: const Icon(Icons.arrow_back_ios_new),
                   ),
                 ),
               )

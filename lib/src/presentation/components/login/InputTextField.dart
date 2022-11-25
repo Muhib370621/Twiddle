@@ -1,11 +1,12 @@
-import 'dart:math';
-
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../controller/loginController.dart';
 import '../../../controller/signUpController.dart';
+import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_colors.dart';
 
 class InputTextField extends StatelessWidget {
@@ -16,58 +17,91 @@ class InputTextField extends StatelessWidget {
   bool prefixVisibility;
   TextEditingController? fieldController;
   bool obscurance;
+  void Function()? onTap;
+  bool? IconChange;
+  bool havingFlag;
 
-  InputTextField({
-    Key? key,
-    required this.hintText,
-    required this.prefixVisibility,
-    required this.fieldController,
-    required this.obscurance,
-    required this.tapValue,
-  }) : super(key: key);
+  // bool? flagVisibility;
+
+  InputTextField(
+      {Key? key,
+      required this.hintText,
+      required this.prefixVisibility,
+      required this.fieldController,
+      required this.obscurance,
+      required this.tapValue,
+      required this.onTap,
+      this.IconChange,
+      required this.havingFlag})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Container(
-        height: 5.5.h,
-        width: 90.w,
-        decoration: BoxDecoration(
-          color: AppColors.kWhite,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(10),
-          ),
-          border: Border.all(color: AppColors.kLightGrey),
+    return Container(
+      height: 5.5.h,
+      width: 90.w,
+      decoration: BoxDecoration(
+        color: AppColors.kWhite,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(10),
         ),
-        child: TextFormField(
-          controller: fieldController,
-          cursorColor: AppColors.mainColor,
-          obscureText: obscurance,
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: hintText,
-              contentPadding: EdgeInsets.only(left: 4.w, top: 1.5.h),
-              suffixIcon: Visibility(
-                visible: prefixVisibility,
-                child: GestureDetector(
-                    onTap: () {
-                      loginController.eyeTap.value =
-                          !loginController.eyeTap.value;
-                      signUpController.eyeTap.value =
-                          !signUpController.eyeTap.value;
-                      signUpController.confirmEyeTap.value =
-                          !signUpController.confirmEyeTap.value;
-                    },
-                    child: loginController.eyeTap.value == true
-                        ? Icon(
-                            Icons.visibility_off,
-                            color: AppColors.kLightGrey,
-                          )
-                        : Icon(
-                            Icons.visibility,
-                            color: AppColors.kLightGrey,
-                          )),
-              )),
+        border: Border.all(color: AppColors.kLightGrey),
+      ),
+      child: TextFormField(
+        controller: fieldController,
+        cursorColor: AppColors.mainColor,
+        obscureText: obscurance,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: hintText,
+          contentPadding: EdgeInsets.only(left: 4.w,top: 1.5.h),
+          suffixIcon: Visibility(
+            visible: prefixVisibility,
+            child: GestureDetector(
+              onTap: onTap,
+              child:
+                  // loginController.eyeTap.value
+                  IconChange == true
+                      ? const Icon(
+                          Icons.visibility_off,
+                          color: AppColors.kLightGrey,
+                        )
+                      : const Icon(
+                          Icons.visibility,
+                          color: AppColors.kLightGrey,
+                        ),
+            ),
+          ),
+          // prefixIcon: Visibility(
+          //   visible: havingFlag,
+          //   child: Row(
+          //     children: [
+          //       GestureDetector(
+          //           onTap: () {
+          //             showCountryPicker(
+          //               context: context,
+          //               //Optional.  Can be used to exclude(remove) one ore more country from the countries list (optional).
+          //               exclude: <String>['KN', 'MF'],
+          //               //Optional. Shows phone code before the country name.
+          //               showPhoneCode: true,
+          //               onSelect: (Country country) {
+          //                 // print('Select country: ${country.displayName}');
+          //               },
+          //             );
+          //           },
+          //           child: Image.asset(
+          //             AppAssets.ghanianFlag,
+          //             height: 2.h,
+          //             width: 10.w,
+          //           )),
+          //       VerticalDivider(
+          //         width: 2.w,
+          //         color: AppColors.kLightGrey,
+          //       ),
+          //
+          //     ],
+          //   ),
+          // ),
         ),
       ),
     );

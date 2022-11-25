@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 
 import '../../model/PropertyModel.dart';
 import '../../presentation/screens/onboarding/splashScreen.dart';
 import '../endpoints.dart';
 import '../headers.dart';
 import '../local storage/local storage.dart';
-import 'package:http/http.dart' as http;
 
 class RentServices{
 

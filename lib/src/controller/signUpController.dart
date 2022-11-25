@@ -1,12 +1,13 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/model/signUpModel.dart';
+
 import '../core/error/prompts.dart';
 import '../core/utils/app_colors.dart';
-import '../presentation/components/RealEstateDashboard/BottomNavigationBar.dart';
 import '../presentation/screens/Login/AccountSelection.dart';
 import '../services/authenticationServices.dart';
 
@@ -23,21 +24,9 @@ class SignUpController extends GetxController {
   Rx<TextEditingController> passwordController = TextEditingController().obs;
   Rx<TextEditingController> confirmPasswordController =
       TextEditingController().obs;
-
   // File? imageFile = File.obs;
 
-  _getFromGallery() async {
-    PickedFile? pickedFile = await ImagePicker().getImage(
-      source: ImageSource.gallery,
-      maxWidth: 1800,
-      maxHeight: 1800,
-    );
-    if (pickedFile != null) {
-      // imageFile = File(pickedFile.path);
-    }
-  }
-
-  Future<SignUpModel?> SignUp() async {
+  Future<SignUpModel?> SignUp(File? avatarFile) async {
     try {
       if (emailController.value.text[0] == '0') {
         await Prompts.showDialog(
@@ -63,6 +52,7 @@ class SignUpController extends GetxController {
       } else {
         isLoading.value = true;
         var result = await AuthenticationServices().signUp(
+          // img: avatarFile,
           email: emailController.value.text,
           pass: passwordController.value.text,
           firstName: firstNameController.value.text,
@@ -70,7 +60,7 @@ class SignUpController extends GetxController {
           phoneNo: phoneNOController.value.text,
           confirmPass: confirmPasswordController.value.text,
         );
-
+        // print(result);
         isLoading.value = false;
         await Get.bottomSheet(Container(
           height: 10.h,
@@ -124,4 +114,6 @@ class SignUpController extends GetxController {
       );
     }
   }
+
+
 }

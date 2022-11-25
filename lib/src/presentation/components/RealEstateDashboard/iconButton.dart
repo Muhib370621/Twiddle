@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
 import '../../../core/utils/app_colors.dart';
 
 class Iconbutton extends StatelessWidget {

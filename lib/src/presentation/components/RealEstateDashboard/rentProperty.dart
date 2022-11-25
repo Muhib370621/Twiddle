@@ -20,13 +20,15 @@ class RentProperty extends StatelessWidget {
       backgroundColor: AppColors.kWhite,
       body: Padding(
           padding: EdgeInsets.only(left: 7.w, right: 6.w),
-          child: mainScreenController.isLoading.value == true
+          child:
+          mainScreenController.isLoading.value == true
               ? const Center(
             child: CircularProgressIndicator(
               color: AppColors.mainColor,
             ),
           )
-              : mainScreenController.rentPropertyList.value.data == []
+              :
+          mainScreenController.rentPropertyList.value.data!.isEmpty
               ? const NoDataWidget()
               : ListView.builder(
             shrinkWrap: true,
@@ -60,29 +62,16 @@ class RentProperty extends StatelessWidget {
                       crossAxisAlignment:
                       CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Stack(
-                              fit: StackFit.passthrough,
-                              children: [
-                                Image.network(
-                                  mainScreenController
-                                      .rentPropertyList
-                                      .value
-                                      .data![index]
-                                      .coverimage
-                                      .toString(),
-                                  fit: BoxFit.fill,
-                                ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 1.h, right: 2.w),
-                                    child: SvgPicture.asset(
-                                        AppAssets.saveIcon),
-                                  ),
-                                ),
-                              ]),
+                        Image.network(
+                          mainScreenController
+                              .rentPropertyList
+                              .value
+                              .data![index]
+                              .coverimage
+                              .toString(),
+                          height: 20.h,
+                          width: 100.w,
+                          fit: BoxFit.fitHeight,
                         ),
                         Padding(
                           padding: EdgeInsets.only(

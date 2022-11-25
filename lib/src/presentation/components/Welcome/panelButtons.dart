@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../../core/utils/app_colors.dart';
-
 class PanelButtons extends StatelessWidget {
   String buttonText;
   Color? buttonColor;

@@ -6,7 +6,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../controller/Real State Controllers/mainScreenController.dart';
 import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_colors.dart';
-import '../../components/RealEstateDashboard/rentProperty.dart';
 import '../../components/topWithblueBackButton.dart';
 
 class RecentlyViewed extends StatelessWidget {

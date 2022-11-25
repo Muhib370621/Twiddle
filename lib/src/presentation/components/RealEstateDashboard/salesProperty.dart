@@ -59,30 +59,30 @@ class SalesProperty extends StatelessWidget {
                       crossAxisAlignment:
                       CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Stack(
-                              fit: StackFit.passthrough,
-                              children: [
-                                Image.network(
-                                  mainScreenController
-                                      .salesPropertyList
-                                      .value
-                                      .data![index]
-                                      .coverimage
-                                      .toString(),
-                                  fit: BoxFit.fill,
+                        Stack(
+                            fit: StackFit.passthrough,
+                            children: [
+                              Image.network(
+                                mainScreenController
+                                    .salesPropertyList
+                                    .value
+                                    .data![index]
+                                    .coverimage
+                                    .toString(),
+                                height: 20.h,
+                                width: 100.w,
+                                fit: BoxFit.fitHeight,
+                              ),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 1.h, right: 2.w),
+                                  child: SvgPicture.asset(
+                                      AppAssets.saveIcon),
                                 ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 1.h, right: 2.w),
-                                    child: SvgPicture.asset(
-                                        AppAssets.saveIcon),
-                                  ),
-                                ),
-                              ]),
-                        ),
+                              ),
+                            ]),
                         Padding(
                           padding: EdgeInsets.only(
                               left: 4.w, right: 4.w, top: 1.h),
