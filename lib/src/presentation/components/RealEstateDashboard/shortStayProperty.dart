@@ -9,12 +9,13 @@ import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_colors.dart';
 
 class ShortStayProperty extends StatelessWidget {
-  final MainScreenController mainScreenController =
-  Get.put(MainScreenController());
+
    ShortStayProperty({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final MainScreenController mainScreenController =
+    Get.put(MainScreenController());
     return Obx(() => Scaffold(
       backgroundColor: AppColors.kWhite,
       body: Padding(
@@ -38,8 +39,8 @@ class ShortStayProperty extends StatelessWidget {
               return Obx(() => Column(
                 children: [
                   Container(
-                    height: 35.h,
-                    width: 85.w,
+                    // height: 35.h,
+                    // width: 85.w,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(

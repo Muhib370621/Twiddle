@@ -12,7 +12,7 @@ class TransactionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyContainer(
-      horizontalPadding: 8,
+      horizontalPadding: 5,
       color: AppColors.kWhite,
       radius: 15,
       verticalPadding: 2,
@@ -35,7 +35,8 @@ class TransactionCard extends StatelessWidget {
                   Text(
                     date!,
                     style: const TextStyle(color: AppColors.kLightGrey),
-                  )
+                  ),
+
                 ],
               ),
               type == 'Withdrawal Completed Successfully' ||

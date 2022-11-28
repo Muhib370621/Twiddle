@@ -20,17 +20,18 @@ class TopWithBackButton extends StatelessWidget {
           },
           child: Container(
             margin: EdgeInsets.only(left: 6.w, top: 4.h),
-            height: 6.h,
+            height: 6.5.h,
             width: 12.w,
             decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(30),
-              ),
+              shape: BoxShape.circle,
               color: AppColors.mainColor,
             ),
-            child: const Icon(
-              Icons.arrow_back_ios_new,
-              color: AppColors.kWhite,
+            child: const Padding(
+              padding: EdgeInsets.only(right: 4),
+              child: Icon(
+                Icons.arrow_back_ios_new,
+                color: AppColors.kWhite,
+              ),
             ),
           ),
         ),

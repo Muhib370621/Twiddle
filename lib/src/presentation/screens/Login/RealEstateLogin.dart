@@ -10,12 +10,10 @@ import '../../components/Welcome/panelButtons.dart';
 import '../../components/Welcome/welcomeTemplate.dart';
 
 class RealEstateLogin extends StatelessWidget {
-  final LoginController loginController = Get.put(LoginController());
-
   RealEstateLogin({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final LoginController loginController = Get.put(LoginController());
     return Scaffold(
         body: Obx(
       () => WelcomeTemplate(

@@ -3,8 +3,7 @@ class AuthHeaders {
     Map<String, String>? authorizationHeader = {
       'Authorization': 'Bearer $accessToken',
     };
-
-    print('Bearer $accessToken');
+    // print('Bearer $accessToken');
     return authorizationHeader;
   }
 

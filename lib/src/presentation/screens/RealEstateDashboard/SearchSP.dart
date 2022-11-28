@@ -38,16 +38,29 @@ class SearchSP extends StatelessWidget {
                   onTap: () {
                     spKey.currentState!.openDrawer();
                   },
-                  child: MyContainer(
-                    height: 35.h,
-                    width: 35.w,
-                    radius: 50.sp,
-                    horizontalPadding: 0.7,
-                    verticalPadding: 0.7,
-                    shadowColor: AppColors.mainColor.withOpacity(0.15),
-                    color: AppColors.kWhite,
+                  child: Container(
+                    height: 5.h,
+                    width: 12.w,
+                    decoration: const BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.mainBg,
+                            blurRadius: 4,
+                            offset: Offset(3, 4), // Shadow position
+                          ),
+                        ],
+                        color: AppColors.kWhite,
+                        shape: BoxShape.circle
+
+                    ),
+                    // shape: BoxShape.circle,
+                    // radius: 100,
+                    // horizontalPadding: 10,
+                    // verticalPadding: 5,
+                    // shadowColor: AppColors.mainBg,
+
                     child: Icon(FontAwesomeIcons.barsStaggered,
-                        size: 16.sp, color: AppColors.welcomeTwiddle),
+                        size: 16.5.sp, color: AppColors.welcomeTwiddle),
                   ),
                 ),
                 SizedBox(

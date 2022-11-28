@@ -16,25 +16,21 @@ import '../../components/RealEstateDashboard/rentProperty.dart';
 import '../../components/RealEstateDashboard/salesProperty.dart';
 import '../../components/RealEstateDashboard/shortStayProperty.dart';
 
-class REHome extends StatefulWidget {
+class REHome extends StatelessWidget {
+//   REHome({Key? key}) : super(key: key);
+//   @override
+//   State<REHome> createState() => _REHomeState();
+// }
+//
+// class _REHomeState extends State<REHome> {
 
-  REHome({Key? key}) : super(key: key);
-
-  @override
-  State<REHome> createState() => _REHomeState();
-}
-
-class _REHomeState extends State<REHome> {
-  final MainScreenController mainScreenController =
-  Get.put(MainScreenController());
-
-  @override
-  void initState() {
-    mainScreenController.getRentProperties();
-    mainScreenController.getShortStayProperties();
-    mainScreenController.getSalesProperties();
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   mainScreenController.getRentProperties();
+  //   mainScreenController.getShortStayProperties();
+  //   mainScreenController.getSalesProperties();
+  //   super.initState();
+  // }
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> homeKey = GlobalKey();
@@ -57,14 +53,27 @@ class _REHomeState extends State<REHome> {
                   onTap: () {
                     homeKey.currentState!.openDrawer();
                   },
-                  child: MyContainer(
-                    height: 35.h,
-                    width: 35.w,
-                    radius: 50.sp,
+                  child: Container(
+                    height: 5.h,
+                    width: 12.w,
+                    decoration: const BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.mainBg,
+                            blurRadius: 4,
+                            offset: Offset(3, 4), // Shadow position
+                          ),
+                        ],
+                      color: AppColors.kWhite,
+                      shape: BoxShape.circle
+
+                    ),
+                    // shape: BoxShape.circle,
+                    // radius: 100,
                     // horizontalPadding: 10,
                     // verticalPadding: 5,
-                    shadowColor: AppColors.mainBg,
-                    color: AppColors.kWhite,
+                    // shadowColor: AppColors.mainBg,
+
                     child: Icon(FontAwesomeIcons.barsStaggered,
                         size: 16.5.sp, color: AppColors.welcomeTwiddle),
                   ),
@@ -87,21 +96,37 @@ class _REHomeState extends State<REHome> {
                   onTap: () {
                     // Get.to(()=> FilterScreen());
                   },
-                  child: MyContainer(
-                    height: 35.h,
-                    width: 35.w,
-                    radius: 50.sp,
-                    horizontalPadding: 0.7,
-                    verticalPadding: 0.7,
-                    color: AppColors.mainColor,
+                  child: Container(
+                    padding: const EdgeInsets.all(9),
+                    height: 5.h,
+                    width: 12.w,
+                    decoration: const BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.mainBg,
+                            blurRadius: 4,
+                            offset: Offset(3, 4), // Shadow position
+                          ),
+                        ],
+                        color: AppColors.mainColor,
+                        shape: BoxShape.circle
+
+                    ),
+                    // shape: BoxShape.circle,
+                    // radius: 100,
+                    // horizontalPadding: 10,
+                    // verticalPadding: 5,
+                    // shadowColor: AppColors.mainBg,
+
                     child: SvgPicture.asset(
                       AppAssets.filterIcon,
-                      // fit: BoxFit.fill,
+                      // fit: BoxFit.scaleDown,
                       color: AppColors.kWhite,
-                      // height: 10,
-                      // width: 0.2,
+                      height: 15,
+                      // width: 0.1,
                     ),
                   ),
+
                 ),
               ],
             ),
@@ -116,11 +141,13 @@ class _REHomeState extends State<REHome> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [AppColors.kWhite, AppColors.kWhite])),
-          child: Column(
+          child:
+          Column(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: MyContainer(
+                  // width: 320.w,
                   color: AppColors.mainColor.withOpacity(0.1),
                   radius: 5.sp,
                   verticalMargin: 0.5.h,
@@ -145,7 +172,7 @@ class _REHomeState extends State<REHome> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.w),
+                padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: MyContainer(
                   shadowColor: AppColors.mainColor.withOpacity(0.1),
                   radius: 5,
@@ -172,7 +199,7 @@ class _REHomeState extends State<REHome> {
                   ),
                 ),
               ),
-              SizedBox(height: 2.h,),
+              SizedBox(height: 4.h,),
                Expanded(
                   child:
                   TabBarView(

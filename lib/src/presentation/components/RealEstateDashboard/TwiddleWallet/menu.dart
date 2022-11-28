@@ -17,10 +17,11 @@ class Menu extends StatelessWidget {
                 padding: EdgeInsets.only(top: 4.h),
                 child: Dialog(
                       alignment: Alignment.topRight,
-                      child: MyContainer(
-                        horizontalPadding: 5,
-                        verticalPadding: 2,
-                        width: 150,
+                      child: Container(
+                        // horizontalPadding: 5,
+                        // verticalPadding: 2,
+                        padding: const EdgeInsets.all(12),
+                        width: 40.w,
                         child: ListView(
                           shrinkWrap: true,
                           children: [

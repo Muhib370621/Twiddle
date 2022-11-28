@@ -5,11 +5,12 @@ import '../../../controller/onBoardingController.dart';
 import '../../components/onboarding/onboardingBody.dart';
 
 class OnboardingPage extends StatelessWidget {
-  final OnboardingController onboardController = Get.put(OnboardingController());
+
   OnboardingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final OnboardingController onboardController = Get.put(OnboardingController());
     return Scaffold(
       body: Obx(() => PageView.builder(
           itemCount: onboardController.pages.length,

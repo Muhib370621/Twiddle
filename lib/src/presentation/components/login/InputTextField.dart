@@ -54,7 +54,7 @@ class InputTextField extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hintText,
-          contentPadding: EdgeInsets.only(left: 4.w,top: 1.5.h),
+          contentPadding: const EdgeInsets.fromLTRB(15, 12, 0, 12),
           suffixIcon: Visibility(
             visible: prefixVisibility,
             child: GestureDetector(

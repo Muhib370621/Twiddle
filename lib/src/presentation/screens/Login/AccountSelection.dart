@@ -12,13 +12,11 @@ import '../../components/login/radioButton.dart';
 import '../SignUp/SignUpScreen.dart';
 
 class AccountSelection extends StatelessWidget {
-  final SignUpController signUpController = Get.put(SignUpController());
-  final LoginController loginController = Get.put(LoginController());
-
   AccountSelection({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final SignUpController signUpController = Get.put(SignUpController());
+    final LoginController loginController = Get.put(LoginController());
     return Scaffold(
       body: WelcomeTemplate(
         paneltopMargin: 0.55,

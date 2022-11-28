@@ -9,12 +9,13 @@ import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_colors.dart';
 
 class SalesProperty extends StatelessWidget {
-  final MainScreenController mainScreenController =
-      Get.put(MainScreenController());
+
   SalesProperty({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final MainScreenController mainScreenController =
+    Get.put(MainScreenController());
     return Obx(() => Scaffold(
       backgroundColor: AppColors.kWhite,
       body: Padding(
@@ -38,8 +39,8 @@ class SalesProperty extends StatelessWidget {
               return Obx(() => Column(
                 children: [
                   Container(
-                    height: 35.h,
-                    width: 85.w,
+                    // height: 35.h,
+                    // width: 85.w,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(

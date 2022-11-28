@@ -16,7 +16,7 @@ class TwHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyContainer(
-      horizontalPadding: 10,
+      horizontalPadding: 6,
       color: AppColors.mainColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

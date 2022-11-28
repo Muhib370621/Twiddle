@@ -34,15 +34,23 @@ class REMainDashboard extends StatelessWidget {
                     onTap: () {
                       dashboardKey.currentState!.openDrawer();
                     },
-                    child: MyContainer(
-                      height: 35.h,
-                      width: 35.w,
-                      radius: 50.sp,
-                      // horizontalPadding: 5,
+                    child: Container(
+                      height: 5.h,
+                      width: 12.w,
+                      decoration: const BoxDecoration(
+
+                          color: AppColors.kWhite,
+                          shape: BoxShape.circle
+
+                      ),
+                      // shape: BoxShape.circle,
+                      // radius: 100,
+                      // horizontalPadding: 10,
                       // verticalPadding: 5,
-                      color: AppColors.kWhite,
+                      // shadowColor: AppColors.mainBg,
+
                       child: Icon(FontAwesomeIcons.barsStaggered,
-                          color: AppColors.welcomeTwiddle, size: 16.5.sp),
+                          size: 16.5.sp, color: AppColors.welcomeTwiddle),
                     ),
                   ),
                   Expanded(child: Container()),
@@ -50,32 +58,48 @@ class REMainDashboard extends StatelessWidget {
                     onTap: () {
                       // Get.to(() => Setting());
                     },
-                    child: MyContainer(
-                      height: 35.h,
-                      width: 35.w,
-                      radius: 50.sp,
-                      horizontalPadding: 0.7,
-                      verticalPadding: 0.7,
-                      color: AppColors.kWhite,
+                    child: Container(
+                      padding: EdgeInsets.all(6),
+                      height: 5.h,
+                      width: 10.w,
+                      decoration: const BoxDecoration(
+                          color: AppColors.kWhite,
+                          shape: BoxShape.circle
+
+                      ),
+                      // shape: BoxShape.circle,
+                      // radius: 100,
+                      // horizontalPadding: 10,
+                      // verticalPadding: 5,
+                      // shadowColor: AppColors.mainBg,
+
                       child: SvgPicture.asset(
                         AppAssets.drawerSetting,
                         color: AppColors.mainColor,
                       ),
                     ),
+
                   ),
-                  SizedBox(width: 5.w),
+                  SizedBox(width: 4.w),
                   GestureDetector(
                     //   onTap: () => Get.to(()=> NotificationScreen()),
                     onTap: () {
                       // Get.to(() => Notifications());
                     },
-                    child: MyContainer(
-                      height: 35.h,
-                      width: 35.w,
-                      radius: 50.sp,
-                      horizontalPadding: 0.7,
-                      verticalPadding: 0.7,
-                      color: AppColors.kWhite,
+                    child: Container(
+                      padding: EdgeInsets.all(6),
+                      height: 5.h,
+                      width: 10.w,
+                      decoration: const BoxDecoration(
+                          color: AppColors.kWhite,
+                          shape: BoxShape.circle
+                      ),
+                      // shape: BoxShape.circle,
+                      // radius: 100,
+                      // horizontalPadding: 10,
+                      // verticalPadding: 5,
+                      // shadowColor: AppColors.mainBg,
+
                       child: SvgPicture.asset(
                         AppAssets.drawerNotification,
                         color: AppColors.mainColor,
@@ -83,19 +107,27 @@ class REMainDashboard extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: 5.w,
+                    width: 4.w,
                   ),
                   GestureDetector(
                     onTap: () {
                       // Get.to(() => ChatScreen());
                     },
-                    child: MyContainer(
-                      height: 35.h,
-                      width: 35.w,
-                      radius: 50.sp,
-                      horizontalPadding: 0.7,
-                      verticalPadding: 0.7,
-                      color: AppColors.kWhite,
+                    child:  Container(
+                      padding: EdgeInsets.all(10),
+                      height: 5.h,
+                      width: 10.w,
+                      decoration: const BoxDecoration(
+                          color: AppColors.kWhite,
+                          shape: BoxShape.circle
+
+                      ),
+                      // shape: BoxShape.circle,
+                      // radius: 100,
+                      // horizontalPadding: 10,
+                      // verticalPadding: 5,
+                      // shadowColor: AppColors.mainBg,
+
                       child: SvgPicture.asset(
                         AppAssets.chatIcon,
                         color: AppColors.mainColor,

@@ -36,15 +36,24 @@ class REWallet extends StatelessWidget {
                   onTap: () {
                     walletKey.currentState!.openDrawer();
                   },
-                  child: MyContainer(
-                    height: 35.h,
-                    width: 35.w,
-                    radius: 50.sp,
-                    horizontalPadding: 0.7,
-                    verticalPadding: 0.7,
-                    color: AppColors.kWhite,
+                  child: Container(
+                    height: 5.h,
+                    width: 12.w,
+                    decoration: const BoxDecoration(
+
+
+                        color: AppColors.kWhite,
+                        shape: BoxShape.circle
+
+                    ),
+                    // shape: BoxShape.circle,
+                    // radius: 100,
+                    // horizontalPadding: 10,
+                    // verticalPadding: 5,
+                    // shadowColor: AppColors.mainBg,
+
                     child: Icon(FontAwesomeIcons.barsStaggered,
-                        color: AppColors.welcomeTwiddle, size: 16.5.sp,),
+                        size: 16.5.sp, color: AppColors.welcomeTwiddle),
                   ),
                 ),
                 SizedBox(
@@ -62,8 +71,8 @@ class REWallet extends StatelessWidget {
           )),
       drawer: const MyDrawer(),
       body: Obx(() => SizedBox(
-        width:100.w,
-        height: Get.height,
+        // width:100.w,
+        // height: Get.height,
         child: Column(
           children: [
             TwHeader(
