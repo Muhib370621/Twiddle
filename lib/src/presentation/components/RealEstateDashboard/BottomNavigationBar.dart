@@ -11,6 +11,7 @@ import '../../../controller/bottomNavigationBarController.dart';
 import '../../screens/RealEstateDashboard/MainDashboard/REMainDashboard.dart';
 import '../../screens/RealEstateDashboard/REHome.dart';
 import '../../screens/RealEstateDashboard/SearchSP.dart';
+import '../../screens/RealEstateDashboard/addProperty.dart';
 
 class BottomNav extends StatelessWidget {
   final MainScreenController mainScreenController =
@@ -118,7 +119,7 @@ class BottomNav extends StatelessWidget {
           FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              // Get.to(()=> PropertyAdd());
+              Get.to(()=> PropertyAdd());
             },
             backgroundColor: AppColors.mainColor,
             child: Container(
