@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:twiddle_refactored/src/presentation/components/RealEstateDashboard/rentProperty.dart';
 
-import '../../../controller/Real State Controllers/mainScreenController.dart';
-import '../../../core/utils/app_assets.dart';
-import '../../../core/utils/app_colors.dart';
 import '../../components/topWithblueBackButton.dart';
 
 class RecentlyViewed extends StatelessWidget {

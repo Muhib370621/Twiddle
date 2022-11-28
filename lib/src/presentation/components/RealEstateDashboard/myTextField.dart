@@ -6,13 +6,13 @@ import 'package:twiddle_refactored/src/core/utils/app_colors.dart';
 class MyTextField extends StatelessWidget {
   Color color; Color? hintColor; Color? fontColor; Color borderColor; Color? suffixIconColor;
   String hint; IconData? suffixIcon; TextEditingController? controller; Widget? icon; bool obscureText;
-  FontWeight? fontWeight; double radius; double size; double height; double? width; final onChanged;
+  FontWeight? fontWeight; double? radius; double size; double height; double? width; final onChanged;
   int maxLines; VoidCallback? onSuffixIconTap; bool enabled; double? suffixIconSize;
   final keyboardType; final onEditingComplete; Widget? mySuffixIcon;final validator;
   MyTextField({
     Key? key, this.onChanged,
     this.hint = 'Type something..',
-    this.radius = 10,
+    this.radius,
     this.fontColor = AppColors.welcomeTwiddle,
     this.mySuffixIcon,
     this.size = 12, this.keyboardType,
@@ -56,6 +56,7 @@ class MyTextField extends StatelessWidget {
             obscureText: obscureText,
             enabled: enabled,
             decoration: InputDecoration(
+              // contentPadding: EdgeInsets.all(2),
               border: InputBorder.none,
               // border: OutlineInputBorder(
               //   borderRadius: BorderRadius.circular(20),

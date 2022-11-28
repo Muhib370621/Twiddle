@@ -3,34 +3,35 @@ import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:twiddle_refactored/src/controller/Real%20State%20Controllers/mainScreenController.dart';
 import 'package:twiddle_refactored/src/core/utils/app_assets.dart';
 
+import '../../../controller/Real State Controllers/mainScreenController.dart';
 import '../../../core/utils/app_colors.dart';
 import '../../components/RealEstateDashboard/drawer.dart';
 import '../../components/RealEstateDashboard/myContainer.dart';
-import '../../components/RealEstateDashboard/myDivider.dart';
 import '../../components/RealEstateDashboard/myTextField.dart';
 import '../../components/RealEstateDashboard/propertiesDropDown.dart';
 import '../../components/RealEstateDashboard/rentProperty.dart';
 import '../../components/RealEstateDashboard/salesProperty.dart';
 import '../../components/RealEstateDashboard/shortStayProperty.dart';
 
-class REHome extends StatelessWidget {
-//   REHome({Key? key}) : super(key: key);
-//   @override
-//   State<REHome> createState() => _REHomeState();
-// }
-//
-// class _REHomeState extends State<REHome> {
+class REHome extends StatefulWidget {
 
-  // @override
-  // void initState() {
-  //   mainScreenController.getRentProperties();
-  //   mainScreenController.getShortStayProperties();
-  //   mainScreenController.getSalesProperties();
-  //   super.initState();
-  // }
+  REHome({Key? key}) : super(key: key);
+  @override
+  State<REHome> createState() => _REHomeState();
+}
+
+class _REHomeState extends State<REHome> {
+  final MainScreenController mainScreenController =
+  Get.put(MainScreenController());
+  @override
+  void initState() {
+    mainScreenController.getRentProperties();
+    mainScreenController.getShortStayProperties();
+    mainScreenController.getSalesProperties();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> homeKey = GlobalKey();

@@ -117,9 +117,9 @@ class Specification {
   String? carparking;
   String? kitchen;
   String? floorArea;
-  bool? tapAvailable;
-  bool? aircondition;
-  bool? quarterAvailble;
+  String? tapAvailable;
+  String? aircondition;
+  String? quarterAvailble;
 
   factory Specification.fromJson(Map<String, dynamic> json) => Specification(
     bedroom: json["bedroom"],

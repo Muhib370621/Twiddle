@@ -1,12 +1,9 @@
-import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../controller/loginController.dart';
 import '../../../controller/signUpController.dart';
-import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_colors.dart';
 
 class InputTextField extends StatelessWidget {

@@ -20,15 +20,17 @@ class RoundBackButton extends StatelessWidget {
           Get.back();
         },
         child: Container(
-          padding: EdgeInsets.all(10.sp),
+          height: 5.h,
+          width: 14.w,
+          // padding: EdgeInsets.all(10.sp),
           decoration: BoxDecoration(
             color: color,
             shape: BoxShape.circle,
           ),
           child: Icon(
             Icons.arrow_back_ios_rounded,
-            color: iconColor,
-            size: size.sp,
+            color: AppColors.kWhite,
+            size: 18.sp,
           ),
         )
     );

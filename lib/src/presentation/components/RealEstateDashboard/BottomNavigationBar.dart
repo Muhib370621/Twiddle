@@ -119,7 +119,7 @@ class BottomNav extends StatelessWidget {
           FloatingActionButtonLocation.centerDocked,
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Get.to(()=> PropertyAdd());
+              // Get.to(()=> PropertyAdd());
             },
             backgroundColor: AppColors.mainColor,
             child: Container(
