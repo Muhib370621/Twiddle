@@ -47,6 +47,8 @@ dependencies:
   country_picker: ^2.0.17
   fluttertoast: ^8.1.1
   permission_handler: ^10.2.0
+  video_player: ^2.4.8
+  video_thumbnail: ^0.5.3
 
 
 

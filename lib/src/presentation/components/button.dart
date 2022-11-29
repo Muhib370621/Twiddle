@@ -89,7 +89,7 @@ class BackButtonText extends StatelessWidget {
         MyBackButton(
             onTap: onTap == null? ()=> Get.back() : onTap,
             color: buttonColor, iconColor: iconColor),
-        SizedBox(width: 10.w),
+        SizedBox(width: 5.w),
         Text(text, style: TextStyle(fontWeight: fontWeight, color: color, fontSize: size,),),
       ],
     );

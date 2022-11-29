@@ -8,7 +8,7 @@ class MyTextField extends StatelessWidget {
   String hint; IconData? suffixIcon; TextEditingController? controller; Widget? icon; bool obscureText;
   FontWeight? fontWeight; double? radius; double size; double height; double? width; final onChanged;
   int maxLines; VoidCallback? onSuffixIconTap; bool enabled; double? suffixIconSize;
-  final keyboardType; final onEditingComplete; Widget? mySuffixIcon;final validator;
+  final keyboardType; final onEditingComplete; Widget? mySuffixIcon;final validator; EdgeInsetsGeometry? contentPadding;
   MyTextField({
     Key? key, this.onChanged,
     this.hint = 'Type something..',
@@ -26,6 +26,7 @@ class MyTextField extends StatelessWidget {
     this.color = AppColors.transparent,
     this.width, this.borderColor = AppColors.transparent,
     this.validator,
+    this.contentPadding
 
   }) : super(key: key);
 
@@ -38,10 +39,10 @@ class MyTextField extends StatelessWidget {
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(5),
-          // border: Border.all(
-          //   color: borderColor,
-          //   width: 1
-          // )
+          border: Border.all(
+            color: borderColor,
+            width: 1
+          )
         ),
         child: Center(
           child:
@@ -56,7 +57,7 @@ class MyTextField extends StatelessWidget {
             obscureText: obscureText,
             enabled: enabled,
             decoration: InputDecoration(
-              // contentPadding: EdgeInsets.all(2),
+              contentPadding: contentPadding,
               border: InputBorder.none,
               // border: OutlineInputBorder(
               //   borderRadius: BorderRadius.circular(20),

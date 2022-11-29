@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 ///This assets class is defined to avoid unused or non-relevant assets
 class AppAssets {
 
@@ -48,6 +50,7 @@ class AppAssets {
   static const String spGirlAvatar = "${REdashboardImages}spGirlAvatar.png";
   static const String walletInvest = "${REdashboardIcons}walletInvest.svg";
   static const String walletRent = "${REdashboardIcons}walletRent.svg";
+  static const String threeSixtyIcon = "${REdashboardIcons}360Icon.png";
 
   static const String drawerHome = "${REdashboardDrawerIcons}homeDra.svg";
   static const String drawerNotification = "${REdashboardDrawerIcons}notification.svg";

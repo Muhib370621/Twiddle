@@ -100,7 +100,8 @@ class RealEstateLogin extends StatelessWidget {
                       onTap: () {
                         loginController.isLoading.value == true
                             ? null
-                            : FocusScope.of(context).unfocus();
+                            :
+                        FocusScope.of(context).unfocus();
                         FocusScope.of(context).requestFocus(FocusNode());
                         loginController.login();
                         loginController.passwordController.value.clear();
