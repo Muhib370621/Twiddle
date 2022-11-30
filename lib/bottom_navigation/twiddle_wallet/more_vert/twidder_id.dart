@@ -67,12 +67,12 @@ Future twiddleIDdialog(
                   //     fontSize: 12.sp
                   //   ),
                   // ),
-                  PoppinsText(text: user.get('id').toString(), color: hinttext),
+                  PoppinsText(text: "ID".toString(), color: hinttext),
                   Width(),
                   GestureDetector(
                     onTap: (){
                       Clipboard.setData(
-                          ClipboardData(text: user.get('id').toString())
+                          ClipboardData(text: "ID".toString())
                       );
                       Fluttertoast.showToast(
                         msg: 'Copied',

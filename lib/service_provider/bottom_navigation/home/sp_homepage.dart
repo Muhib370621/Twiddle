@@ -119,13 +119,13 @@ class _SPHomePageState extends State<SPHomePage> {
                         if(auth.currentUser?.uid == uid){
 
                           return SP(
-                            name: user.get('name').toString(),
+                            name: 'name'.toString(),
                             desc: data.docs[index]['desc'],
                             price: data.docs[index]['price'],
                             verified: data.docs[index]['verified'],
                             fromtime: data.docs[index]['fromtime'],
                             totime: data.docs[index]['totime'],
-                            imageUrl: user.get('img').toString(),
+                            imageUrl: 'img'.toString(),
                             location: data.docs[index]['location'],
                           );
 

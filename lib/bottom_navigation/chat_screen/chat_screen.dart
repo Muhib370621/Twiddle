@@ -39,7 +39,7 @@ class _ChatScreenState extends State<ChatScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              authUser['accType'] == 'Property Owner' || authUser['accType'] == 'FSP'|| LoginController.User['type'] == 'Real Estate'?
+              // authUser['accType'] == 'Property Owner' || authUser['accType'] == 'FSP'|| LoginController.User['type'] == 'Real Estate'?
               MyContainer(
                 horizontalPadding: 20,
                 color: maincolor,
@@ -66,18 +66,19 @@ class _ChatScreenState extends State<ChatScreen> {
                     ),
                   ],
                 ),
-              ) : MyContainer(
-                color: maincolor, horizontalPadding: 20,
-                height: 127,
-                child: Center(
-                  child: MyTextField(
-                    controller: search,
-                    hint: 'Search Messages…',
-                    radius: 30, color: white,
-                    suffixIcon: Icons.search,
-                  ),
-                ),
               ),
+              //     : MyContainer(
+              //   color: maincolor, horizontalPadding: 20,
+              //   height: 127,
+              //   child: Center(
+              //     child: MyTextField(
+              //       controller: search,
+              //       hint: 'Search Messages…',
+              //       radius: 30, color: white,
+              //       suffixIcon: Icons.search,
+              //     ),
+              //   ),
+              // ),
 
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -195,8 +196,8 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
               ),
 
-              authUser['accType'] == 'Property Owner' || authUser['accType'] == 'FSP'|| LoginController.User['type'] == 'Real Estate'
-                  ? Height(size: 0) : Height(size: 65)
+              // authUser['accType'] == 'Property Owner' || authUser['accType'] == 'FSP'|| LoginController.User['type'] == 'Real Estate'
+              //     ? Height(size: 0) : Height(size: 65)
 
 
 

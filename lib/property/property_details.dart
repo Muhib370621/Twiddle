@@ -20,79 +20,89 @@ import '../constants/methods.dart';
 import '../new/payment_summary.dart';
 
 class PropertyDetails extends StatefulWidget {
-  String? title; int? price; String? location; String? type; String? bedroom;
-  String? tap; String? washroom; String? quarters; String? ac; String? kitchen;
-  String? parking; String? desc; String? uid; int? visitCharges;
-  PropertyDetails({
-    Key? key,
-    this.title = '', this.bedroom = '', this.location = '', this.price,
-    this.type = '', this.quarters = '', this.washroom = '', this.kitchen = '',
-    this.desc = '', this.ac = '', this.parking = '', this.tap = '', this.uid, this.visitCharges
-  }) : super(key: key);
+  String? title;
+  int? price;
+  String? location;
+  String? type;
+  String? bedroom;
+  String? tap;
+  String? washroom;
+  String? quarters;
+  String? ac;
+  String? kitchen;
+  String? parking;
+  String? desc;
+  String? uid;
+  int? visitCharges;
+  String? avatar;
+
+  PropertyDetails(
+      {Key? key,
+      required this.title,
+      required this.bedroom,
+      required this.location,
+      required this.price,
+      required this.type,
+      required this.quarters,
+      required this.washroom,
+      required this.kitchen,
+      required this.desc,
+      required this.ac,
+      required this.parking,
+      required this.tap,
+      required this.uid,
+      required this.visitCharges,
+         this.avatar,
+      })
+      : super(key: key);
 
   @override
   State<PropertyDetails> createState() => _PropertyDetailsState();
 }
 
 var adposter;
-class _PropertyDetailsState extends State<PropertyDetails> {
 
+class _PropertyDetailsState extends State<PropertyDetails> {
   @override
   void initState() {
-    adLister();
     super.initState();
   }
 
-  void adLister() async{
-
-    QuerySnapshot UserSnap = await FirebaseFirestore.instance.collection('users').where('uid', isEqualTo: widget.uid).get();
-    setState((){
-      adposter = UserSnap.docs[0].data();
-    });
-  }
-
-  final List<String> images = ['assets/card1.png', 'assets/card2.png', 'assets/card3.png'];
+  final List<String> images = [
+    'assets/card1.png',
+    'assets/card2.png',
+    'assets/card3.png'
+  ];
 
   @override
   Widget build(BuildContext context) {
-
     String PropertyAction = 'Buy Now';
     String period = '';
-    if(widget.type == 'Rent'){
+    if (widget.type == 'Rent') {
       setState(() {
         period = '/month';
         PropertyAction = 'Rent Property';
       });
-    }
-    else if(widget.type == 'Short Stay'){
+    } else if (widget.type == 'Short Stay') {
       setState(() {
         period = '/night';
         PropertyAction = 'Rent Property';
       });
     }
 
-    if(adposter == null){
-      return Scaffold(
-        body: Container(
-          width: Get.width, height: Get.height,
-          child: Center(
-            child: CircularProgressIndicator(),
-          ),
-        ),
-      );
-    }
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         backgroundColor: white,
         body: Container(
-          height: Get.height, width: Get.width,
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+          height: Get.height,
+          width: Get.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               Stack(
                 children: [
-
                   Positioned(
                     child: Container(
                       width: Get.width,
@@ -100,9 +110,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20.r),
-                              bottomRight: Radius.circular(20.r)
-                          )
-                      ),
+                              bottomRight: Radius.circular(20.r))),
                       child: Container(
                         child: CarouselSlider.builder(
                           slideBuilder: (index) {
@@ -125,14 +133,12 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                       ),
                     ),
                   ),
-
                   Positioned(
-                    left: 15.w,
-                    top: 40.h,
+                      left: 15.w,
+                      top: 40.h,
                       child: Container(
-                      child: RoundBackButton(),
+                        child: RoundBackButton(),
                       )),
-
                   Positioned(
                       right: 15.w,
                       top: 30.h,
@@ -143,7 +149,8 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(6),
                           ),
-                          icon: Icon(Icons.more_vert, color: Colors.white, size: 35),
+                          icon: Icon(Icons.more_vert,
+                              color: Colors.white, size: 35),
                           color: Colors.white,
                           onSelected: (value) {
                             Navigator.pushNamed(context, value.toString());
@@ -172,7 +179,7 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                                     "Cancel",
                                     "Yes",
                                     SvgPicture.asset('assets/check.svg'),
-                                        () {},
+                                    () {},
                                   );
                                 },
                               ),
@@ -228,114 +235,112 @@ class _PropertyDetailsState extends State<PropertyDetails> {
                           },
                         ),
                       )),
-
                 ],
               ),
-
-              Height(size: 30,),
+              Height(
+                size: 30,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
-                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       child: PoppinsText(
-                          text: '${widget.bedroom} ${widget.title} for ${widget.type} at ${widget.location}'.toUpperCase(),
+                          text:
+                              '${widget.bedroom} ${widget.title} for ${widget.type} at ${widget.location}'
+                                  .toUpperCase(),
                           size: 18,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           fontWeight: FontWeight.bold),
                     ),
-
                     GestureDetector(
                       onTap: () {
-                        Get.to(()=>UserProfile(
-                          uid: widget.uid,
-                        ));
+                        Get.to(() => UserProfile(
+                              uid: widget.uid,
+                            ));
                       },
-                      child:
-                      Picture(
+                      child: Picture(
                         size: 50,
                         borderWidth: 2,
                         borderColor: maincolor,
-                        url: adposter['profilePic'],
+                        url: widget.avatar,
                       ),
                     )
-
                   ],
                 ),
               ),
               Height(size: 10),
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: Row(
                   children: [
-
-                    adposter['name'] == null? Iconbutton(
-                      onTap: (){
-                      },
-                      text: 'Start Chat',
-                      width: Get.width/3.w,
-                      height: Get.height/20.h,
-                      fontWeight: FontWeight.w500,
-                      icon: Icons.chat_bubble,
-                      shadowColor: maincolor.withOpacity(0.7),
-                    ) :
+                    // adposter['name'] == null
+                    //     ? Iconbutton(
+                    //         onTap: () {},
+                    //         text: 'Start Chat',
+                    //         width: Get.width / 3.w,
+                    //         height: Get.height / 20.h,
+                    //         fontWeight: FontWeight.w500,
+                    //         icon: Icons.chat_bubble,
+                    //         shadowColor: maincolor.withOpacity(0.7),
+                    //       )
+                    //     :
                     Iconbutton(
-                      onTap: (){
-                        Get.to(()=> ChatRoom(
-                          receiverId: '${widget.uid}',
-                        ));
-                      }, radius: 30,
-                      text: 'Start Chat',
-                      width: Get.width/3.w,
-                      height: Get.height/20.h,
-                      fontWeight: FontWeight.w500,
-                      icon: Icons.chat_bubble,
-                      shadowColor: maincolor.withOpacity(0.7),
-                    ),
-
+                            onTap: () {
+                              Get.to(() => ChatRoom(
+                                    receiverId: '${widget.uid}',
+                                  ));
+                            },
+                            radius: 30,
+                            text: 'Start Chat',
+                            width: Get.width / 3.w,
+                            height: Get.height / 20.h,
+                            fontWeight: FontWeight.w500,
+                            icon: Icons.chat_bubble,
+                            shadowColor: maincolor.withOpacity(0.7),
+                          ),
                     Width(size: 10),
-
                     Button(
-                      onTap: (){
-                        Get.to(()=>VisitCharges(
-                          visitCharges: widget.visitCharges,
-                        ));
+                      onTap: () {
+                        Get.to(() => VisitCharges(
+                              visitCharges: widget.visitCharges,
+                            ));
                       },
                       text: 'Visit Property',
                       buttonColor: orange,
-                      width: Get.width/3.w,
-                      height: Get.height/20.h,
+                      width: Get.width / 3.w,
+                      height: Get.height / 20.h,
                       fontWeight: FontWeight.w500,
                       shadowColor: orange.withOpacity(0.7),
                     ),
-
                     Width(size: 10),
-
                     Container(
-                      width: Get.height/20.h,
-                      height: Get.height/20.h,
-                      decoration: BoxDecoration(
-                        color: active,
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: active.withOpacity(0.7),
-                            blurRadius: 10,
-                            offset: Offset(0, 3)
-                          )
-                        ]
-                      ),
-                      child: Icon(Icons.location_on_outlined, color: white,)
-                    ),
-
+                        width: Get.height / 20.h,
+                        height: Get.height / 20.h,
+                        decoration: BoxDecoration(
+                            color: active,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                  color: active.withOpacity(0.7),
+                                  blurRadius: 10,
+                                  offset: Offset(0, 3))
+                            ]),
+                        child: Icon(
+                          Icons.location_on_outlined,
+                          color: white,
+                        )),
                   ],
                 ),
               ),
-              Height(size: 20,),
+              Height(
+                size: 20,
+              ),
               MyDivider(),
               Container(
-                height: Get.height/20,
+                height: Get.height / 20,
                 child: TabBar(
                   indicatorSize: TabBarIndicatorSize.label,
                   indicatorColor: maincolor,
@@ -356,136 +361,126 @@ class _PropertyDetailsState extends State<PropertyDetails> {
               MyDivider(),
               Expanded(
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    child: TabBarView(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: TabBarView(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        
-                        Column(crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-
-                            Height(size: 15,),
-                            PoppinsText(
-                                text: '${widget.bedroom} ${widget.title} for ${widget.type} at ${widget.location} in price ${widget.price}.'
-                            ),
-                            // PoppinsText(
-                            //   text: '${widget.desc}',
-                            //   fontWeight: FontWeight.w500,
-                            // ),
-                          ],
+                        Height(
+                          size: 15,
                         ),
-
-                        Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-
-
-                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-
-                                Availability(icon: 'tap', text: '${widget.tap}'),
-                                Availability(icon: 'bedroom', text: '${widget.bedroom}'),
-                                Availability(icon: 'kitchen', text: '${widget.kitchen}'),
-                                Availability(icon: 'ac', text: '${widget.ac}'),
-                              ],
-                            ),
-
-
-                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-
-                                Availability(icon: 'washroom', text: '${widget.washroom}'),
-                                Availability(icon: 'parking', text: '${widget.parking}'),
-                                Availability(icon: '420', text: 'Available'),
-                                Availability(icon: 'quarter', text: '${widget.quarters}'),
-                              ],
-                            ),
-
-                          ],
-                        ),
-
-                        SingleChildScrollView(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Image.asset(
-                                  'assets/g1.png',
-                                  scale: 1.3,
-                                  width: Get.width * 0.37),
-                              SizedBox(width: 15),
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    // SizedBox(height: Get.height * 0.036),
-                                    // Image.asset('assets/g2.png', scale: 1.8),
-                                    // Height(),
-                                    // Image.asset('assets/g3.png', scale: 2.6),
-                                    // SizedBox(height: Get.height * 0.036),
-
-                                    Container(
-
-                                      child: Image.asset('assets/g2.png'),
-                                    ),
-
-                                    Height(),
-                                    Container(
-                                      child: Image.asset('assets/g3.png'),
-                                    )
-
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-
+                        PoppinsText(
+                            text:
+                                '${widget.bedroom} ${widget.title} for ${widget.type} at ${widget.location} in price ${widget.price}.'),
+                        // PoppinsText(
+                        //   text: '${widget.desc}',
+                        //   fontWeight: FontWeight.w500,
+                        // ),
                       ],
                     ),
-                  )),
-              Container(
-                height: Get.height/11, width: Get.width,
-                decoration: BoxDecoration(
-                  color: white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: silver.withOpacity(0.5),
-                      blurRadius: 20
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Availability(icon: 'tap', text: '${widget.tap}'),
+                            Availability(
+                                icon: 'bedroom', text: '${widget.bedroom}'),
+                            Availability(
+                                icon: 'kitchen', text: '${widget.kitchen}'),
+                            Availability(icon: 'ac', text: '${widget.ac}'),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Availability(
+                                icon: 'washroom', text: '${widget.washroom}'),
+                            Availability(
+                                icon: 'parking', text: '${widget.parking}'),
+                            Availability(icon: '420', text: 'Available'),
+                            Availability(
+                                icon: 'quarter', text: '${widget.quarters}'),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SingleChildScrollView(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Image.asset('assets/g1.png',
+                              scale: 1.3, width: Get.width * 0.37),
+                          SizedBox(width: 15),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                // SizedBox(height: Get.height * 0.036),
+                                // Image.asset('assets/g2.png', scale: 1.8),
+                                // Height(),
+                                // Image.asset('assets/g3.png', scale: 2.6),
+                                // SizedBox(height: Get.height * 0.036),
+
+                                Container(
+                                  child: Image.asset('assets/g2.png'),
+                                ),
+
+                                Height(),
+                                Container(
+                                  child: Image.asset('assets/g3.png'),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     )
-                  ]
+                  ],
                 ),
+              )),
+              Container(
+                height: Get.height / 11,
+                width: Get.width,
+                decoration: BoxDecoration(color: white, boxShadow: [
+                  BoxShadow(color: silver.withOpacity(0.5), blurRadius: 20)
+                ]),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-
                       Expanded(
-                        child: Row(crossAxisAlignment: CrossAxisAlignment.end,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             PoppinsText(
                               text: '${widget.price} GHC',
                               size: 18,
-                              fontWeight: FontWeight.bold,),
+                              fontWeight: FontWeight.bold,
+                            ),
                             PoppinsText(text: period)
-
-
                           ],
                         ),
                       ),
-
                       Button(
-                        onTap: (){
-                          Get.to(()=>PropertySummary(
-                            price: widget.price,
-                            type: widget.type,
-                          ));
+                        onTap: () {
+                          Get.to(() => PropertySummary(
+                                price: widget.price,
+                                type: widget.type,
+                              ));
                         },
                         text: PropertyAction,
-                        fontWeight: FontWeight.bold, size: 12.sp,
-                        height: Get.height/17.h, width: 152,
+                        fontWeight: FontWeight.bold,
+                        size: 12.sp,
+                        height: Get.height / 17.h,
+                        width: 152,
                       )
                     ],
                   ),
                 ),
               )
-
             ],
           ),
         ),
@@ -494,24 +489,24 @@ class _PropertyDetailsState extends State<PropertyDetails> {
   }
 }
 
-
 class Availability extends StatelessWidget {
   String? icon;
   String? text;
-  Availability({
-    Key? key,
-    this.icon,
-    this.text
-  }) : super(key: key);
+
+  Availability({Key? key, this.icon, this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SvgPicture.asset('assets/$icon.svg', height: 40, width: 40,),
+        SvgPicture.asset(
+          'assets/$icon.svg',
+          height: 40,
+          width: 40,
+        ),
         Height(size: 5),
         Container(
-          width: Get.width/4.68,
+          width: Get.width / 4.68,
           padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 3.h),
           decoration: BoxDecoration(
             color: Color(0xFFDEEFF5),
@@ -520,11 +515,13 @@ class Availability extends StatelessWidget {
             ),
           ),
           child: Center(
-            child: PoppinsText(text: text!,
-                color: maincolor,
-                size: 10.sp,
+            child: PoppinsText(
+              text: text!,
+              color: maincolor,
+              size: 10.sp,
               textAlign: TextAlign.center,
-            ),),
+            ),
+          ),
         ),
       ],
     );

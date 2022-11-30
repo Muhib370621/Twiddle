@@ -2,7 +2,6 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:state_agent/Screens/user_auth/authenticate.dart';
 import 'package:state_agent/constants/constants.dart';
 import 'package:state_agent/constants/hive/hive.dart';
 
@@ -23,7 +22,7 @@ class _AnimatedSplashState extends State<AnimatedSplash> {
     return AnimatedSplashScreen(
             duration: 3000,
             splash: Image.asset("assets/logo.png"),
-            nextScreen: user.get('install') == 'true'? Authentication() : OnBoardingPage(),
+            nextScreen:  OnBoardingPage(),
             splashIconSize: 400.sp,
             splashTransition: SplashTransition.fadeTransition,
             pageTransitionType: PageTransitionType.fade,

@@ -118,7 +118,7 @@ class _GoogleSignupScreenState extends State<GoogleSignupScreen> {
                       // final provider = Provider.of<GoogleSigninProvider>(context, listen: false);
                       // provider.googleSignin(type);
 
-                    googleController.googleSingup(type);
+                    // googleController.googleSingup(type);
 
                   },
                 ),

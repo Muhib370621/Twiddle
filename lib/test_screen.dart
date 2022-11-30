@@ -120,7 +120,7 @@ class SecondScreen extends StatelessWidget {
         title: Text("Second Screen"),
       ),
       body: Center(
-        child: RaisedButton(
+        child: TextButton(
           onPressed: () {
             Navigator.pop(context);
           },
@@ -139,7 +139,7 @@ class third extends StatelessWidget {
         title: Text("tgird Screen"),
       ),
       body: Center(
-        child: RaisedButton(
+        child: TextButton(
           onPressed: () {
             Navigator.pop(context);
           },

@@ -21,51 +21,47 @@ class BottomNav extends StatefulWidget {
 }
 
 class _BottomNavState extends State<BottomNav> with WidgetsBindingObserver{
-
-
-  getUser() async{
-    QuerySnapshot UserSnap = await firestore.collection('users').where('email', isEqualTo: auth.currentUser?.email).get();
-    setState(() {
-      authUser = UserSnap.docs[0].data();
-    });
-  }
-
+  // getUser() async{
+  //   QuerySnapshot UserSnap = await firestore.collection('users').where('email', isEqualTo: auth.currentUser?.email).get();
+  //   setState(() {
+  //     authUser = UserSnap.docs[0].data();
+  //   });
+  // }
   int currentTab = 0;
-  final List<Widget> screens = [ HomePage(),Dashboard(),ServiceProviders(),TwiddleWallet() ];
+  final List<Widget> screens = [HomePage(),Dashboard(),ServiceProviders(),TwiddleWallet()];
 
   final PageStorageBucket bucket= PageStorageBucket();
   Widget currentScreen = HomePage();
 
-  Future<bool> _onWillPop() async {
-    return false;
-  }
+  // Future<bool> _onWillPop() async {
+  //   return false;
+  // }
 
-  @override
-  void setStatus(String status) async{
-    await firestore.collection('users').doc(auth.currentUser?.uid).update({
-      'status': status
-    });
-  }
-
+  // @override
+  // void setStatus(String status) async{
+  //   await firestore.collection('users').doc(auth.currentUser?.uid).update({
+  //     'status': status
+  //   });
+  // }
   @override
   void initState() {
-    getUser();
-    WidgetsBinding.instance.addObserver(this);
-    setStatus('online');
+    // getUser();
+    // WidgetsBinding.instance.addObserver(this);
+    // setStatus('online');
     super.initState();
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    super.didChangeAppLifecycleState(state);
-    if (state == AppLifecycleState.resumed){
-      setStatus('online');
-    }
-    else{
-      getDateTime();
-      setStatus('Last seen at ${time}');
-    }
-  }
+  // @override
+  // void didChangeAppLifecycleState(AppLifecycleState state) {
+  //   super.didChangeAppLifecycleState(state);
+  //   if (state == AppLifecycleState.resumed){
+  //     setStatus('online');
+  //   }
+  //   else{
+  //     getDateTime();
+  //     setStatus('Last seen at ${time}');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

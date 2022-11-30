@@ -72,7 +72,7 @@ class _TwiddleWalletState extends State<TwiddleWallet> {
             children: [
 
               TwHeader(
-                amount: user.get('wallet').toString(),
+                amount:"100",
               ),
 
               Height(size: 20,),

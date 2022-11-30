@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../../Utilities/comp_screen.dart';
 import '../../../constants/constants.dart';
 import '../../../constants/dropdowns.dart';
+import '../../user_auth/signUpController.dart';
 
 class ProfileOccDetail extends StatefulWidget {
   const ProfileOccDetail({Key? key}) : super(key: key);

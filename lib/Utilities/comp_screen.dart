@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../Screens/user_auth/signUpController.dart';
 import '../constants/constants.dart';
 
 class BackButton extends StatelessWidget {
@@ -433,7 +434,7 @@ class CustomEditProfile extends StatelessWidget {
                   child: Obx(
                         () => TextField(
                       controller: controller,
-                      obscureText: signupController.isPasswordHide.value
+                      obscureText: signupController.eyeTap.value
                           ? true
                           : false,
                       style: TextStyle(
@@ -454,11 +455,11 @@ class CustomEditProfile extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    signupController.togglePassword();
+                    // signupController.togglePassword();
                   },
                   child: Obx(
                         () => Icon(
-                      signupController.isPasswordHide.value
+                      signupController.eyeTap.value
                           ? Icons.visibility_off_rounded
                           : Icons.remove_red_eye_rounded,
                       color: Colors.black54,
@@ -472,17 +473,7 @@ class CustomEditProfile extends StatelessWidget {
   }
 }
 
-class SignUpController extends GetxController {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passController = TextEditingController();
 
-  RxBool isPasswordHide = true.obs;
-  RxBool rememeberMe = false.obs;
-
-  void togglePassword() {
-    isPasswordHide.value = !isPasswordHide.value;
-  }
-}
 
 class CustomEditedSearch extends StatelessWidget {
   final TextEditingController controller;

@@ -12,6 +12,7 @@ import 'package:state_agent/Utilities/datePicker.dart';
 import '../../../Utilities/comp_screen.dart';
 import '../../../constants/constants.dart';
 import '../../../constants/methods.dart';
+import '../../user_auth/signUpController.dart';
 
 class SignUpOwner extends StatefulWidget {
   const SignUpOwner({Key? key}) : super(key: key);

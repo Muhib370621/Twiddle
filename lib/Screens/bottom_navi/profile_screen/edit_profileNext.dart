@@ -7,6 +7,7 @@ import 'package:state_agent/Screens/bottom_navi/profile_screen/profile_occup.dar
 
 import '../../../Utilities/comp_screen.dart';
 import '../../../constants/constants.dart';
+import '../../user_auth/signUpController.dart';
 
 
 

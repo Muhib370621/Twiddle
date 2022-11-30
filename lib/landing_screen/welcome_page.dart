@@ -23,13 +23,11 @@ class WelcomePage extends StatelessWidget {
             child: Column(
               children: [
 
-                Height(size: 40),
+                Height(size: 20),
                 SvgPicture.asset('assets/twiddle/welcome.svg'),
-                Height(size: 20,),
+                Height(size: 30,),
                 PoppinsText(text: 'Welcome', size: 26, fontWeight: FontWeight.bold),
-
-                Height(size: 40),
-
+                Height(size: 20),
                 Button(
                   text: 'Log In',
                   onTap: (){
@@ -49,20 +47,7 @@ class WelcomePage extends StatelessWidget {
                     Get.to(()=> CreateAccount());
                   },
                 ),
-                Height(size: 20,),
-                Iconbutton(
-                  radius: 30,
-                  MyIcon: SvgPicture.asset('assets/google.svg'),
-                  borderColor: hinttext,
-                  buttonColor: white, color: maincolor,
-                  text: 'Sign in with Google',
-                  onTap: (){
-                    Get.to(()=> GoogleSignupScreen());
 
-                    //read();
-
-                  },
-                ),
 
               ],
             ),
@@ -90,7 +75,7 @@ class BG extends StatelessWidget {
               child: Image.asset("assets/login.png",fit: BoxFit.cover),
             )),
         Positioned.fill(
-          top: Get.height * 0.30,
+          top: Get.height * 0.5,
           child: Container(
             height: Get.height * 0.6,
             width: double.infinity,

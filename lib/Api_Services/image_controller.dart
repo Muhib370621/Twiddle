@@ -49,36 +49,36 @@ class ImageController extends GetxController{
   //
   // }
 
-  Future<bool> upload() async{
+//   Future<bool> upload() async{
+//
+//     update();
+//     bool success = false;
+//
+//     // http.StreamedResponse response = await updateProfile(_pickedFile);
+//
+//     if(response.statusCode == 200){
+//       Map map = jsonDecode(await response.stream.bytesToString());
+//       String message = map['message'];
+//       success = true;
+//       Fluttertoast.showToast(msg: message);
+//     }
+//     else {
+//       Fluttertoast.showToast(msg: 'Error uploading image');
+//     }
+//     update();
+//     return success;
+// }
 
-    update();
-    bool success = false;
-
-    http.StreamedResponse response = await updateProfile(_pickedFile);
-
-    if(response.statusCode == 200){
-      Map map = jsonDecode(await response.stream.bytesToString());
-      String message = map['message'];
-      success = true;
-      Fluttertoast.showToast(msg: message);
-    }
-    else {
-      Fluttertoast.showToast(msg: 'Error uploading image');
-    }
-    update();
-    return success;
-}
-
-Future<http.StreamedResponse> updateProfile (PickedFile? data) async{
-    http.MultipartRequest request = http.MultipartRequest('POST', Uri.parse(LoginController.baseUrl+'/signup'));
-
-    if(GetPlatform.isMobile && data != null){
-      File _file = File(data.path);
-      request.files.add(http.MultipartFile('image', _file.readAsBytes().asStream(), _file.lengthSync()));//, filename: _file.path.split()));
-    }
-
-    http.StreamedResponse response = await request.send();
-    return response;
-}
+// Future<http.StreamedResponse> updateProfile (PickedFile? data) async{
+//     // http.MultipartRequest request = http.MultipartRequest('POST', Uri.parse(LoginController.baseUrl+'/signup'));
+//
+//     if(GetPlatform.isMobile && data != null){
+//       File _file = File(data.path);
+//       // request.files.add(http.MultipartFile('image', _file.readAsBytes().asStream(), _file.lengthSync()));//, filename: _file.path.split()));
+//     }
+//
+//     // http.StreamedResponse response = await request.send();
+//     // return response;
+// }
 
 }

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../../Utilities/comp_screen.dart';
 import '../../../constants/constants.dart';
+import '../../user_auth/signUpController.dart';
 import 'main_page.dart';
 
 class BankDetails extends StatefulWidget {

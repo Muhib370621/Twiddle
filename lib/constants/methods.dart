@@ -2,7 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:state_agent/Screens/user_auth/authenticate.dart';
+import 'package:state_agent/Screens/user_auth/accountSelection.dart';
+
 
 import '../Screens/property_owner/navi_ownerPro.dart';
 import '../landing_screen/welcome_page.dart';
@@ -64,7 +65,7 @@ Future<User?> login (String email, password) async{
     if(user != null){
       Fluttertoast.showToast(msg: 'Login as $userAccType');
 
-      Get.to(()=>Authentication());
+      Get.to(()=>AccountSelection());
       return user;
     }
     else{

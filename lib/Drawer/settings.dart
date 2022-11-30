@@ -13,7 +13,7 @@ import '../Utilities/dialogueBox.dart';
 class Setting extends StatelessWidget {
   Setting({Key? key}) : super(key: key);
 
-  LoginController loginController = Get.put(LoginController());
+  // LoginController loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class Setting extends StatelessWidget {
                 "Yes",
                 SvgPicture.asset('assets/check.svg'),
                     () {
-                  loginController.logout();
+                  // loginController.logout();
                 },
               ),
                 child: PoppinsText(text: 'Log Out', size: 14, color: maincolor, fontWeight: FontWeight.w700))
@@ -48,7 +48,7 @@ class Setting extends StatelessWidget {
 
               Height(size: 15),
               Push(
-                onTap: ()=> Get.to(()=> Profile()),
+                onTap: (){},
                 text: 'My Profile'
               ),
 

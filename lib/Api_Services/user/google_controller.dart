@@ -6,7 +6,6 @@ import 'package:http/http.dart' as http;
 import 'package:state_agent/Api_Services/user/login_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../Screens/user_auth/authenticate.dart';
 import '../../constants/hive/hive.dart';
 
 class GoogleController extends GetxController{
@@ -19,48 +18,48 @@ class GoogleController extends GetxController{
   // }
 
   /// GOOGLE SIGNUP HTTP
-  Future<void> googleSingup(String type) async {
-
-    //HttpServer _redirectServer = await HttpServer.bind("/google/type", 8082);
-
-    Map data = {'type': type};
-    var url = Uri.parse(LoginController.baseUrl+'/google/type');
-
-    try{
-
-      final response = await http.post(url, body: data);
-
-      if (response.statusCode == 302){
-
-        launchUrl(LoginController.baseUrl+'/auth/google');
-
-        final res = await http.get(
-            Uri.parse(LoginController.baseUrl+'/google/signin')
-        );
-        if (res.statusCode == 200){
-
-
-          LoginController.User = jsonDecode(res.body);
-          write();
-          Fluttertoast.showToast(msg: 'Welcome');
-          Get.to(() => Authentication());
-        }
-        else{
-          Fluttertoast.showToast(msg: res.body);
-        }
-
-      }
-      else{
-        print(response.statusCode);
-        Fluttertoast.showToast(msg: response.body);
-      }
-
-    } catch (e){
-
-      Fluttertoast.showToast(msg: e.toString());
-      print('Error: '+e.toString());
-    }
-  }
+  // Future<void> googleSingup(String type) async {
+  //
+  //   //HttpServer _redirectServer = await HttpServer.bind("/google/type", 8082);
+  //
+  //   Map data = {'type': type};
+  //   // var url = Uri.parse(LoginController.baseUrl+'/google/type');
+  //
+  //   try{
+  //
+  //     final response = await http.post(url, body: data);
+  //
+  //     if (response.statusCode == 302){
+  //
+  //       launchUrl(LoginController.baseUrl+'/auth/google');
+  //
+  //       final res = await http.get(
+  //           Uri.parse(LoginController.baseUrl+'/google/signin')
+  //       );
+  //       if (res.statusCode == 200){
+  //
+  //
+  //         LoginController.User = jsonDecode(res.body);
+  //         write();
+  //         Fluttertoast.showToast(msg: 'Welcome');
+  //         Get.to(() => Authentication());
+  //       }
+  //       else{
+  //         Fluttertoast.showToast(msg: res.body);
+  //       }
+  //
+  //     }
+  //     else{
+  //       print(response.statusCode);
+  //       Fluttertoast.showToast(msg: response.body);
+  //     }
+  //
+  //   } catch (e){
+  //
+  //     Fluttertoast.showToast(msg: e.toString());
+  //     print('Error: '+e.toString());
+  //   }
+  // }
 
   Future launchUrl(String url) async {
 

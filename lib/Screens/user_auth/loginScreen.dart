@@ -6,9 +6,14 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:state_agent/Screens/user_auth/components/inputTextField.dart';
+import 'package:state_agent/Screens/user_auth/components/panelButtons.dart';
+import 'package:state_agent/Screens/user_auth/loginController.dart';
+import 'package:state_agent/Screens/user_auth/signUpController.dart';
 import 'package:state_agent/constants/methods.dart';
 import '../../Api_Services/user/login_controller.dart';
 import '../../Utilities/comp_screen.dart';
+import '../../constants/appColors.dart';
 import '../../constants/constants.dart';
 import 'CreateAccount/createAcount.dart';
 import 'ForgotPassword/forgotPassword.dart';
@@ -19,41 +24,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
-
-
   LoginController loginController = Get.put(LoginController());
 
-  getuser() async{
-    QuerySnapshot userSnap = await firestore.collection('users').where('email', isEqualTo: auth.currentUser?.email).get();
-    if(userSnap.docs != null && userSnap.docs.isNotEmpty){
-      setState(() {
-        authUser = userSnap.docs[0].data();
-      });
-      loginWithAccType(email.text, password.text, type);
-    }
-  }
-
-  bool show = true;
-  final email = TextEditingController(text: "check@gmail.com");
-  final password = TextEditingController(text: "1234567");
-  final control = SignUpController();
-  String? type;
-  List types = [
-    "Real Estate", "FSP", "Service Provider"
-  ];
-
-  late Map userDetails;
-  loginUser(){
-    userDetails = {
-      'type': type,
-      'email': email.text.trim(),
-      'password': password.text,
-    };
-
-    loginController.login(userDetails);
-    //loginController.loginData(userDetails);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,271 +33,308 @@ class _LoginScreenState extends State<LoginScreen> {
       resizeToAvoidBottomInset: true,
       body: Container(
         child: BG(
-          type: type,
-          child: Column(
+          // type: type,
+          child: Obx(() => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Height(size: 30),
-              PoppinsText(text: 'Welcome Back!', size: 22, fontWeight: FontWeight.bold),
+              PoppinsText(
+                text: 'Login As Real Estate',
+                size: 22,
+                fontWeight: FontWeight.bold,
+                color: AppColors.mainColor,
+              ),
 
               // Height(size: 5),
               //
               // PoppinsText(text: 'Enter your email or number', fontWeight: FontWeight.w500, color: hinttext),
 
-              Height(size: 20),
+              Height(size: 25),
+              // Height(),
+              // Container(
+              //   padding: EdgeInsets.symmetric(horizontal: 20.w),
+              //   height: Get.height / (812 / 45),
+              //   decoration: BoxDecoration(
+              //     border: Border.all(width: 1, color: grey),
+              //     color: Colors.white,
+              //     borderRadius: BorderRadius.circular(6),
+              //   ),
+              //   child: DropdownButtonHideUnderline(
+              //     child: DropdownButton(
+              //       icon: Icon(
+              //         Icons.keyboard_arrow_down,
+              //         color: maincolor,
+              //       ),
+              //       isExpanded: true,
+              //       items: types
+              //           .map((value) => DropdownMenuItem(
+              //                 child: PoppinsText(
+              //                     text: value, fontWeight: FontWeight.w500),
+              //                 value: value,
+              //               ))
+              //           .toList(),
+              //       onChanged: (val) {
+              //         setState(() {
+              //           type = val as String?;
+              //         });
+              //       },
+              //       value: type,
+              //       hint: PoppinsText(
+              //           text: "Account Type", fontWeight: FontWeight.w500),
+              //     ),
+              //   ),
+              // ),
 
-              PoppinsText(text: 'LOGIN AS: ', size: 14, fontWeight: FontWeight.w500),
-              Height(),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                height: Get.height/(812/45),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: grey),
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(6),
+              // TypeDropdown()
+              // Height(size: 15),
+              // SizedBox(height: 2.h),
+              Text(
+                "EMAIL",
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontFamily: "PoppinsBold",
                 ),
-                child: DropdownButtonHideUnderline(
-                  child: DropdownButton(
-                    icon: Icon(Icons.keyboard_arrow_down, color: maincolor,),
-                    isExpanded: true,
-                    items: types.map((value) => DropdownMenuItem(
-                      child: PoppinsText(text: value, fontWeight: FontWeight.w500),
-                      value: value,
-                    )).toList(),
-                    onChanged: (val){
-                      setState(() {
-                        type = val as String?;
-                      });
-                    },
-                    value: type,
-                    hint: PoppinsText(text: "Account Type", fontWeight: FontWeight.w500),
+              ),
+              SizedBox(height: 9.h),
+              InputTextField(
+                hintText: "example@gmail.com",
+                prefixVisibility: false,
+                fieldController: loginController.emailController.value,
+                obscurance: false,
+                tapValue: false,
+                onTap: () {},
+                havingFlag: false,
+              ),
+              SizedBox(height: 12.h),
+              Text(
+                "PASSWORD",
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  fontFamily: "PoppinsBold",
+                ),
+              ),
+              SizedBox(height: 9.h),
+              InputTextField(
+                hintText: "Enter Password",
+                prefixVisibility: true,
+                fieldController: loginController.passwordController.value,
+                obscurance: loginController.eyeTap.value,
+                tapValue: loginController.eyeTap.value,
+                onTap: () {
+                  loginController.eyeTap.value = !loginController.eyeTap.value;
+                },
+                IconChange: loginController.eyeTap.value, havingFlag: false
+                ,
+              ),
+              SizedBox(height: 9.h),
+              Align(
+                alignment: Alignment.topRight,
+                child: Padding(
+                  padding: EdgeInsets.only(right: 7.w),
+                  child: Text(
+                    "Forgot password?",
+                    style:
+                    TextStyle(fontSize: 12.sp, color: AppColors.kLightBlue),
                   ),
                 ),
               ),
-
-              // TypeDropdown(),
-
-              Height(size: 15),
-              PoppinsText(text: 'EMAIL ADDRESS', fontWeight: FontWeight.w500),
-              Height(),
-              MyTextField(
-                radius: 5, height: 45,
-                controller: email,
-                borderColor: black,
-              ),
-
-              Height(size: 15,),
-              PoppinsText(text: 'PASSWORD', fontWeight: FontWeight.w500),
-              Height(),
-              MyTextField(
-                radius: 5,  height: 45,
-                controller: password,
-                borderColor: black,
-                onSuffixIconTap: (){
-                  setState(() {
-                    show = !show;
-                  });
-                },
-                obscureText: show,
-                suffixIcon: show == false ? Icons.remove_red_eye : Icons.visibility_off_rounded,
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: TextButton(
-                  child: PoppinsText(text: 'Forgot password?', color: maincolor),
-                  onPressed: () {
-                    Get.to(()=>ForgotPassword());
-
-                  },
+              SizedBox(height: 29.h),
+              Center(
+                child: Column(
+                  children: [
+                    PanelButtons(
+                      buttonText: loginController.isLoading.value == true
+                          ? "Please wait....."
+                          : "Login",
+                      buttonColor: AppColors.mainColor,
+                      textColor: AppColors.mainBg,
+                      onTap: () {
+                        loginController.isLoading.value == true
+                            ? null
+                            :
+                        FocusScope.of(context).unfocus();
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        loginController.login();
+                        loginController.passwordController.value.clear();
+                        loginController.emailController.value.clear();
+                        loginController.eyeTap.value = true;
+                      },
+                      borderColor: AppColors.mainColor,
+                    ),
+                    SizedBox(height: 1.h),
+                    Text(
+                      "or",
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontFamily: "PoppinsBold",
+                          color: AppColors.kLightGrey),
+                    ),
+                    SizedBox(height: 4.h),
+                    PanelButtons(
+                      buttonText: "Create an account",
+                      buttonColor: AppColors.kWhite,
+                      textColor: AppColors.welcomeTwiddle,
+                      onTap: () {
+                        Get.to(() => CreateAccount());
+                      },
+                      borderColor: Colors.black12,
+                    ),
+                    SizedBox(height: 4.h),
+                    RichText(
+                      text: TextSpan(
+                          text: "By signing in you agree to our ",
+                          style: TextStyle(
+                              fontSize: 10.sp, color: AppColors.kLightGrey),
+                          children: [
+                            TextSpan(
+                                text: "Terms of service",
+                                style: TextStyle(
+                                    fontSize: 10.sp,
+                                    color: AppColors.mainColor,
+                                    fontFamily: "PoppinsBold"))
+                          ]),
+                    ),
+                  ],
                 ),
               ),
-              Height(size: 20),
-              Button(
-                text: "Login",
-                onTap: () {
-                  if( email.text.isEmpty && password.text.isEmpty)
-                  {
-                    Fluttertoast.showToast(msg: "Enter All Fields");
-                  }
-                  else if(!email.text.contains('@')||!email.text.contains('.com'))
-                  {
-                    Fluttertoast.showToast(msg: "Invalid Email");
-                  }
-                  else if(type == null){
-                    Fluttertoast.showToast(msg: "Invalid account type");
-                  }
-                  else
-                  {
-                    // Fluttertoast.showToast(
-                    //     msg: "Login Successfully");
-                   //  loginWithAccType(email.text, password.text, type);
-                 //    getuser();
-                  apisign_in();
-                //   loginUser();
-                    // UserModel.fetchUser();
-
-                  }
-
-                },
-              ),
-              Height(),
-              Center(child: PoppinsText(text: 'or', size: 14)),
-              Height(),
-              Button(
-                borderColor: black,
-                buttonColor: white,
-                color: black,
-                text: "Create an account",
-                onTap: () {
-                  Get.to(()=>CreateAccount());
-                },
-
-              ),
-
-              Height(size: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  PoppinsText(text: "By signing in you agree to our ", fontWeight: FontWeight.w500),
-                  PoppinsText(text: "Terms of Service", fontWeight: FontWeight.w500, color: maincolor,),
-                ],
-              ),
-              Height(size: 20),
             ],
-          ),
+          ),)
+
         ),
       ),
     );
   }
 
-
-
-  Future<void> apisign_in() async {
-
-  //final prefs = await SharedPreferences.getInstance();
-  final storage = FlutterSecureStorage();
-  //String token = await getToken()
-    //var url = "https://google6666.herokuapp.com/login";
-    var url = "https://twidle-agent-api.herokuapp.com/api/user/login";
-    var data = {
-      'type': type as String,
-      'email': email.text.trim(),
-      'password': password.text.trim(),
-      //'img': image
-    };
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    //
-    // prefs.setString("token", token);
-    // String token;
-    // prefs.setString("token", token);
-    //String token = prefs.getString("token");
-
-    // var boddy = json.encode(data);
-    var jsonResponse;
-    var urlparse = Uri.parse(url);
-    http.Response response = await http.post(
-      urlparse,
-      body: data,
-   // headers: {"Content-Type": "Application/json", "Authorization": "Bearer $token"}
-    );
-
-    print(response.statusCode);
-
-
-    // print(userDetails);
-  // print('Token : ${token}');
-  // print('Response Body : ${response.body}');
-
-    if (response.statusCode == 200) {
-     // print(LoginResponseModel());
-      FutureBuilder(
-          future: apisign_in(),
-         builder: (context, snapshot){
-            if(snapshot.connectionState == ConnectionState.done)
-              {
-                print(userDetails);
-                // print('token');
-              }
-            return AlertDialog(
-              title: Icon(Icons.arrow_circle_right, color: Colors.green,size: 30,),
-              content: Text("Check your email to verify/n the account",textAlign: TextAlign.center,),
-              actions: [
-                Text("larry.johns@gmail.com",textAlign: TextAlign.center,),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.052,
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0)),
-                )
-              ],
-            );
-         }
-      );
-      print(response.statusCode);
-      Fluttertoast.showToast(msg: "Login Successfull",
-        backgroundColor: Colors.green,
-      );
-      // Get.to(()=>BottomNav());
-       // print('ok');
-      //_launchUrl;
-      // Future getdat() async {
-      //   var res = await http.get(
-      //     Uri.https('google6666.herokuapp.com', 'auth/google'),
-      //   );
-      //   print(res);
-      //   return res;
-      // }
-    }
-
-    else if(response.statusCode == 400){
-      Fluttertoast.showToast(msg: "Invalid Credentials",
-      backgroundColor: Colors.red);
-    }
-    else{
-      print(response.body);
-    }
-  // SharedPreferences prefs = await SharedPreferences.getInstance();
-  // //now set the token inside the shared_preferences
-  // //I assumed that the token is a field in the json response, but check it before!!
-  // await prefs.setString('token',responseJson['token']);
-  // return responseJson;
-  }
-
+  // Future<void> apisign_in() async {
+  //   //final prefs = await SharedPreferences.getInstance();
+  //   final storage = FlutterSecureStorage();
+  //   //String token = await getToken()
+  //   //var url = "https://google6666.herokuapp.com/login";
+  //   var url = "https://twidle-agent-api.herokuapp.com/api/user/login";
+  //   var data = {
+  //     'type': type as String,
+  //     'email': email.text.trim(),
+  //     'password': password.text.trim(),
+  //     //'img': image
+  //   };
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   //
+  //   // prefs.setString("token", token);
+  //   // String token;
+  //   // prefs.setString("token", token);
+  //   //String token = prefs.getString("token");
+  //
+  //   // var boddy = json.encode(data);
+  //   var jsonResponse;
+  //   var urlparse = Uri.parse(url);
+  //   http.Response response = await http.post(
+  //     urlparse,
+  //     body: data,
+  //     // headers: {"Content-Type": "Application/json", "Authorization": "Bearer $token"}
+  //   );
+  //
+  //   print(response.statusCode);
+  //
+  //   // print(userDetails);
+  //   // print('Token : ${token}');
+  //   // print('Response Body : ${response.body}');
+  //
+  //   if (response.statusCode == 200) {
+  //     // print(LoginResponseModel());
+  //     FutureBuilder(
+  //         future: apisign_in(),
+  //         builder: (context, snapshot) {
+  //           if (snapshot.connectionState == ConnectionState.done) {
+  //             print(userDetails);
+  //             // print('token');
+  //           }
+  //           return AlertDialog(
+  //             title: Icon(
+  //               Icons.arrow_circle_right,
+  //               color: Colors.green,
+  //               size: 30,
+  //             ),
+  //             content: Text(
+  //               "Check your email to verify/n the account",
+  //               textAlign: TextAlign.center,
+  //             ),
+  //             actions: [
+  //               Text(
+  //                 "larry.johns@gmail.com",
+  //                 textAlign: TextAlign.center,
+  //               ),
+  //               Container(
+  //                 height: MediaQuery.of(context).size.height * 0.052,
+  //                 width: MediaQuery.of(context).size.width * 0.8,
+  //                 decoration:
+  //                     BoxDecoration(borderRadius: BorderRadius.circular(20.0)),
+  //               )
+  //             ],
+  //           );
+  //         });
+  //     print(response.statusCode);
+  //     Fluttertoast.showToast(
+  //       msg: "Login Successfull",
+  //       backgroundColor: Colors.green,
+  //     );
+  //     // Get.to(()=>BottomNav());
+  //     // print('ok');
+  //     //_launchUrl;
+  //     // Future getdat() async {
+  //     //   var res = await http.get(
+  //     //     Uri.https('google6666.herokuapp.com', 'auth/google'),
+  //     //   );
+  //     //   print(res);
+  //     //   return res;
+  //     // }
+  //   } else if (response.statusCode == 400) {
+  //     Fluttertoast.showToast(
+  //         msg: "Invalid Credentials", backgroundColor: Colors.red);
+  //   } else {
+  //     print(response.body);
+  //   }
+  //   // SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   // //now set the token inside the shared_preferences
+  //   // //I assumed that the token is a field in the json response, but check it before!!
+  //   // await prefs.setString('token',responseJson['token']);
+  //   // return responseJson;
+  // }
 }
 
 class BG extends StatelessWidget {
-  Widget? child; String? type;
+  Widget? child;
+  String? type;
+
   BG({Key? key, this.child, this.type}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        type == 'Service Provider'?
+        type == 'Service Provider'
+            ? Positioned(
+                top: 0,
+                child: SizedBox(
+                  width: Get.width,
+                  height: Get.height * 0.66,
+                  child: Image.asset("assets/sp/sp_bg.png", fit: BoxFit.cover),
+                ))
+            : Positioned(
+                top: 0,
+                child: SizedBox(
+                  width: Get.width,
+                  height: Get.height * 0.66,
+                  child: Image.asset("assets/login.png", fit: BoxFit.cover),
+                )),
         Positioned(
-            top: 0,
-            child: SizedBox(
-              width: Get.width,
-              height: Get.height * 0.66,
-              child: Image.asset("assets/sp/sp_bg.png",fit: BoxFit.cover),
-            )) :
-        Positioned(
-            top: 0,
-            child: SizedBox(
-              width: Get.width,
-              height: Get.height * 0.66,
-              child: Image.asset("assets/login.png",fit: BoxFit.cover),
-            )),
-
-        Positioned(
-            top: 40, left: 15,
+            top: 40,
+            left: 15,
             child: MyBackButton(
               color: white,
               iconColor: black,
-            )
-        ),
-
+            )),
         Positioned.fill(
-          top: Get.height * 0.30,
+          top: Get.height * 0.45,
           child: Container(
             height: Get.height * 0.6,
             width: double.infinity,
@@ -348,7 +357,6 @@ class BG extends StatelessWidget {
       ],
     );
   }
-
 }
 
 //
@@ -376,7 +384,6 @@ class BG extends StatelessWidget {
 //     return await storage.read(key: "token");
 //   }
 // }
-
 
 //
 //

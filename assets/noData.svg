@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="111" height="118" viewBox="0 0 111 118">
+  <g id="Group_19292" data-name="Group 19292" transform="translate(-134 -350)">
+    <g id="Group_19291" data-name="Group 19291" transform="translate(138 356)">
+      <path id="Path_4915" data-name="Path 4915" d="M0,0H100V100H0Z" fill="none"/>
+      <path id="Path_4916" data-name="Path 4916" d="M14,3V19.667a4.167,4.167,0,0,0,4.167,4.167H34.833" transform="translate(44.333 9.5)" fill="none" stroke="#e9e9ec" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <path id="Path_4917" data-name="Path 4917" d="M34.167,78H13.333A8.333,8.333,0,0,1,5,69.667V11.333A8.333,8.333,0,0,1,13.333,3H42.5L63.333,23.833v18.75" transform="translate(15.833 9.5)" fill="none" stroke="#e9e9ec" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <circle id="Ellipse_3316" data-name="Ellipse 3316" cx="10.417" cy="10.417" r="10.417" transform="translate(58.333 62.5)" fill="none" stroke="#e9e9ec" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      <line id="Line_435" data-name="Line 435" x2="10.417" y2="10.417" transform="translate(77.083 81.25)" fill="none" stroke="#e9e9ec" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+    </g>
+    <circle id="Ellipse_3317" data-name="Ellipse 3317" cx="3" cy="3" r="3" transform="translate(134 350)" fill="#e9e9ec"/>
+    <circle id="Ellipse_3320" data-name="Ellipse 3320" cx="3" cy="3" r="3" transform="translate(239 422)" fill="#e9e9ec"/>
+    <circle id="Ellipse_3318" data-name="Ellipse 3318" cx="5" cy="5" r="5" transform="translate(235 375)" fill="#e9e9ec"/>
+    <circle id="Ellipse_3322" data-name="Ellipse 3322" cx="5" cy="5" r="5" transform="translate(204 458)" fill="#e9e9ec"/>
+    <circle id="Ellipse_3319" data-name="Ellipse 3319" cx="3.5" cy="3.5" r="3.5" transform="translate(140 428)" fill="#e9e9ec"/>
+    <circle id="Ellipse_3321" data-name="Ellipse 3321" cx="3.5" cy="3.5" r="3.5" transform="translate(200 352)" fill="#e9e9ec"/>
+  </g>
+</svg>

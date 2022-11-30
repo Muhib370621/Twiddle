@@ -22,7 +22,7 @@ import 'drawer/twiddle_inv/twiddle_inv.dart';
 class MyDrawer extends StatelessWidget {
   MyDrawer({Key? key}) : super(key: key);
 
-  LoginController loginController = Get.put(LoginController());
+  // LoginController loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -169,9 +169,9 @@ class MyDrawer extends StatelessWidget {
                   "Yes",
                   SvgPicture.asset('assets/check.svg'),
                       () {
-                    getDateTime();
-                    setStatus('last seen at ${time}');
-                    loginController.logout();
+                    // getDateTime();
+                    // setStatus('last seen at ${time}');
+                    // loginController.logout();
                   },
                 ),
               ),

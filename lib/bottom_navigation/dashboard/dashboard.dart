@@ -10,6 +10,7 @@ import '../../constants/hive/hive.dart';
 import '../chat_screen/chat_screen.dart';
 import '../drawer.dart';
 import '../drawer/notification/Notifications.dart';
+import '../home/controller/mainScreenController.dart';
 import '../home/home_body.dart';
 import 'dashboard_body.dart';
 
@@ -18,6 +19,8 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MainScreenController mainScreenController =
+    Get.put(MainScreenController());
     final GlobalKey<ScaffoldState> dashboardKey = GlobalKey();
     return Scaffold(
       key: dashboardKey,
@@ -39,7 +42,7 @@ class Dashboard extends StatelessWidget {
                   height: 40, width: 40, radius: 40,
                   horizontalPadding: 5, verticalPadding: 5,
                   color: white,
-                  child: Icon(FontAwesomeIcons.barsStaggered, color: black, size: 20.sp),
+                  child: Icon(FontAwesomeIcons.barsStaggered, color: black, size: 16.sp),
                 ),
               ),
 
@@ -93,8 +96,8 @@ class Dashboard extends StatelessWidget {
               children: [
 
                 DashboardHeader(
-                  name: user.get('full_name').toString().capitalize!,
-                  image: user.get('profile_pic').toString(),
+                  name: mainScreenController.rentPropertyList.value.data![0].user!.firstname.toString().capitalize!,
+                  image:  mainScreenController.rentPropertyList.value.data![0].user!.avatar.toString().toString(),
                 ),
                 Height(size: 20),
                 // Padding(

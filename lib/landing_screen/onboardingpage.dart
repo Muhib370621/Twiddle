@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:state_agent/Screens/user_auth/authenticate.dart';
+import 'package:state_agent/Screens/user_auth/accountSelection.dart';
 import 'package:state_agent/constants/constants.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -60,7 +60,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
                   InkWell(
                     onTap: (){
-                      Get.off(()=>Authentication());
+                      Get.off(()=>AccountSelection());
                     },
                     child: Container(
                       height: 30.h, width: 70.w,
@@ -92,7 +92,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                         pageController.nextPage(duration: Duration(milliseconds: 300), curve: Curves.ease);
                       }
                       else
-                        Get.off(()=>Authentication());
+                        Get.off(()=>AccountSelection());
                     },
                     child: Container(
                       height: 30.h, width: 70.w,

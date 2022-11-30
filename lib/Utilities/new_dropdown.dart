@@ -160,7 +160,7 @@ class _NewDropdownState extends State<NewDropdown> {
 
                 SizedBox(height: 20.h,),
 
-                RaisedButton(onPressed: (){
+                TextButton(onPressed: (){
                   print(selectedStatus);
                 },
                 child: Text("Press"),)

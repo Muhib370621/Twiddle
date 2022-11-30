@@ -50,7 +50,7 @@ class _CreateAccountState extends State<CreateAccount> {
     };
 
     //signupController.uploadData(base64Image, fileName, userDetails);
-    signupController.register(userDetails);
+    // signupController.register(userDetails);
     print(file);
   }
 

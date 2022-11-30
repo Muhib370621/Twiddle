@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:state_agent/Screens/user_auth/CreateAccount/createAcount.dart';
@@ -34,6 +35,7 @@ Future<void> main() async{
   await Hive.initFlutter();
   await Firebase.initializeApp();
   await Hive.openBox('user');
+  await GetStorage.init();
 
   // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroungHandler);
   //
@@ -49,6 +51,7 @@ Future<void> main() async{
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
   ]);
+
   runApp(
       MyApp()
   );
@@ -74,6 +77,7 @@ class MyApp extends StatelessWidget {
               title: 'Twiddle',
               //routes: {'/reportAgent': (context) => ReportAgent()},
               theme: ThemeData(
+                  fontFamily: 'PoppinsMedium',
                 platform: TargetPlatform.iOS,
                 primarySwatch: Colors.blue
               ),

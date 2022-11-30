@@ -4,6 +4,7 @@ import 'package:state_agent/constants/constants.dart';
 
 import '../../../Utilities/comp_screen.dart';
 import '../loginScreen.dart';
+import '../signUpController.dart';
 
 class NewPass extends StatefulWidget {
   const NewPass({Key? key}) : super(key: key);

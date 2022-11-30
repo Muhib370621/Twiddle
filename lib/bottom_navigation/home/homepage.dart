@@ -12,7 +12,6 @@ import 'filters.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> homeKey = GlobalKey();
@@ -39,10 +38,9 @@ class HomePage extends StatelessWidget {
                       height: 40, width: 40, radius: 40,
                       horizontalPadding: 5, verticalPadding: 5,
                       shadowColor: shadowcolor, color: white,
-                      child: Icon(FontAwesomeIcons.barsStaggered, size: 20.sp, color: black),
+                      child: Icon(FontAwesomeIcons.barsStaggered, size: 16.sp, color: black),
                     ),
                   ),
-
                   Width(size: 10),
                   Expanded(
                     child: MyTextField(
@@ -52,9 +50,7 @@ class HomePage extends StatelessWidget {
                       icon: Icon(Icons.search),
                     ),
                   ),
-
                   Width(size: 10),
-
                   GestureDetector(
                     onTap: (){
                       Get.to(()=> FilterScreen());
@@ -99,13 +95,10 @@ class HomePage extends StatelessWidget {
                         ),
                         labelColor: Colors.white,
                         unselectedLabelColor: Colors.black,
-
                         tabs: [
-
                           Tab(text: 'Rent'),
                           Tab(text: 'Sales'),
                           Tab(text: 'Short Stay'),
-
                         ],
                       ),
                     ),
@@ -167,7 +160,6 @@ class Appbar extends StatelessWidget {
       verticalPadding: 10.h,
       child: Row(
         children: [
-
           GestureDetector(
             onTap: onDrawerTap,
             child: MyContainer(
@@ -177,12 +169,12 @@ class Appbar extends StatelessWidget {
               child: Icon(FontAwesomeIcons.barsStaggered),
             ),
           ),
-
           Width(size: 10),
           Expanded(
             child: MyTextField(
-              color: lightButton, radius: 40,
+              color: lightButton, radius: 10,
               controller: search, height: 50,
+              // width: 100,
               icon: Icon(Icons.search),
             ),
           ),

@@ -48,7 +48,7 @@ class Wallet extends StatelessWidget {
                       PoppinsText(text: 'Available Balance', size: 14, color: white),
 
                       Height(),
-                      PoppinsText(text: 'Ghc ${user.get('wallet')}', size: 22, color: white),
+                      PoppinsText(text: 'Ghc 100', size: 22, color: white),
 
                       Height(size: 40)
                     ],

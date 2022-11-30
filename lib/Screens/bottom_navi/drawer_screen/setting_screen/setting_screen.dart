@@ -28,7 +28,7 @@ class MySetting extends StatefulWidget {
 }
 
 class _MySettingState extends State<MySetting> {
-  LoginController loginController = Get.put(LoginController());
+  // LoginController loginController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,7 +111,7 @@ class _MySettingState extends State<MySetting> {
                           () {
                             getDateTime();
                             setStatus('last seen at ${time}');
-                            loginController.logout();
+                            // loginController.logout();
                           },
                         );
                       },
