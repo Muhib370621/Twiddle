@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../Screens/bottom_navi/service_screen/service_details.dart';
+import '../../constants/appAssets.dart';
+import '../../constants/appColors.dart';
 import '../../constants/constants.dart';
 
 class AllServiceProviders extends StatelessWidget {
@@ -12,54 +15,260 @@ class AllServiceProviders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Stream<QuerySnapshot> ref = FirebaseFirestore.instance.collection('users').snapshots();
-
-    return StreamBuilder<QuerySnapshot>(
-      stream: ref,
-      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
-        if (snapshot.hasError){
-          return Center(child: PoppinsText(text: "Something went wrong"));
-        }
-        else if (snapshot.connectionState == ConnectionState.waiting){
-          return Center(child: CircularProgressIndicator());
-        }
-        final data = snapshot.requireData;
-        // var doc = snapshot.data?.docs[index].data();
-        return ListView.builder(
-            itemCount: data.size,
-            itemBuilder: (context, index){
-
-              if(data.docs[index]['accType'] == 'Service Provider') {
-
-                return Column(
-                  children: [
-
-                    GestureDetector(
-                      onTap: (){
-                        Get.to(()=> ServiceDetails(
-                          uid: data.docs[index]['uid'],
-                        ));
-                      },
-                      child: ServiceProviders(
-                        name: data.docs[index]['name'],
-                        profilePic: data.docs[index]['profilePic'],
-                        profession: data.docs[index]['profession'],
-                        price: data.docs[index]['price'],
-                        location: data.docs[index]['location'],
-                        verified: data.docs[index]['verified'],
-                        available: data.docs[index]['available'],
-                      ),
+    return ListView.builder(
+        physics: const BouncingScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              Container(
+                // height: 20.h,
+                // width: 100.w,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  color: AppColors.kWhite,
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.mainBg.withOpacity(0.3),
+                      spreadRadius: 5,
+                      blurRadius: 7,
+                      offset: const Offset(
+                          0, 0.5), // changes position of shadow
                     ),
-                    Height()
                   ],
-                );
-              }
-              return Container();
-            }
-        );
-      },
-    );
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Align(
+                          alignment: Alignment.topRight,
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints.expand(
+                                height: 23.h, width: 30.w),
+                            child: PopupMenuButton(
+                              itemBuilder: (BuildContext context) {
+                                return [
+                                  const PopupMenuItem(
+                                    child: Text("Report"),
+                                  ),
+                                  const PopupMenuItem(
+                                    child: Text("Block"),
+                                  ),
+                                ];
+                              },
+                            ),
+                          )),
+                      Row(
+                        children: [
+                          Stack(
+                            children: [
+                              Image.asset("assets/Image1.png",height: 55.h,),
+                              Positioned(
+                                top: 1.h,
+                                left: 41.w,
+                                child: SvgPicture.asset(
+                                  AppAssets.greenCheckIcon,
+                                  height: 10.h,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 9.w,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Martha Hill",
+                                style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontFamily: "PoppinsMedium",
+                                    color: AppColors.welcomeTwiddle),
+                              ),
+                              Row(
+                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Cleaner",
+                                    style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontFamily: "PoppinsMedium",
+                                      color: AppColors.kLightOrange,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 129.w,
+                                  ),
+                                  Text(
+                                    "Ghc 62/hr",
+                                    style: TextStyle(
+                                      fontSize: 16.sp,
+                                      color: AppColors.mainColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              // SizedBox(height: 0.1.h,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment:
+                                CrossAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 18.sp,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 18.sp,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 18.sp,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 18.sp,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                    size: 18.sp,
+                                  ),
+                                  SizedBox(
+                                    width: 14.w,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(top: 0.3.h),
+                                    child: Text(
+                                      "13 reviews",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: AppColors.kLightGrey,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 12.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Row(
+                            children: [
+                              SvgPicture.asset(AppAssets.locationIcon,height: 18.h,),
+                              SizedBox(
+                                width: 6.w,
+                              ),
+                              Text(
+                                "Location",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              SvgPicture.asset(
+                                AppAssets.greenCheckIcon,
+                                height: 18.h,
+                                // width: 2.w,
+                              ),
+                              SizedBox(
+                                width: 6.w,
+                              ),
+                              Text(
+                                "Available",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 2.w,
+                          ),
+                          SvgPicture.asset(
+                            AppAssets.favUnselectedIcon,
+                            // height: 2.h,
+                            // width: 2.w,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 1.h,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 16.h,),
+            ],
+          );
+        });
+    // Stream<QuerySnapshot> ref = FirebaseFirestore.instance.collection('users').snapshots();
+
+    // return StreamBuilder<QuerySnapshot>(
+    //   stream: ref,
+    //   builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
+    //     if (snapshot.hasError){
+    //       return Center(child: PoppinsText(text: "Something went wrong"));
+    //     }
+    //     else if (snapshot.connectionState == ConnectionState.waiting){
+    //       return Center(child: CircularProgressIndicator());
+    //     }
+    //     final data = snapshot.requireData;
+    //     // var doc = snapshot.data?.docs[index].data();
+    //     return ListView.builder(
+    //         itemCount: data.size,
+    //         itemBuilder: (context, index){
+    //
+    //           if(data.docs[index]['accType'] == 'Service Provider') {
+    //
+    //             return Column(
+    //               children: [
+    //
+    //                 GestureDetector(
+    //                   onTap: (){
+    //                     // Get.to(()=> ServiceDetails(
+    //                     //   uid: data.docs[index]['uid'],
+    //                     ));
+    //                   },
+    //                   child: ServiceProviders(
+    //                     name: data.docs[index]['name'],
+    //                     profilePic: data.docs[index]['profilePic'],
+    //                     profession: data.docs[index]['profession'],
+    //                     price: data.docs[index]['price'],
+    //                     location: data.docs[index]['location'],
+    //                     verified: data.docs[index]['verified'],
+    //                     available: data.docs[index]['available'],
+    //                   ),
+    //                 ),
+    //                 Height()
+    //               ],
+    //             );
+    //           }
+    //           return Container();
+    //         }
+    //     );
+    //   },
+    // );
   }
 }
 class HiredServiceProviders extends StatelessWidget {
@@ -67,56 +276,420 @@ class HiredServiceProviders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return ListView.builder(
+      physics: const BouncingScrollPhysics(),
+      shrinkWrap: true,
+      itemCount: 3,
+      itemBuilder: (context, index) {
+        return Column(
+          children: [
+            Container(
+              // height: 20.h,
+              // width: 100.w,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+                color: AppColors.kWhite,
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.mainBg.withOpacity(0.3),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset:
+                    const Offset(0, 0.5), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                        alignment: Alignment.topRight,
+                        child: ConstrainedBox(
+                          constraints:
+                          BoxConstraints.expand(height: 23.h, width: 30.w),
+                          child: PopupMenuButton(
+                            itemBuilder: (BuildContext context) {
+                              return [
+                                const PopupMenuItem(
+                                  child: Text("Report"),
+                                ),
+                                const PopupMenuItem(
+                                  child: Text("Block"),
+                                ),
+                              ];
+                            },
+                          ),
+                        )),
+                    Row(
+                      children: [
+                        Stack(
+                          children: [
+                            Image.asset("assets/Image1.png",height: 55.h,),
+                            Positioned(
+                              top: 1.h,
+                              left: 41.w,
+                              child: SvgPicture.asset(
+                                AppAssets.greenCheckIcon,
+                                height: 10.h,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 13.w,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Martha Hill",
+                              style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontFamily: "PoppinsMedium",
+                                  color: AppColors.welcomeTwiddle),
+                            ),
+                            Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              // crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Cleaner",
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontFamily: "PoppinsMedium",
+                                    color: AppColors.kLightOrange,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 119.w,
+                                ),
+                                Text(
+                                  "Ghc 62/hr",
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    color: AppColors.mainColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            // SizedBox(height: 0.1.h,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 18.sp,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 18.sp,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 18.sp,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 18.sp,
+                                ),
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 18.sp,
+                                ),
+                                SizedBox(
+                                  width: 9.w,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 0.3.h),
+                                  child: Text(
+                                    "13 reviews",
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: AppColors.kLightGrey,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Row(
+                          children: [
+                            SvgPicture.asset(AppAssets.locationIcon,height: 16.h,),
+                            SizedBox(
+                              width: 6.w,
+                            ),
+                            Text(
+                              "Location",
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/hired.png",
+                              height: 16.h,
+                              // width: 2.w,
+                            ),
+                            SizedBox(
+                              width: 6.w,
+                            ),
+                            Text(
+                              "Hired",
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          width: 8.w,
+                        ),
+                        SvgPicture.asset(
+                          AppAssets.favUnselectedIcon,
+                          // height: 2.h,
+                          // width: 2.w,
+                        ),
 
-    Stream<QuerySnapshot> ref = FirebaseFirestore.instance.collection('users').snapshots();
-
-    return StreamBuilder<QuerySnapshot>(
-      stream: ref,
-      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
-        if (snapshot.hasError){
-          return Center(child: PoppinsText(text: "Something went wrong"));
-        }
-        else if (snapshot.connectionState == ConnectionState.waiting){
-          return Center(child: CircularProgressIndicator());
-        }
-        final data = snapshot.requireData;
-        // var doc = snapshot.data?.docs[index].data();
-        return ListView.builder(
-            itemCount: data.size,
-            itemBuilder: (context, index){
-
-              if(data.docs[index]['accType'] == 'Service Provider') {
-                if (data.docs[index]['hired'] == 'true') {
-                  return Column(
-                    children: [
-
-                      GestureDetector(
-                        onTap: () {
-                          Get.to(() =>
-                              ServiceDetails(
-                                uid: data.docs[index]['uid'],
-                              ));
-                        },
-                        child: ServiceProviders(
-                          name: data.docs[index]['name'],
-                          profilePic: data.docs[index]['profilePic'],
-                          profession: data.docs[index]['profession'],
-                          price: data.docs[index]['price'],
-                          location: data.docs[index]['location'],
-                          verified: data.docs[index]['verified'],
-                          available: data.docs[index]['available'],
+                      ],
+                    ),
+                    SizedBox(
+                      height: 1.5.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 4.2.w),
+                      child: RichText(
+                        text: TextSpan(
+                          text: "Scheduled",
+                          style: TextStyle(
+                            fontSize: 15.sp,
+                            color: AppColors.kLightGrey,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: " in progress",
+                              style: TextStyle(
+                                fontSize: 15.sp,
+                                color: AppColors.mainColor,
+                              ),
+                            )
+                          ],
                         ),
                       ),
-                      Height()
-                    ],
-                  );
-                }
-              }
-              return Container();
-            }
+                    ),
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 5.w),
+                      child: Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Date",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: AppColors.welcomeTwiddle,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 0.5.h,
+                              ),
+                              Text(
+                                "08-07-2020",
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    color: AppColors.welcomeTwiddle,
+                                    fontFamily: "PoppinsBold"),
+                              ),
+                              SizedBox(
+                                height: 8.h,
+                              ),
+                              Text(
+                                "Start Time",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: AppColors.welcomeTwiddle,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 0.5.h,
+                              ),
+                              Text(
+                                "08:30 AM",
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    color: AppColors.welcomeTwiddle,
+                                    fontFamily: "PoppinsBold"),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            width: 60.w,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Total Hours",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: AppColors.welcomeTwiddle,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 0.5.h,
+                              ),
+                              Text(
+                                "02 Hours",
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    color: AppColors.welcomeTwiddle,
+                                    fontFamily: "PoppinsBold"),
+                              ),
+                              SizedBox(
+                                height: 8.h,
+                              ),
+                              Text(
+                                "End Time",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  color: AppColors.welcomeTwiddle,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 0.5.h,
+                              ),
+                              Text(
+                                "10:30 AM",
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    color: AppColors.welcomeTwiddle,
+                                    fontFamily: "PoppinsBold"),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 18.h,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 4.5.w),
+                      height: 35.h,
+                      width: 152.w,
+                      decoration: const BoxDecoration(
+                        color: AppColors.kGreenAccent,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            20,
+                          ),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          SvgPicture.asset(AppAssets.greenCheckIcon,
+                              color: AppColors.kWhite, height: 13.h),
+                          SizedBox(
+                            width: 8.w,
+                          ),
+                          Text(
+                            "Mark as Completed",
+                            style: TextStyle(
+                                color: AppColors.kWhite, fontSize: 14.sp),
+                          ),
+                          SizedBox(width: 5.h,)
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 5.h,)
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: 23.h,),
+          ],
         );
       },
     );
+
+    // Stream<QuerySnapshot> ref = FirebaseFirestore.instance.collection('users').snapshots();
+    //
+    // return StreamBuilder<QuerySnapshot>(
+    //   stream: ref,
+    //   builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){
+    //     if (snapshot.hasError){
+    //       return Center(child: PoppinsText(text: "Something went wrong"));
+    //     }
+    //     else if (snapshot.connectionState == ConnectionState.waiting){
+    //       return Center(child: CircularProgressIndicator());
+    //     }
+    //     final data = snapshot.requireData;
+    //     // var doc = snapshot.data?.docs[index].data();
+    //     return ListView.builder(
+    //         itemCount: data.size,
+    //         itemBuilder: (context, index){
+    //
+    //           if(data.docs[index]['accType'] == 'Service Provider') {
+    //             if (data.docs[index]['hired'] == 'true') {
+    //               return Column(
+    //                 children: [
+    //
+    //                   GestureDetector(
+    //                     onTap: () {
+    //                       Get.to(() =>
+    //                           ServiceDetails(
+    //                             uid: data.docs[index]['uid'],
+    //                           ));
+    //                     },
+    //                     child: ServiceProviders(
+    //                       name: data.docs[index]['name'],
+    //                       profilePic: data.docs[index]['profilePic'],
+    //                       profession: data.docs[index]['profession'],
+    //                       price: data.docs[index]['price'],
+    //                       location: data.docs[index]['location'],
+    //                       verified: data.docs[index]['verified'],
+    //                       available: data.docs[index]['available'],
+    //                     ),
+    //                   ),
+    //                   Height()
+    //                 ],
+    //               );
+    //             }
+    //           }
+    //           return Container();
+    //         }
+    //     );
+    //   },
+    // );
+
   }
 }
 class VerifiedServiceProviders extends StatelessWidget {

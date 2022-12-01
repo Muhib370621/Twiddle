@@ -9,6 +9,7 @@ import 'package:state_agent/bottom_navigation/drawer/help/help.dart';
 import 'package:state_agent/constants/constants.dart';
 
 import '../Utilities/dialogueBox.dart';
+import '../bottom_navigation/tenants/tenant_profile.dart';
 
 class Setting extends StatelessWidget {
   Setting({Key? key}) : super(key: key);
@@ -48,8 +49,8 @@ class Setting extends StatelessWidget {
 
               Height(size: 15),
               Push(
-                onTap: (){},
-                text: 'My Profile'
+                  onTap: ()=> Get.to(()=> Profile()),
+                  text: 'My Profile'
               ),
 
               Height(size: 15),
@@ -86,16 +87,13 @@ class Setting extends StatelessWidget {
 
               Height(size: 15),
               Push(
-                  //onTap: ()=> Get.to(()=> Profile()),
                 text: 'Your GPS Location'
               ),
-
               Height(size: 15),
               Push(
                   onTap: ()=> Get.to(()=> HelpDesk()),
                   text: 'Help & Support'
               ),
-
               Height(size: 15),
               Push(
                   onTap: ()=> Get.to(()=> MySetting()),

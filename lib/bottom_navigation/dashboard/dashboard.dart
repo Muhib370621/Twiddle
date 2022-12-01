@@ -33,7 +33,6 @@ class Dashboard extends StatelessWidget {
           verticalPadding: 10.h,
           child: Row(
             children: [
-
               GestureDetector(
                 onTap: (){
                   dashboardKey.currentState!.openDrawer();

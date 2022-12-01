@@ -45,7 +45,7 @@ class _ServiceProvidersState extends State<ServiceProviders> {
                     height: 40, width: 40, radius: 40,
                     horizontalPadding: 5, verticalPadding: 5,
                     shadowColor: maincolor.withOpacity(0.15), color: white,
-                    child: Icon(FontAwesomeIcons.barsStaggered, size: 20.sp, color: black),
+                    child: Icon(FontAwesomeIcons.barsStaggered, size: 16.sp, color: black),
                   ),
                 ),
 

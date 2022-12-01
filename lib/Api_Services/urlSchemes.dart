@@ -3,6 +3,7 @@ class UrlSchemes{
 //~~~~~~~~~~~~~~~~~~~~~~~~~Real Estate Authentication Urls~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   static String userLogin = "/user/login";
   static String userSignUp = "/user";
+  static String property = "/property";
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~Real Estate Get Urls~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

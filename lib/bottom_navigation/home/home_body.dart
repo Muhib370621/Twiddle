@@ -43,24 +43,101 @@ class RentProperty extends StatelessWidget {
                             children: [
                               GestureDetector(
                                 onTap: () {
-                                  Get.to(()=>
-                                      PropertyDetails(
-                                        title: mainScreenController.rentPropertyList.value.data?[index].title.toString(),
-                                        bedroom: mainScreenController.rentPropertyList.value.data?[index].specification?.bedroom.toString(),
+                                  Get.to(() => PropertyDetails(
+                                        title: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data?[index]
+                                            .title
+                                            .toString(),
+                                        bedroom: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data?[index]
+                                            .specification
+                                            ?.bedroom
+                                            .toString(),
                                         location: "Location(dummy)",
-                                        type: mainScreenController.rentPropertyList.value.data![index].catagery.toString(),
-                                        price: int.parse(mainScreenController.rentPropertyList.value.data![index].price.toString()),
-                                        ac: mainScreenController.rentPropertyList.value.data![index].specification?.aircondition.toString(),
-                                        desc: mainScreenController.rentPropertyList.value.data![index].description.toString(),
-                                        kitchen: mainScreenController.rentPropertyList.value.data![index].specification?.kitchen.toString(),
-                                        parking: mainScreenController.rentPropertyList.value.data![index].specification?.carparking.toString(),
-                                        quarters: mainScreenController.rentPropertyList.value.data![index].specification?.quarterAvailble.toString(),
-                                        tap: mainScreenController.rentPropertyList.value.data![index].specification?.tapAvailable.toString(),
-                                        washroom: mainScreenController.rentPropertyList.value.data![index].catagery.toString(),
-                                        uid: mainScreenController.rentPropertyList.value.data![index].user?.id.toString(),
-                                        visitCharges: int.parse(mainScreenController.rentPropertyList.value.data![index].price.toString()),
-                                        avatar: mainScreenController.rentPropertyList.value.data![index].user?.avatar.toString(),
-
+                                        type: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .catagery
+                                            .toString(),
+                                        price: int.parse(mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .price
+                                            .toString()),
+                                        ac: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .specification
+                                            ?.aircondition
+                                            .toString(),
+                                        desc: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .description
+                                            .toString(),
+                                        kitchen: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .specification
+                                            ?.kitchen
+                                            .toString(),
+                                        parking: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .specification
+                                            ?.carparking
+                                            .toString(),
+                                        quarters: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .specification
+                                            ?.quarterAvailble
+                                            .toString(),
+                                        tap: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .specification
+                                            ?.tapAvailable
+                                            .toString(),
+                                        washroom: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .catagery
+                                            .toString(),
+                                        uid: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .user
+                                            ?.id
+                                            .toString(),
+                                        visitCharges: int.parse(
+                                            mainScreenController
+                                                .rentPropertyList
+                                                .value
+                                                .data![index]
+                                                .price
+                                                .toString()),
+                                        avatar: mainScreenController
+                                            .rentPropertyList
+                                            .value
+                                            .data![index]
+                                            .user
+                                            ?.avatar
+                                            .toString(),
                                       ));
                                 },
                                 child: Container(
@@ -72,8 +149,8 @@ class RentProperty extends StatelessWidget {
                                         color: Colors.grey.withOpacity(0.3),
                                         spreadRadius: 0.5,
                                         blurRadius: 4,
-                                        offset: const Offset(
-                                            0, 10), // changes position of shadow
+                                        offset: const Offset(0,
+                                            10), // changes position of shadow
                                       ),
                                     ],
                                     color: AppColors.kWhite,
@@ -82,7 +159,8 @@ class RentProperty extends StatelessWidget {
                                     ),
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       SizedBox(
                                         height: 13.h,
@@ -110,8 +188,7 @@ class RentProperty extends StatelessWidget {
                                                 padding: EdgeInsets.only(
                                                     top: 8.h, right: 10.w),
                                                 child: SvgPicture.asset(
-                                                  AppAssets
-                                                      .favUnselectedIcon,
+                                                  AppAssets.favUnselectedIcon,
                                                 ),
                                               ),
                                             ),
@@ -205,28 +282,105 @@ class SalesProperty extends StatelessWidget {
                               0,
                           itemBuilder: (context, index) {
                             return Obx(() => GestureDetector(
-                              onTap: () {
-                                Get.to(()=>
-                                    PropertyDetails(
-                                      title: mainScreenController.salesPropertyList.value.data?[index].title.toString(),
-                                      bedroom: mainScreenController.salesPropertyList.value.data?[index].specification?.bedroom.toString(),
-                                      location: "Location(dummy)",
-                                      type: mainScreenController.salesPropertyList.value.data![index].catagery.toString(),
-                                      price: int.parse(mainScreenController.salesPropertyList.value.data![index].price.toString()),
-                                      ac: mainScreenController.salesPropertyList.value.data![index].specification?.aircondition.toString(),
-                                      desc: mainScreenController.salesPropertyList.value.data![index].description.toString(),
-                                      kitchen: mainScreenController.salesPropertyList.value.data![index].specification?.kitchen.toString(),
-                                      parking: mainScreenController.salesPropertyList.value.data![index].specification?.carparking.toString(),
-                                      quarters: mainScreenController.salesPropertyList.value.data![index].specification?.quarterAvailble.toString(),
-                                      tap: mainScreenController.salesPropertyList.value.data![index].specification?.tapAvailable.toString(),
-                                      washroom: mainScreenController.salesPropertyList.value.data![index].catagery.toString(),
-                                      uid: mainScreenController.salesPropertyList.value.data![index].user?.id.toString(),
-                                      visitCharges: int.parse(mainScreenController.salesPropertyList.value.data![index].price.toString()),
-                                      avatar: mainScreenController.salesPropertyList.value.data![index].user?.avatar.toString(),
-
-                                    ));
-                              },
-                              child: Column(
+                                  onTap: () {
+                                    Get.to(() => PropertyDetails(
+                                          title: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data?[index]
+                                              .title
+                                              .toString(),
+                                          bedroom: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data?[index]
+                                              .specification
+                                              ?.bedroom
+                                              .toString(),
+                                          location: "Location(dummy)",
+                                          type: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .catagery
+                                              .toString(),
+                                          price: int.parse(mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .price
+                                              .toString()),
+                                          ac: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .specification
+                                              ?.aircondition
+                                              .toString(),
+                                          desc: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .description
+                                              .toString(),
+                                          kitchen: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .specification
+                                              ?.kitchen
+                                              .toString(),
+                                          parking: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .specification
+                                              ?.carparking
+                                              .toString(),
+                                          quarters: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .specification
+                                              ?.quarterAvailble
+                                              .toString(),
+                                          tap: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .specification
+                                              ?.tapAvailable
+                                              .toString(),
+                                          washroom: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .catagery
+                                              .toString(),
+                                          uid: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .user
+                                              ?.id
+                                              .toString(),
+                                          visitCharges: int.parse(
+                                              mainScreenController
+                                                  .salesPropertyList
+                                                  .value
+                                                  .data![index]
+                                                  .price
+                                                  .toString()),
+                                          avatar: mainScreenController
+                                              .salesPropertyList
+                                              .value
+                                              .data![index]
+                                              .user
+                                              ?.avatar
+                                              .toString(),
+                                        ));
+                                  },
+                                  child: Column(
                                     children: [
                                       Container(
                                         // height: 35.h,
@@ -235,7 +389,8 @@ class SalesProperty extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(
-                                              color: Colors.grey.withOpacity(0.3),
+                                              color:
+                                                  Colors.grey.withOpacity(0.3),
                                               spreadRadius: 0.5,
                                               blurRadius: 4,
                                               offset: const Offset(0,
@@ -269,10 +424,12 @@ class SalesProperty extends StatelessWidget {
                                                     fit: BoxFit.fill,
                                                   ),
                                                   Align(
-                                                    alignment: Alignment.topRight,
+                                                    alignment:
+                                                        Alignment.topRight,
                                                     child: Padding(
                                                       padding: EdgeInsets.only(
-                                                          top: 8.h, right: 10.w),
+                                                          top: 8.h,
+                                                          right: 10.w),
                                                       child: SvgPicture.asset(
                                                         AppAssets
                                                             .favUnselectedIcon,
@@ -319,8 +476,8 @@ class SalesProperty extends StatelessWidget {
                                                   Text(
                                                     "${mainScreenController.salesPropertyList.value.data?[index].fullAddress}",
                                                     style: TextStyle(
-                                                        color:
-                                                            AppColors.kLightGrey,
+                                                        color: AppColors
+                                                            .kLightGrey,
                                                         fontSize: 16.sp,
                                                         fontFamily:
                                                             "PoppinsMedium"),
@@ -339,7 +496,7 @@ class SalesProperty extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                            ));
+                                ));
                           },
                         )),
         ));
@@ -347,155 +504,239 @@ class SalesProperty extends StatelessWidget {
 }
 
 class ShortStayProperty extends StatelessWidget {
-
   ShortStayProperty({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final MainScreenController mainScreenController =
-    Get.put(MainScreenController());
+        Get.put(MainScreenController());
     return Obx(() => Scaffold(
-      backgroundColor: AppColors.kWhite,
-      body: Padding(
-          padding: EdgeInsets.only(left: 12.w, right: 12.w),
-          child: mainScreenController.isLoading.value == true
-              ? const Center(
-            child: CircularProgressIndicator(
-              color: AppColors.mainColor,
-            ),
-          )
-              : mainScreenController.shortStayPropertyList.value.data == []
-              ? const NoDataWidget()
-              : ListView.builder(
-            shrinkWrap: true,
-            physics: const BouncingScrollPhysics(),
-            padding: EdgeInsets.only(bottom: 2.h),
-            itemCount: mainScreenController
-                .shortStayPropertyList.value.data?.length ??
-                0,
-            itemBuilder: (context, index) {
-              return Obx(() => GestureDetector(
-                onTap: () {
-                  Get.to(()=>
-                      PropertyDetails(
-                    title: mainScreenController.shortStayPropertyList.value.data?[index].title.toString(),
-                    bedroom: mainScreenController.shortStayPropertyList.value.data?[index].specification?.bedroom.toString(),
-                    location: "Location(dummy)",
-                    type: mainScreenController.shortStayPropertyList.value.data![index].catagery.toString(),
-                    price: int.parse(mainScreenController.shortStayPropertyList.value.data![index].price.toString()),
-                    ac: mainScreenController.shortStayPropertyList.value.data![index].specification?.aircondition.toString(),
-                    desc: mainScreenController.shortStayPropertyList.value.data![index].description.toString(),
-                    kitchen: mainScreenController.shortStayPropertyList.value.data![index].specification?.kitchen.toString(),
-                    parking: mainScreenController.shortStayPropertyList.value.data![index].specification?.carparking.toString(),
-                    quarters: mainScreenController.shortStayPropertyList.value.data![index].specification?.quarterAvailble.toString(),
-                    tap: mainScreenController.shortStayPropertyList.value.data![index].specification?.tapAvailable.toString(),
-                    washroom: mainScreenController.shortStayPropertyList.value.data![index].catagery.toString(),
-                    uid: mainScreenController.shortStayPropertyList.value.data![index].user?.id.toString(),
-                    visitCharges: int.parse(mainScreenController.shortStayPropertyList.value.data![index].price.toString()),
-                        avatar: mainScreenController.shortStayPropertyList.value.data![index].user?.avatar.toString(),
-
-                  ));
-                },
-                child: Column(
-                  children: [
-                    Container(
-                      // height: 35.h,
-                      // width: 85.w,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
-                            spreadRadius: 0.5,
-                            blurRadius: 4,
-                            offset: const Offset(0,
-                                10), // changes position of shadow
-                          ),
-                        ],
-                        color: AppColors.kWhite,
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(15),
-                        ),
+          backgroundColor: AppColors.kWhite,
+          body: Padding(
+              padding: EdgeInsets.only(left: 12.w, right: 12.w),
+              child: mainScreenController.isLoading.value == true
+                  ? const Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.mainColor,
                       ),
-                      child: Column(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.start,
-                        children: [
-                          Stack(
-                              fit: StackFit.passthrough,
-                              children: [
-                                Image.network(
-                                  mainScreenController
-                                      .shortStayPropertyList
-                                      .value
-                                      .data![index]
-                                      .coverimage
-                                      .toString(),
-                                  height: 200.h,
-                                  width: 370.w,
-                                  fit: BoxFit.fill,
-                                ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 8.h, right: 10.w),
-                                    child: SvgPicture.asset(
-                                        AppAssets.favUnselectedIcon),
-                                  ),
-                                ),
-                              ]),
-                          Column(
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "${mainScreenController.shortStayPropertyList.value.data?[index].specification?.bedroom} BEDROOM TOWNHOUSE FOR SALE AT OYARIFA",
-                                style: TextStyle(fontSize: 18.sp),
-                              ),
-                              RichText(
-                                text: TextSpan(
-                                    text:
-                                    "GHC ${mainScreenController.shortStayPropertyList.value.data?[index].price} /",
-                                    style: TextStyle(
-                                        fontSize: 20.sp,
-                                        fontFamily: "PoppinsBold",
-                                        color: AppColors
-                                            .welcomeTwiddle),
-                                    children: [
-                                      TextSpan(
-                                        text: "month",
-                                        style: TextStyle(
-                                            color: AppColors
-                                                .kLightGrey,
-                                            fontSize: 16.sp,
-                                            fontFamily:
-                                            "PoppinsMedium"),
-                                      ),
-                                    ]),
-                              ),
-                              Text(
-                                "${mainScreenController.shortStayPropertyList.value.data?[index].fullAddress}",
-                                style: TextStyle(
-                                    color: AppColors.kLightGrey,
-                                    fontSize: 16.sp,
-                                    fontFamily: "PoppinsMedium"),
-                              ),
-                              SizedBox(
-                                height: 23.h,
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 23.h,
                     )
-                  ],
-                ),
-              ));
-            },
-          )),
-    ));
+                  : mainScreenController.shortStayPropertyList.value.data == []
+                      ? const NoDataWidget()
+                      : ListView.builder(
+                          shrinkWrap: true,
+                          physics: const BouncingScrollPhysics(),
+                          padding: EdgeInsets.only(bottom: 2.h),
+                          itemCount: mainScreenController
+                                  .shortStayPropertyList.value.data?.length ??
+                              0,
+                          itemBuilder: (context, index) {
+                            return Obx(() => GestureDetector(
+                                  onTap: () {
+                                    Get.to(() => PropertyDetails(
+                                          title: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data?[index]
+                                              .title
+                                              .toString(),
+                                          bedroom: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data?[index]
+                                              .specification
+                                              ?.bedroom
+                                              .toString(),
+                                          location: "Location(dummy)",
+                                          type: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .catagery
+                                              .toString(),
+                                          price: int.parse(mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .price
+                                              .toString()),
+                                          ac: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .specification
+                                              ?.aircondition
+                                              .toString(),
+                                          desc: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .description
+                                              .toString(),
+                                          kitchen: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .specification
+                                              ?.kitchen
+                                              .toString(),
+                                          parking: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .specification
+                                              ?.carparking
+                                              .toString(),
+                                          quarters: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .specification
+                                              ?.quarterAvailble
+                                              .toString(),
+                                          tap: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .specification
+                                              ?.tapAvailable
+                                              .toString(),
+                                          washroom: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .catagery
+                                              .toString(),
+                                          uid: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .user
+                                              ?.id
+                                              .toString(),
+                                          visitCharges: int.parse(
+                                              mainScreenController
+                                                  .shortStayPropertyList
+                                                  .value
+                                                  .data![index]
+                                                  .price
+                                                  .toString()),
+                                          avatar: mainScreenController
+                                              .shortStayPropertyList
+                                              .value
+                                              .data![index]
+                                              .user
+                                              ?.avatar
+                                              .toString(),
+                                        ));
+                                  },
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        // height: 35.h,
+                                        // width: 85.w,
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color:
+                                                  Colors.grey.withOpacity(0.3),
+                                              spreadRadius: 0.5,
+                                              blurRadius: 4,
+                                              offset: const Offset(0,
+                                                  10), // changes position of shadow
+                                            ),
+                                          ],
+                                          color: AppColors.kWhite,
+                                          borderRadius: const BorderRadius.all(
+                                            Radius.circular(15),
+                                          ),
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Stack(
+                                                fit: StackFit.passthrough,
+                                                children: [
+                                                  Image.network(
+                                                    mainScreenController
+                                                        .shortStayPropertyList
+                                                        .value
+                                                        .data![index]
+                                                        .coverimage
+                                                        .toString(),
+                                                    height: 200.h,
+                                                    width: 370.w,
+                                                    fit: BoxFit.fill,
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        Alignment.topRight,
+                                                    child: Padding(
+                                                      padding: EdgeInsets.only(
+                                                          top: 8.h,
+                                                          right: 10.w),
+                                                      child: SvgPicture.asset(
+                                                          AppAssets
+                                                              .favUnselectedIcon),
+                                                    ),
+                                                  ),
+                                                ]),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "${mainScreenController.shortStayPropertyList.value.data?[index].specification?.bedroom} BEDROOM TOWNHOUSE FOR SALE AT OYARIFA",
+                                                  style: TextStyle(
+                                                      fontSize: 18.sp),
+                                                ),
+                                                RichText(
+                                                  text: TextSpan(
+                                                      text:
+                                                          "GHC ${mainScreenController.shortStayPropertyList.value.data?[index].price} /",
+                                                      style: TextStyle(
+                                                          fontSize: 20.sp,
+                                                          fontFamily:
+                                                              "PoppinsBold",
+                                                          color: AppColors
+                                                              .welcomeTwiddle),
+                                                      children: [
+                                                        TextSpan(
+                                                          text: "month",
+                                                          style: TextStyle(
+                                                              color: AppColors
+                                                                  .kLightGrey,
+                                                              fontSize: 16.sp,
+                                                              fontFamily:
+                                                                  "PoppinsMedium"),
+                                                        ),
+                                                      ]),
+                                                ),
+                                                Text(
+                                                  "${mainScreenController.shortStayPropertyList.value.data?[index].fullAddress}",
+                                                  style: TextStyle(
+                                                      color:
+                                                          AppColors.kLightGrey,
+                                                      fontSize: 16.sp,
+                                                      fontFamily:
+                                                          "PoppinsMedium"),
+                                                ),
+                                                SizedBox(
+                                                  height: 23.h,
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 23.h,
+                                      )
+                                    ],
+                                  ),
+                                ));
+                          },
+                        )),
+        ));
   }
 }

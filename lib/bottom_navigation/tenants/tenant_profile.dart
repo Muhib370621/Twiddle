@@ -92,7 +92,7 @@ class Profile extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               PoppinsText(text: 'Name:', color: hinttext,),
-              PoppinsText(text: name!),
+              PoppinsText(text: "Muhib"),
             ],
           ),
 
@@ -101,7 +101,7 @@ class Profile extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               PoppinsText(text: 'Phone Number:', color: hinttext,),
-              PoppinsText(text: phone!),
+              PoppinsText(text: '03332302561'),
             ],
           ),
 
@@ -109,7 +109,7 @@ class Profile extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               PoppinsText(text: 'Email:', color: hinttext,),
-              PoppinsText(text: email!),
+              PoppinsText(text: 'example@gmail.com'),
             ],
           ),
 
@@ -118,7 +118,7 @@ class Profile extends StatelessWidget {
           GestureDetector(
             onTap: (){
               Get.to(()=> ChatRoom(
-                receiverId: uid!,
+                receiverId: "123",
               ));
             },
             child: Iconbutton(

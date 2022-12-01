@@ -1,11 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 import '../../../Api_Services/property/propertyServices.dart';
 import '../models/propertyModel.dart';
 
-class MainScreenController extends GetxController{
-
+class MainScreenController extends GetxController {
   @override
   void onInit() {
     getRentProperties();
@@ -18,7 +19,6 @@ class MainScreenController extends GetxController{
   void onClose() {
     super.onClose();
   }
-
 
 // Rx<List> newList = <Specification>[].obs;
   var rentPropertyList = PropertyModel().obs;
@@ -72,4 +72,74 @@ class MainScreenController extends GetxController{
     return result;
   }
 
+  Future<String> postProperty(
+    String category,
+    String stateType,
+    String title,
+    String description,
+    String bedroom,
+    String washroom,
+      String carParking,
+      String kitchen,
+      String floorArea,
+      String tapAvailable,
+      String airCondition,
+      String quarterAvalaible,
+      String price,
+      String fullAddress,
+      String houseNo,
+      String streetNo,
+      File file1,
+      File file2,
+      File file3,
+      File file4,
+      File file5,
+      File file6,
+      File file7,
+      File file8,
+      File file9,
+
+
+
+
+
+  ) async {
+    // try {
+    isLoading.value = true;
+    // await Future.delayed(const Duration(seconds: 2), () {});
+    var result = await RentServices().postProperty(
+        category,
+        stateType,
+        title,
+        description,
+        bedroom,
+        washroom,
+        carParking,
+        kitchen,
+        floorArea,
+        tapAvailable,
+        airCondition,
+        quarterAvalaible,
+        price,
+        fullAddress,
+        houseNo,
+        streetNo,
+        file1,
+        file2,
+        file3,
+        file4,
+        file5,
+        file6,
+        file7,
+        file8,
+        file9);
+    isLoading.value = false;
+    if (kDebugMode) {
+      print("Result: $result");
+    }
+    // shortStayPropertyList.value = result;
+    // newList;
+    // update();
+    return "Property Added by controller";
+  }
 }
