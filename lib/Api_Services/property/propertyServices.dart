@@ -170,7 +170,7 @@ class RentServices {
     /// Headers
     var header = await AuthHeaders.getOnlyBearerHeaders(accessToken);
 
-    var body = {
+    var body = <String,String>{
       'categery': category,
       "realStateType": stateType,
       'title': title,
@@ -187,15 +187,15 @@ class RentServices {
       'fullAddress': fullAddress,
       'houseno': houseNo,
       'streetno': streetNo,
-      'pictures': file1,
-      'pictures': file2,
-      'pictures': file3,
-      'pictures': file4,
-      'pictures': file5,
-      'pictures': file6,
-      'pictures': file7,
-      'pictures': file8,
-      'pictures': file9,
+      // 'pictures': file1,
+      // 'pictures': file2,
+      // 'pictures': file3,
+      // 'pictures': file4,
+      // 'pictures': file5,
+      // 'pictures': file6,
+      // 'pictures': file7,
+      // 'pictures': file8,
+      // 'pictures': file9,
     };
     var request = http.MultipartRequest(
       'POST',
@@ -204,17 +204,17 @@ class RentServices {
     Map<String, String> headers = header;
     request.files.add(
       http.MultipartFile(
-        'image',
+        'pictures',
         file1.readAsBytes().asStream(),
         file1.lengthSync(),
         filename: file1.path.split('/').last,
       ),
     );
     request.headers.addAll(headers);
+    request.fields.addAll(body);
     print("request: " + request.toString());
     var res = await request.send();
     http.Response response = await http.Response.fromStream(res);
-
     // /// Request
     // // SharedPrefer.headertoken(header);
     // var response = await http.post(
@@ -222,14 +222,13 @@ class RentServices {
     //   headers: header,
     //   body: body,
     // );
-
     if (kDebugMode) {
       print("Called API: $url");
       print("Status Code: ${response.statusCode}");
       print("Response Body: ${response.body}");
       print("HEADERS: $header");
     }
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 || response.statusCode==201) {
       print("response on 200: ${response.body}");
       return "Successfully Posted";
     }

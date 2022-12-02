@@ -639,7 +639,6 @@ class HiredServiceProviders extends StatelessWidget {
         );
       },
     );
-
     // Stream<QuerySnapshot> ref = FirebaseFirestore.instance.collection('users').snapshots();
     //
     // return StreamBuilder<QuerySnapshot>(
@@ -689,7 +688,6 @@ class HiredServiceProviders extends StatelessWidget {
     //     );
     //   },
     // );
-
   }
 }
 class VerifiedServiceProviders extends StatelessWidget {
